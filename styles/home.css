@@ -33,7 +33,9 @@ html {
     background-position: 50% 0;
     background-size: cover;
   }
-  
+  table {
+    position: center;
+  }
   .demo-content {
     position: relative;
   }
