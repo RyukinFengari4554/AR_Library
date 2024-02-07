@@ -34,7 +34,14 @@ html {
     background-size: cover;
   }
   table {
-    position: center;
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, white , #FFE3E5);
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .center {
+    
   }
   .demo-content {
     position: relative;
