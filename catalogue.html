@@ -33,6 +33,32 @@
       cursor: pointer;
       transition: color 0.3s;
     }
+    /* Styles for the search button */
+    .search-input {
+        width: 25rem;
+        
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+    .search-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+    .search-button:hover {
+        background-color: #0056b3;
+    }
+    input[type="text"]
+    {
+        font-size:24px;
+    }
 </style>
 
 </head>
@@ -43,9 +69,20 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
-            <div class="container">
+            
+                <form action="search.php" method="GET">
+                    <div>
+                        <table  class="centeral">
+                            <tr>
+                                <td><input type="text" class="search-input" placeholder="Search..." id="search" name="query" style="height: 5rem;"></td>
+                                <td><button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button></td>
+                            </tr>
+                        </table>
+                        <hr style="border: 2px solid black;">
+                  </div>
+                </form>
+            
                 
-            </div>
             <br>
             <div class="centeral">
                 <a href="index.html"><button class="back-button">Back</button></a>
