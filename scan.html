@@ -24,7 +24,21 @@
   </section>
 <!-- Custom styles for this template -->
 <link href="styles/home.css" rel="stylesheet">
+
+    
 <style>
+    #container {
+	margin: 0px auto;
+	width: 80%;
+	height: 80%;
+	justify-content: center;
+    align-items: center;
+}
+    #videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
     .icon {
       font-size: 2.5rem;
       color: #333;
@@ -42,13 +56,32 @@
         >
         <div class="demo-content">
             <div class="container">
-            <div class="camera">📷</div>
+                <div id="container">
+                    <video autoplay="true" id="videoElement">
+                    </video>
+                </div>
             </div>
 
             <button class="back-button">Back</button>
         </div>
     </div>
 
+
+
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
+<script src="java/signin.js" charset="utf-8"></script>
+<script>
+    var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+</script>
 </html>
