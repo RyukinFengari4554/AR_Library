@@ -76,6 +76,17 @@ if(isset($_GET['query'])) {
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
+    
+    /* Style for hyperlinks */
+    a {
+        color: black; 
+        text-decoration: none; /* Remove underline */
+    }
+    
+    /* Style for visited hyperlinks */
+    a:visited {
+        color: black; /* Change the color of visited links to green */
+    }
 </style>
 
 </head>
@@ -116,7 +127,7 @@ if(isset($_GET['query'])) {
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><a href='book_details.php?id=" . $row["id"] . "'>" . $row["id"]. ". " . $row["title"] . "</a></td>";
+                            echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $row["id"]. ". " . $row["title"] . "</p></a></td>";
                             echo "</tr>";
                         }
                     } else {
