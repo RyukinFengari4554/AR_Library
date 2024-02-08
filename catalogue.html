@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scan Page</title>
+<title>Catalogue Page</title>
 <section id="title">
     <table style="width:100%">
       <tr>
@@ -19,7 +19,7 @@
       </tr>
   </table>
   <hr style="margin-top: 0; border: 2px solid red;">
-  <h1 style="text-align: center;"><i class="fa-solid fa-book-open"></i><br><br>SCAN A BOOK</h1>
+  <h1 style="text-align: center;"><i class="fa-solid fa-search"></i><br><br>CATALOGUE</h1>
   <hr style="border: 2px solid red;">
   </section>
 <!-- Custom styles for this template -->
@@ -27,18 +27,6 @@
 
     
 <style>
-    #container {
-	margin: 0px auto;
-	width: 80%;
-	height: 80%;
-	justify-content: center;
-    align-items: center;
-}
-    #videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-}
     .icon {
       font-size: 2.5rem;
       color: #333;
@@ -56,10 +44,7 @@
         >
         <div class="demo-content">
             <div class="container">
-                <div id="container">
-                    <video autoplay="true" id="videoElement">
-                    </video>
-                </div>
+                
             </div>
 
             <a href="home.html"><button class="back-button">Back</button></a>
@@ -71,17 +56,5 @@
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 <script src="java/signin.js" charset="utf-8"></script>
-<script>
-    var video = document.querySelector("#videoElement");
 
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-}
-</script>
 </html>
