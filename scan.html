@@ -28,15 +28,19 @@
     
 <style>
     #container {
-	margin: 0px auto;
-	width: 80%;
-	height: 80%;
+    text-align: center;
+	width: 100%;
+	height: 100%;
 	justify-content: center;
     align-items: center;
+    
 }
     #videoElement {
-	width: 500px;
-	height: 375px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	width: 100%;
+	height: 100%;
 	background-color: #666;
 }
     .icon {
@@ -45,6 +49,7 @@
       cursor: pointer;
       transition: color 0.3s;
     }
+    
 </style>
 
 </head>
@@ -55,14 +60,15 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
-            <div class="container">
-                <div id="container">
-                    <video autoplay="true" id="videoElement">
-                    </video>
-                </div>
+            <div>
+                <center>
+                    <video autoplay="true" id="videoElement"></video>
+                </center>
             </div>
-
-            <a href="index.html"><button class="back-button">Back</button></a>
+            <br>
+            <div class="centeral">
+                <a href="index.html"><button class="back-button">Back</button></a>
+            </div>
         </div>
     </div>
 
