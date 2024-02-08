@@ -1,14 +1,14 @@
 <?php
 session_start(); // Start PHP session for managing user login state
 
-// Check if the user is already logged in, redirect to dashboard if true
+// Check if the user is already logged in, redirect to admin if true
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: admin.php");
     exit;
 }
 
 // Include config file
-require_once "config.php";
+require_once "includes/db.inc.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password FROM admin WHERE username = ?";
         
         if($stmt = $mysqli->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -53,17 +53,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     $stmt->bind_result($id, $username, $hashed_password);
                     if($stmt->fetch()){
-                        if(password_verify($password, $hashed_password)){
+                        $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+                        $result = mysqli_query($mysqli, $sql);
+                        $RC = mysqli_num_rows($result);
+                        echo $RC;
+                        if ($RC > 0 ){
                             // Password is correct, start a new session
                             session_start();
-                            
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
                             
-                            // Redirect user to dashboard page
-                            header("location: dashboard.php");
+                            // Redirect user to admin page
+                            header("location: admin.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -178,7 +181,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
 
 

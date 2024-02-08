@@ -19,7 +19,7 @@
       </tr>
   </table>
   <hr style="margin-top: 0; border: 2px solid red;">
-  <h1 style="text-align: center;"><i class="fa-solid fa-map"></i><br><br>MAP</h1>
+  <h1 style="text-align: center;">ADMIN</h1>
   <hr style="border: 2px solid red;">
   </section>
 <!-- Custom styles for this template -->
@@ -33,10 +33,16 @@
       cursor: pointer;
       transition: color 0.3s;
     }
+    .fixedbutton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem; 
+}
 </style>
 
 </head>
 <body>
+<a href="logout.php"><button class="fixedbutton" style="font-size: medium;"><i class="fa-solid fa-user"></i><br><br>LOG OUT</button></a>
     <div class="demo-wrap">
         <img
           class="demo-bg"
