@@ -1,10 +1,7 @@
 <?php
-if(isset($_GET['query'])) {
-    $search_query = $_GET['query'];
-    // Perform search operations based on $search_query
-    // For example, you can execute a database query here to search for matching records
-    echo "You searched for: " . $search_query;
-}
+// Database connection
+require_once "includes/db.inc.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,42 +95,67 @@ if(isset($_GET['query'])) {
         >
         <div class="demo-content">
             
-                <form action="search.php" method="GET">
-                    <div>
-                        <table  class="centeral">
-                            <tr>
-                                <td><input type="text" class="search-input" placeholder="Search..." id="search" name="query" style="height: 5rem;"></td>
-                                <td><button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button></td>
-                            </tr>
-                        </table>
-                        <hr style="border: 2px solid black;">
-                  </div>
-                </form>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+            <div>
+                <table class="centeral">
+                    <tr>
+                        <td><input type="text" class="search-input" placeholder="Search..." id="search" name="query" style="height: 5rem;"></td>
+                        <td><button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button></td>
+                    </tr>
+                </table>
+                <hr style="border: 2px solid black;">
+            </div>
+        </form>
             
                 
             <br>
-            <div class="centeral">
+            <div class="centeral" style="text-align: left;">
             <table>
     
                 <tbody>
                     <?php
                     // Database connection
                     require_once "includes/db.inc.php";
-                    // Query to retrieve all books from the 'books' table
-                    $sql = "SELECT * FROM books";
-                    $result = $mysqli->query($sql);
-                    
-                    // Display data in table rows
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $row["id"]. ". " . $row["title"] . "</p></a></td>";
-                            echo "</tr>";
+
+                    // Initialize $search_query variable
+                    $search_query = "";
+
+                    if(isset($_GET['query'])) {
+                        $search_query = $_GET['query'];
+
+                        // Escape special characters to prevent SQL injection
+                        $search_query = $mysqli->real_escape_string($search_query);
+
+                        // Query to search for books matching the search query in the 'title' column
+                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%'";
+                        $result = $mysqli->query($sql);
+
+                        // Display search results
+                        if ($result->num_rows > 0) {
+                            echo "<h2>Search results for: " . htmlspecialchars($search_query)."</h2>";
+                            while($row = $result->fetch_assoc()) {
+                                echo "<p><a href='book_details.php?id=" . $row["id"] . "'>" . $row["title"] . "</a></p>";
+                            }
+                        } else {
+                            echo "No results found for: " . htmlspecialchars($search_query);
                         }
                     } else {
-                        echo "<tr><td colspan='4'>No books found</td></tr>";
+                        // Query to retrieve all books from the 'books' table
+                        $sql = "SELECT * FROM books";
+                        $result = $mysqli->query($sql);
+                        
+                        // Display data in table rows
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $row["id"]. ". " . $row["title"] . "</p></a></td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>No books found</td></tr>";
+                        }
+                        $mysqli->close();
                     }
-                    $mysqli->close();
                     ?>
                 </tbody>
             </table>
