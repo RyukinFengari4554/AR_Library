@@ -73,7 +73,7 @@
                     $book_section = $row["section"];
                     // Display book details
 
-                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 15rem;'><h1><strong>Title:</strong> $book_title</h1>";
+                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 50rem;'><h1><strong>Title:</strong> $book_title</h1>";
                     echo "<p><strong>Author:</strong> $book_author</p>";
                     echo "<p><strong>Published:</strong> $book_year</p>";
                     echo "<p><strong>Genre:</strong> $book_genre</p>";
