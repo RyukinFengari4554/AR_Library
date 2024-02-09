@@ -43,9 +43,15 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
-            <div class="container">
-                
-            </div>
+          <div class="twinmotion-embed-wrapper">
+<iframe style="height: 100%; width: 100%; min-height: 375px; min-width: 375px;"
+  title="Embedded presentation 'New project 2024-02-08'" frameborder="0"
+  allow="fullscreen; gyroscope; accelerometer; magnetometer; execution-while-out-of-viewport; execution-while-not-rendered; xr-spatial-tracking;"
+  allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+  src="https://twinmotion.unrealengine.com/presentation/eZqrzn0v50FGqzq_?embed"
+>
+</iframe>
+</div>
 
             <br>
             <div class="centeral">

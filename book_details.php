@@ -31,6 +31,10 @@
       cursor: pointer;
       transition: color 0.3s;
     }
+    table{
+    background-color: white;
+    background-image:none;
+    }
 </style>
 </head>
 <body>
@@ -68,21 +72,21 @@
                     $book_desc = $row["description"];
                     $book_section = $row["section"];
                     // Display book details
-                    echo "<h2>Book Details</h2>";
-                    echo "<p><strong>Title:</strong> $book_title</p>";
+
+                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 15rem;'><h1><strong>Title:</strong> $book_title</h1>";
                     echo "<p><strong>Author:</strong> $book_author</p>";
                     echo "<p><strong>Published:</strong> $book_year</p>";
                     echo "<p><strong>Genre:</strong> $book_genre</p>";
-                    echo "<p><strong>Availability:</strong>";
+                    echo "<td style='padding-right: 15rem;'><h2 style='text-align: center;'>Availability:<br>";
                     if ($book_avail==1){
-                        echo "YES</p>"; // need check mark icon
+                        echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2></td>"; 
                     }
                     else
                     {
-                        echo "NO</p>"; // X mark icon
+                        echo "<i class='fa-solid fa-circle-xmark fa-lg' style='color: red;'></i></h2></td>"; 
                     }
-                    echo "<p><strong>Book Section:</strong> $book_section</p>"; //updasted later
-                    echo "<h3>Plot Summary:</h3><p style='text-align: justify;text-justify: inter-word;'> $book_desc</p>";
+                    echo "</table><table style='margin-left: 3rem; margin-right: 3rem;'></tr><tr><td><p><strong>Book Section:</strong> $book_section</p>"; //updasted later
+                    echo "<h3>Plot Summary:</h3><p style='text-align: justify;text-justify: inter-word;'> $book_desc</p></td></tr></table>";
                 } else {
                     echo "<h2 class='centeral'>Book not found</h2>";
                 }

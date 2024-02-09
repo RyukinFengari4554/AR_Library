@@ -36,24 +36,27 @@
         arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
         <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server 
-        EXAMPLE under  url="includes/mocking_nft/mocking"-->
+        EXAMPLE under url="includes/mocking_nft/mocking" -->
         <a-nft
             type="nft"
-            
             url="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
+            
             smooth="true"
             smoothCount="10"
             smoothTolerance=".01"
             smoothThreshold="5"
         >
-        <!-- EXAMPLE UNDER <a-entity gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf" -->
+      
+        <!-- EXAMPLE UNDER <a-entity gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"  -->
             <a-entity
             
-                gltf-model="includes/mocking.gltf"
-                scale="5 5 5"
+            gltf-model="includes/bookmocking.gltf"
+                
+                scale="10 10 10"
                 position="150 300 -100"
                 
             >
+            
             </a-entity>
         </a-nft>
         <a-entity camera></a-entity>
