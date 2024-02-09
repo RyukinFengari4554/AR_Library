@@ -73,11 +73,11 @@
                     $book_section = $row["section"];
                     // Display book details
 
-                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 50rem;'><h1><strong>Title:</strong> $book_title</h1>";
+                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 35rem;'><h1><strong>Title:</strong> $book_title</h1>";
                     echo "<p><strong>Author:</strong> $book_author</p>";
                     echo "<p><strong>Published:</strong> $book_year</p>";
                     echo "<p><strong>Genre:</strong> $book_genre</p>";
-                    echo "<td style='padding-right: 15rem;'><h2 style='text-align: center;'>Availability:<br>";
+                    echo "<td style='padding-right: 5rem;'><h2 style='text-align: center;'>Availability:<br>";
                     if ($book_avail==1){
                         echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2></td>"; 
                     }
