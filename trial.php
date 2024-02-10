@@ -5,8 +5,9 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
-      <a-marker preset="hiro">
+      <a-marker preset="hiro" id="animated-asset">
         <a-entity
+        id="animated-model"
           position="0 0 0"
           scale="0.05 0.05 0.05"
           gltf-model="includes/bookmocking.gltf"
@@ -15,6 +16,24 @@
       <a-entity camera></a-entity>
     </a-scene>
   </body>
+  <script>
+    AFRAME.registerComponent('markerhandler', {
+
+init: function() {
+    const animatedMarker = document.querySelector("#animated-marker");
+    const aEntity = document.querySelector("#animated-model");
+
+    // every click, we make our model grow in size :)
+    animatedMarker.addEventListener('click', function(ev, target){
+        const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+        if (aEntity && intersectedElement === aEntity) {
+            const scale = aEntity.getAttribute('scale');
+            Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+            aEntity.setAttribute('scale', scale);
+        }
+    });
+}});
+  </script>
 </html>
 
 

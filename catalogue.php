@@ -114,8 +114,6 @@ require_once "includes/db.inc.php";
     
                 <tbody>
                     <?php
-                    // Database connection
-                    require_once "includes/db.inc.php";
 
                     // Initialize $search_query variable
                     $search_query = "";
@@ -154,7 +152,6 @@ require_once "includes/db.inc.php";
                         } else {
                             echo "<tr><td colspan='4'>No books found</td></tr>";
                         }
-                        $mysqli->close();
                     }
                     ?>
                 </tbody>
