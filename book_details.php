@@ -97,8 +97,10 @@
 
             <br>
             <div class="centeral">
-                <a href="index.html"><button class="back-button">Back</button></a>
-            </div>
+                    <br>
+                <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
+                <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
+                </div>
         </div>
     </div>
 

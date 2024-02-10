@@ -156,7 +156,10 @@ require_once "includes/db.inc.php";
                     ?>
                 </tbody>
             </table>
-                <a href="index.html"><button class="back-button">Back</button></a>
+                <div class="centeral">
+                    <br>
+                <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
+                </div>
             </div>
         </div>
     </div>
