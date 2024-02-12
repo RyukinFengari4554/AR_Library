@@ -1,30 +1,26 @@
 AFRAME.registerComponent('markerhandler', {
-
     init: function() {
-        const animatedMarker = document.querySelector("#animated-marker");
+        // Get references to the animated models
         const aEntity = document.querySelector("#animated-model");
         const aEntityb = document.querySelector("#animated-model2");
         const aEntityc = document.querySelector("#animated-model3");
 
-        // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntity && intersectedElement === aEntity) {
-                window.location.href = 'red.html';
-            }
+        // Add event listener for markerFound event
+        this.el.addEventListener('markerFound', function() {
+            // Get reference to the animated marker
+            const animatedMarker = document.querySelector("#animated-marker");
+
+            // Add click event listener to the animated marker
+            animatedMarker.addEventListener('click', function(ev) {
+                const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+                if (aEntity && intersectedElement === aEntity) {
+                    window.location.href = 'red.html';
+                } else if (aEntityb && intersectedElement === aEntityb) {
+                    window.location.href = 'green.html';
+                } else if (aEntityc && intersectedElement === aEntityc) {
+                    window.location.href = 'blue.html';
+                }
+            });
         });
-        // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntityb && intersectedElement === aEntityb) {
-                window.location.href = 'green.html';
-            }
-        });
-        // every click, we make our model grow in size :)
-        animatedMarker.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (aEntityc && intersectedElement === aEntityc) {
-                window.location.href = 'blue.html';
-            }
-        });
-}});
+    }
+});
