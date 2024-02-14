@@ -125,29 +125,33 @@ require_once "includes/db.inc.php";
                         $search_query = $mysqli->real_escape_string($search_query);
 
                         // Query to search for books matching the search query in the 'title' column
-                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%'";
+                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%' ORDER BY id ASC";
                         $result = $mysqli->query($sql);
 
                         // Display search results
                         if ($result->num_rows > 0) {
+                            $counter = 1;
                             echo "<h2>Search results for: " . htmlspecialchars($search_query)."</h2>";
                             while($row = $result->fetch_assoc()) {
-                                echo "<p><a href='book_details.php?id=" . $row["id"] . "'>" . $row["title"] . "</a></p>";
+                                echo "<p><a href='book_details.php?id=" . $row["id"] . "'>" . $counter. ". " . $row["title"] . "</a></p>";
+                                $counter++; // Increment counter
                             }
                         } else {
                             echo "No results found for: " . htmlspecialchars($search_query);
                         }
                     } else {
                         // Query to retrieve all books from the 'books' table
-                        $sql = "SELECT * FROM books";
+                        $sql = "SELECT * FROM books ORDER BY id ASC";
                         $result = $mysqli->query($sql);
                         
                         // Display data in table rows
                         if ($result->num_rows > 0) {
+                            $counter = 1;
                             while($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $row["id"]. ". " . $row["title"] . "</p></a></td>";
+                                echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $counter. ". " . $row["title"] . "</p></a></td>";
                                 echo "</tr>";
+                                $counter++; // Increment counter
                             }
                         } else {
                             echo "<tr><td colspan='4'>No books found</td></tr>";

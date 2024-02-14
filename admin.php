@@ -162,7 +162,7 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
                 <tbody>
             <?php
                         // Query to retrieve all books from the 'books' table in the 'ar_library' database
-                        $sql = "SELECT * FROM ar_library.books";
+                        $sql = "SELECT * FROM ar_library.books ORDER BY id ASC";
                         $result = $mysqli->query($sql);
                         
                         // Display data in table rows

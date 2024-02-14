@@ -65,7 +65,7 @@
                     $row = $result->fetch_assoc();
                     $book_title = $row["title"];
                     $book_author = $row["author"];
-                    $book_year = $row["date"];
+                    $book_year = $row["year"];
                     $book_genre = $row["genre"];
                     $book_author = $row["author"];
                     $book_avail = $row["availability"];

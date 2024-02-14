@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $section = $_POST['section'];
     $description = $_POST['description'];
     $author = $_POST['author'];
-    $date = $_POST['date'];
+    $year = $_POST['year'];
     $genre = $_POST['genre'];
     $availability = $_POST['availability'];
 
     // SQL query to insert data into the 'books' table
-    $sql = "INSERT INTO ar_library.books (title, section, description, author, date, genre, availability) 
-            VALUES ('$title', '$section', '$description', '$author', '$date', '$genre', '$availability')";
+    $sql = "INSERT INTO ar_library.books (title, section, description, author, year, genre, availability) 
+            VALUES ('$title', '$section', '$description', '$author', '$year', '$genre', '$availability')";
 
     // Execute the SQL query
     if ($mysqli->query($sql) === TRUE) {
