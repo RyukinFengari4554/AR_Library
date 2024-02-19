@@ -19,7 +19,7 @@
       </tr>
   </table>
   <hr style="margin-top: 0; border: 2px solid red;">
-  <h1 style="text-align: center;"><i class="fa-solid fa-search"></i><br><br>ABOUT THE BOOK</h1>
+  <h1 style="text-align: center;"><i class="fa-solid fa-search"></i><br><br>SIMILAR BOOKS</h1>
   <hr style="border: 2px solid red;">
   </section>
 <!-- Custom styles for this template -->
@@ -31,9 +31,19 @@
       cursor: pointer;
       transition: color 0.3s;
     }
-    table{
-    background-color: white;
-    background-image:none;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    a {
+        color: black; 
+        text-decoration: none; /* Remove underline */
+    }
+    
+    /* Style for visited hyperlinks */
+    a:visited {
+        color: black; /* Change the color of visited links to green */
     }
 </style>
 </head>
@@ -44,7 +54,10 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
-            <div style="background-color:white;">
+        <div class="centeral" style="text-align: left;">
+        <table>
+            <tbody>
+            <!--<div style="background-color:white;"-->
             <?php
                 // Database connection
                 require_once "includes/db.inc.php";
@@ -56,44 +69,28 @@
                     echo 'Book ID not provided';
                     exit();
                 }
-                // Query to retrieve book details based on ID
-                $sql = "SELECT * FROM books WHERE id = $book_id";
+                // Query to retrieve all similar books from the 'books' table
+                $sql = "SELECT * FROM books WHERE genre = (SELECT genre FROM books WHERE id = $book_id) AND id != $book_id ORDER BY id ASC";
                 $result = $mysqli->query($sql);
-
-                // Check if book exists
+                
+                // Display data in table rows
                 if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    $book_title = $row["title"];
-                    $book_author = $row["author"];
-                    $book_year = $row["year"];
-                    $book_genre = $row["genre"];
-                    $book_author = $row["author"];
-                    $book_avail = $row["availability"];
-                    $book_desc = $row["description"];
-                    $book_section = $row["section"];
-                    // Display book details
-
-                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 35rem;'><h1><strong>Title:</strong> $book_title</h1>";
-                    echo "<p><strong>Author:</strong> $book_author</p>";
-                    echo "<p><strong>Published:</strong> $book_year</p>";
-                    echo "<p><strong>Genre:</strong> $book_genre</p>";
-                    echo "<td style='padding-right: 5rem;'><h2 style='text-align: center;'>Availability:<br>";
-                    if ($book_avail==1){
-                        echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2></td>"; 
+                    $counter = 1;
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $counter. ". " . $row["title"] . "</p></a><hr></td>";
+                        echo "</tr>";
+                        $counter++; // Increment counter
                     }
-                    else
-                    {
-                        echo "<i class='fa-solid fa-circle-xmark fa-lg' style='color: red;'></i></h2></td>"; 
-                    }
-                    echo "</table><table style='margin-left: 3rem; margin-right: 3rem;'></tr><tr><td><p><strong>Book Section:</strong> $book_section</p>"; //updasted later
-                    echo "<h3>Plot Summary:</h3><p style='text-align: justify;text-justify: inter-word;'> $book_desc</p></td></tr></table>";
                 } else {
-                    echo "<h2 class='centeral'>Book not found</h2>";
+                    echo "<tr><td colspan='4'>No books found</td></tr>";
                 }
-
                 $mysqli->close();
                 ?>
-            </div>
+                </tbody>
+            </table>
+        
+            
 
             <br>
             <div class="centeral">
@@ -101,6 +98,7 @@
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
                 <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
                 </div>
+        </div>
         </div>
     </div>
 

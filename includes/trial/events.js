@@ -16,7 +16,10 @@ AFRAME.registerComponent('markerhandler', {
                 if (aEntity && intersectedElement === aEntity) {
                     window.location.href = 'red.html';
                 } else if (aEntityb && intersectedElement === aEntityb) {
-                    window.location.href = 'green.html';
+                    // Get the value attribute of the found marker
+                    const markerValue = animatedMarker.getAttribute('value');
+                    // Redirect to similar_books.php with marker value appended as a query parameter
+                    window.location.href = '../../similar_books.php?id=' + markerValue;
                 } else if (aEntityc && intersectedElement === aEntityc) {
                     // Get the value attribute of the found marker
                     const markerValue = animatedMarker.getAttribute('value');

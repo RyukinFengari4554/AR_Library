@@ -133,7 +133,7 @@ require_once "includes/db.inc.php";
                             $counter = 1;
                             echo "<h2>Search results for: " . htmlspecialchars($search_query)."</h2>";
                             while($row = $result->fetch_assoc()) {
-                                echo "<p><a href='book_details.php?id=" . $row["id"] . "'>" . $counter. ". " . $row["title"] . "</a></p>";
+                                echo "<p><a href='book_details.php?id=" . $row["id"] . "'>" . $counter. ". " . $row["title"] . "</a></p><hr>";
                                 $counter++; // Increment counter
                             }
                         } else {
