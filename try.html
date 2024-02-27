@@ -1,5 +1,32 @@
 <!doctype HTML>
 <html>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+<script src="aframe-ar.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+	<a-scene embedded arjs='sourceType: webcam;'>
+		<a-assets>
+			<a-asset-item id="animated-asset" src="includes/book information.glb"></a-asset-item>
+		</a-assets>
+
+	<!-- define a camera which will move according to the marker position -->
+	<a-marker preset='custom' type='pattern' url='try.patt'>
+	    <a-entity
+                id="animated-model"
+                gltf-model="#animated-asset"
+                scale="2">
+        </a-entity>
+	</a-marker>
+	<a-entity camera></a-entity>
+		
+	</a-scene>
+</body>
+</html>
+
+
+
+<!--
+<!doctype HTML>
+<html>
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     </head>
@@ -7,11 +34,11 @@
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     
-    <!-- import events.js script -->
+    
     <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
     
     <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+         we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers 
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <a-assets>
@@ -26,8 +53,9 @@
             </a-entity>
         </a-marker>
 
-        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+       
         <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
+-->
