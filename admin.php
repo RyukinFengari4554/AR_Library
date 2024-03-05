@@ -154,7 +154,7 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
             <div>
             <table>
                 <thead>
-                    <th>ID</th>
+                    <th>Call Number</th>
                     <th style='text-align: left;'>Title</th>
                     <th></th>
                     <th>Availability</th>
@@ -169,7 +169,7 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td>" . $row["id"] . "</td>";
+                                echo "<td>" . $row["call_num"] . "</td>";
                                 echo "<td>" . $row["title"] . "</td>";
                                 echo "<td><form method='post'><input type='hidden' name='remove_book_id' value='" . $row["id"] . "'><button class='remove-button'>remove</button></form></td>";
                                 echo "<td><div class='container toggle-button " . ($row['availability'] == 1 ? 'active' : '') . "' data-book-id='" . $row["id"] . "'><div class='slider'></div></div></td>";

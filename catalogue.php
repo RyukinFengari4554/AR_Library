@@ -133,8 +133,8 @@ require_once "includes/db.inc.php";
                             echo "<h2>Search results for: " . htmlspecialchars($search_query)."</h2>";
                             echo "<tr><th>Call Number</th><th>Title</th></tr>";
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr><a href='book_details.php?id=" . $row["id"] . "'><td>" . $row["call_num"]."</td>";
-                                echo "<td>".$row["title"]."</td></a></tr>";
+                                echo "<tr><td><a href='book_details.php?id=" . $row["id"] . "'>" . $row["call_num"]."</a></td>";
+                                echo "<td><a href='book_details.php?id=" . $row["id"] . "'>".$row["title"]."</a></td></tr>";
             
                             }
                         } else {
@@ -156,8 +156,8 @@ require_once "includes/db.inc.php";
                         if ($result->num_rows > 0) {
 
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr><a href='book_details.php?id=" . $row["id"] . "'><td>" . $row["call_num"]."</td>";
-                                echo "<td>".$row["title"]."</td></a></tr>";
+                                echo "<tr><td><a href='book_details.php?id=" . $row["id"] . "'>" . $row["call_num"]."</a></td>";
+                                echo "<td><a href='book_details.php?id=" . $row["id"] . "'>".$row["title"]."</a></td></tr>";
                             }
                         } else {
                             echo "<tr><td colspan='4'>No books found</td></tr>";
