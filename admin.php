@@ -236,6 +236,6 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
 
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-<script src="java/signin.js" charset="utf-8"></script>
+<script src="java/signin.js" charset="utf-8"></script> <!--Update later for signin cache -->
 
 </html>
