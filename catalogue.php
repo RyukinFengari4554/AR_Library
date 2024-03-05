@@ -125,45 +125,52 @@ require_once "includes/db.inc.php";
                         $search_query = $mysqli->real_escape_string($search_query);
 
                         // Query to search for books matching the search query in the 'title' column
-                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%' ORDER BY id ASC";
+                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%' OR genre LIKE '%$search_query%' ORDER BY call_num ASC";
                         $result = $mysqli->query($sql);
 
                         // Display search results
                         if ($result->num_rows > 0) {
-                            $counter = 1;
                             echo "<h2>Search results for: " . htmlspecialchars($search_query)."</h2>";
+                            echo "<tr><th>Call Number</th><th>Title</th></tr>";
                             while($row = $result->fetch_assoc()) {
-                                echo "<p><a href='book_details.php?id=" . $row["id"] . "'>" . $counter. ". " . $row["title"] . "</a></p><hr>";
-                                $counter++; // Increment counter
+                                echo "<tr><a href='book_details.php?id=" . $row["id"] . "'><td>" . $row["call_num"]."</td>";
+                                echo "<td>".$row["title"]."</td></a></tr>";
+            
                             }
                         } else {
                             echo "No results found for: " . htmlspecialchars($search_query);
                         }
+                        echo "</tbody></table>
+                    <div class='centeral'>
+                        <br>
+                    <a href='index.html'><button class='back-button'><i class='fa-solid fa-house'></i></button></a>
+                    <a href='javascript:history.back()'><button class='back-button'><i class='fa-solid fa-arrow-left'></i></button></a>
+                    </div>";
+
                     } else {
                         // Query to retrieve all books from the 'books' table
-                        $sql = "SELECT * FROM books ORDER BY id ASC";
+                        $sql = "SELECT * FROM books ORDER BY call_num ASC";
                         $result = $mysqli->query($sql);
-                        
+                        echo "<tr><th>Call Number</th><th>Title</th></tr>";
                         // Display data in table rows
                         if ($result->num_rows > 0) {
-                            $counter = 1;
+
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td style='height: 100;'><a href='book_details.php?id=" . $row["id"] . "'><p>" . $counter. ". " . $row["title"] . "</p></a></td>";
-                                echo "</tr>";
-                                $counter++; // Increment counter
+                                echo "<tr><a href='book_details.php?id=" . $row["id"] . "'><td>" . $row["call_num"]."</td>";
+                                echo "<td>".$row["title"]."</td></a></tr>";
                             }
                         } else {
                             echo "<tr><td colspan='4'>No books found</td></tr>";
                         }
+                        echo "</tbody></table>
+                        <div class='centeral'>
+                            <br>
+                        <a href='index.html'><button class='back-button'><i class='fa-solid fa-house'></i></button></a>
+                        </div>";
                     }
+                    
                     ?>
-                </tbody>
-            </table>
-                <div class="centeral">
-                    <br>
-                <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -172,6 +179,6 @@ require_once "includes/db.inc.php";
 
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-<script src="java/signin.js" charset="utf-8"></script>
+
 
 </html>
