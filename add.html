@@ -123,10 +123,12 @@
                 success: function(response){
                     console.log(response);
                     alert(response); // Display return statement in alert
+                    window.location.href = 'admin.php';
                 },
                 error: function(error){
                     console.error('Error:', error);
                     alert("Error occurred!"); // Display error message in alert
+                    location.reload();
                 }
             });
         });
