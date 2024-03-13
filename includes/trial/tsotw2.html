@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var nfts = document.querySelectorAll("a-nft");
     
  
-    nfts.forEach(function(nft, index) {
+    nfts.forEach(function(nft) {
         var nftValue = nft.getAttribute("value");
         var models = nft.querySelectorAll("[id^='model']");
         models.forEach(function(model) {
