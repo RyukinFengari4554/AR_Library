@@ -31,28 +31,8 @@
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-<script>
-        // Function to create model entities
-        function createModel(id, assetSrc, position, rotation) {
-        const entity = document.createElement('a-entity');
-        entity.setAttribute('id', id);
-        entity.setAttribute('gltf-model', assetSrc);
-        entity.setAttribute('scale', '50 50 50');
-        entity.setAttribute('rotation', rotation);
-        entity.setAttribute('position', position);
-        return entity;
-    }
-    
-    // Function to create model entities for a marker
-    function createModelsForMarker(markerId, asset1, asset2, asset3) {
-        const marker = document.getElementById(markerId);
-        marker.appendChild(createModel('animated-model', asset1, '0 0 0', '0 -90 0'));
-        marker.appendChild(createModel('animated-model2', asset2, '850 0 0', '0 -90 0'));
-        marker.appendChild(createModel('animated-model3', asset3, '400 0 -400', '0 -90 0'));
-    }
-
-</script>
-
+<!-- Import events.js script -->
+<script src="events.js"></script>
 <body style='margin: 0px; overflow: hidden;'>
 <!-- Show loader until image descriptors are loaded -->
 <div class="arjs-loader">
@@ -71,9 +51,7 @@
         <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
     </a-assets>
 
-    <!-- NFT marker definition for Marker 1 
-     width='100000'
-    -->
+    <!-- NFT marker definition for Marker 1 -->
     <a-nft
         markerhandler 
         emitevents="true" 
@@ -81,9 +59,9 @@
         class="animated-marker"
         id="animated-marker-41"
         type='nft' 
-        url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft/tsotw1'
-       
-        value='1'
+        url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft/tkam'
+        
+        value='41'
         smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
         <!-- Call the function to create model entities for Marker 1 -->
         <script>
@@ -93,7 +71,7 @@
 
     <!-- NFT marker definition for Marker 2 
     width='100000'
-    -->
+-->
     <a-nft
         markerhandler 
         emitevents="true" 
@@ -101,9 +79,9 @@
         class="animated-marker"
         id="animated-marker-1"
         type='nft' 
-        url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft/agir2'
+        url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft/tsotw'
         
-        value='2'
+        value='1'
         smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
         <!-- Call the function to create model entities for Marker 2 -->
         <script>
@@ -115,6 +93,5 @@
     <a-entity camera></a-entity>
 </a-scene>
 </body>
-<!-- Import events.js script -->
-<script src="events.js"></script>
+
 </html>
