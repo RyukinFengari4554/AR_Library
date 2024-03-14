@@ -125,7 +125,7 @@ require_once "includes/db.inc.php";
                         $search_query = $mysqli->real_escape_string($search_query);
 
                         // Query to search for books matching the search query in the 'title' column
-                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%' OR genre LIKE '%$search_query%' ORDER BY call_num ASC";
+                        $sql = "SELECT * FROM books WHERE title LIKE '%$search_query%' OR genre LIKE '%$search_query%' OR call_num LIKE '%$search_query%' ORDER BY call_num ASC";
                         $result = $mysqli->query($sql);
 
                         // Display search results
