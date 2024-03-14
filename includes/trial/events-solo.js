@@ -14,7 +14,7 @@ AFRAME.registerComponent('markerhandler', {
             animatedMarker.addEventListener('click', function(ev) {
                 const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
                 if (aEntity && intersectedElement === aEntity) {
-                    window.location.href = '../../map-test.html';
+                    window.location.href = '../../map-fic.html';
                 } else if (aEntityb && intersectedElement === aEntityb) {
                     // Get the value attribute of the found marker
                     const markerValue = animatedMarker.getAttribute('value');
