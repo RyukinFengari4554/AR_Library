@@ -36,13 +36,13 @@
       onmousedown="window.open('../../similar_books.php?id=', '_blank')" 
        onmousedown="window.open('red.html', '_blank')"
       onmousedown="window.open('../../book_details.php?id=', '_blank')"-->
-        <a-entity id="model1" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb' scale="20 20 20" position="0 0 -300" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
+        <a-entity id="model1" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb' scale="20 20 20" position="300 0 -600" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
           <a-link href="similar_books.php?id=" title="Similar_Books" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
         </a-entity>
-        <a-entity id="model2" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb' scale="20 20 20" position="0 0 -100" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
-          <a-link href="map-test.html" title="Book_Location" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
+        <a-entity id="model2" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb' scale="20 20 20" position="300 0 -400" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
+          <a-link href="map-test.html?id=" title="Book_Location" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
         </a-entity>
-        <a-entity id="model3" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb' scale="20 20 20" position="0 0 -500" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
+        <a-entity id="model3" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb' scale="20 20 20" position="300 0 -800" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
           <a-link href="book_details.php?id=" title="Book_Details" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
         </a-entity>
       </a-nft>
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (model.id === "model1") {
                     link.setAttribute("href", "similar_books.php?id=" + nftValue);
                 } else if (model.id === "model2") {
-                    link.setAttribute("href", "map-test.html" + nftValue);
+                    link.setAttribute("href", "map-test.html?id=" + nftValue);
                 } else if (model.id === "model3") {
                     link.setAttribute("href", "book_details.php?id=" + nftValue);
                 }
