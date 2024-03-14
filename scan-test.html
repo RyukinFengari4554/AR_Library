@@ -40,7 +40,7 @@
           <a-link href="similar_books.php?id=" title="Similar_Books" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
         </a-entity>
         <a-entity id="model2" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb' scale="20 20 20" position="300 0 -400" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
-          <a-link href="map-test.html?id=" title="Book_Location" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
+          <a-link href="map-test.html" title="Book_Location" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
         </a-entity>
         <a-entity id="model3" gltf-model='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb' scale="20 20 20" position="300 0 -800" rotation="0 -90 0" event-set__mouseenter="scale: 25 25 25" event-set__mouseleave="scale: 20 20 20" cursor="rayOrigin: mouse">
           <a-link href="book_details.php?id=" title="Book_Details" target="_blank" geometry="primitive: plane; width: 2; height: 1;"></a-link>
@@ -50,6 +50,23 @@
 </body>
 <script>
 
+document.addEventListener("DOMContentLoaded", function() {
+      var model1 = document.getElementById("model1");
+      var link1 = model1.querySelector("a-link");
+      var nftValue1 = document.querySelector("a-nft").getAttribute("value");
+      link1.setAttribute("href", "similar_books.php?id=" + nftValue1);
+      var model3 = document.getElementById("model3");
+      var link3 = model3.querySelector("a-link");
+      var nftValue3 = document.querySelector("a-nft").getAttribute("value");
+      link3.setAttribute("href", "book_details.php?id=" + nftValue3);
+    });
+
+
+
+
+
+
+    /*
 document.addEventListener("DOMContentLoaded", function() {
     var nfts = document.querySelectorAll("a-nft");
     
@@ -72,20 +89,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
-
-
-
-    /*
-    document.addEventListener("DOMContentLoaded", function() {
-      var model1 = document.getElementById("model1");
-      var link1 = model1.querySelector("a-link");
-      var nftValue1 = document.querySelector("a-nft").getAttribute("value");
-      link1.setAttribute("href", "../../similar_books.php?id=" + nftValue1);
-      var model3 = document.getElementById("model3");
-      var link3 = model3.querySelector("a-link");
-      var nftValue3 = document.querySelector("a-nft").getAttribute("value");
-      link3.setAttribute("href", "../../book_details.php?id=" + nftValue3);
-    });
    */
   </script>
