@@ -12,7 +12,7 @@ AFRAME.registerComponent('markerhandler', {
             models.forEach(function(model) {
                 if (model && intersectedElement === model) {
                     if (model.id === "model1") {
-                        window.location.href = 'map-fic.html?id=' + nftValue;
+                        window.location.href = 'map-all.php?id=' + nftValue;
                     } else if (model.id === "model2") {
                         window.location.href = "similar_books.php?id=" + nftValue;
                     } else if (model.id === "model3") {

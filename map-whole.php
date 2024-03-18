@@ -134,8 +134,20 @@ require_once "includes/db.inc.php";
             $search_query = $mysqli->real_escape_string($search_query);
 
             // Query to search for books matching the search query in the 'title' column
-            $sql = "SELECT * FROM books WHERE title = '$search_query' OR genre = '$search_query' OR call_num ='$search_query'";
+            $sql = "SELECT * FROM books WHERE title = '$search_query' OR call_num ='$search_query'";
             $result = $mysqli->query($sql);
+
+            // Display search results
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $idb = $row['id'];
+              header("Location: map-all.php?id=$idb");
+            } else {
+                echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
+            }
+
+            $sql = "SELECT * FROM books WHERE genre = '$search_query'";
+             $result = $mysqli->query($sql);
 
             // Display search results
             if ($result->num_rows > 0) {
