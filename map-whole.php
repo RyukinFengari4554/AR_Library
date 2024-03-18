@@ -37,6 +37,10 @@ require_once "includes/db.inc.php";
       cursor: pointer;
       transition: color 0.3s;
     }
+    .image-whole img {
+      max-width: 100%;
+      height: 1000%;
+    }
     /*
     .image-container {
       background-color: white;
@@ -182,7 +186,7 @@ require_once "includes/db.inc.php";
           </div>
         <div class="image-container">
         <div class="image-whole">
-            <img src="https://media.discordapp.net/attachments/784407919487746068/1214612400859512932/Image7.png?ex=6602f972&is=65f08472&hm=54e0aceb73cd38962d45691ca2521cc450371ac6b0e4b319fe3e1c417ba1a7db&=&format=webp&quality=lossless&width=1396&height=339" alt="Your Image">
+            <img src="includes/map.png" alt="MAP IMAGE">
         <br>
         <br>
         </div>
