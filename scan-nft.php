@@ -1,7 +1,6 @@
 <?php
 // Define the array of book URLs
-
-$nft_books = array(
+/*$nft_books = array(
     "tsotw",
     "agir",
     "atotc",
@@ -53,6 +52,37 @@ $nft_books = array(
     "smab",
     "cdd"
 );
+*/
+
+// Include database connection
+require_once "includes/db.inc.php";
+
+// Initialize an empty array to store marker and id pairs
+$nft_books = array();
+
+// SQL query to select marker and id from the books table
+$sql = "SELECT id, marker FROM books";
+
+// Execute the query
+$result = $mysqli->query($sql);
+
+// Check if the query was successful
+if ($result) {
+    // Fetch associative array
+    while ($row = $result->fetch_assoc()) {
+        // Store marker and id pairs in the array
+        $nft_books[$row['id']] = $row['marker'];
+    }
+
+    // Free result set
+    $result->free();
+} else {
+    // If the query fails, display an error message
+    echo "Error: " . $mysqli->error;
+}
+
+// Close connection
+$mysqli->close();
 
 ?>
 <!doctype HTML>
@@ -121,16 +151,16 @@ $nft_books = array(
     url='https://raw.githack.com/SHERVIOR/workingar/tree/main/aframe/examples/image-tracking/nft2/book/book-image/book'
    
   -->
-  <?php foreach ($nft_books as $key => $book): ?>
+  <?php foreach ($nft_books as $id => $marker): ?>
     <a-nft
       markerhandler 
       emitevents="true" 
       cursor="rayOrigin: mouse"  
       id="animated-marker"
       type='nft' 
-      url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $book ?>'
+      url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
       width='50'
-      value='<?php echo $key + 1 ?>' 
+      value='<?php echo $id ?>' 
       smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
       <!-- Entity displaying the 3D model -->
