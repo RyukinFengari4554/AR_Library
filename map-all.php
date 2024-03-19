@@ -94,6 +94,4 @@
 
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-
-
 </html>

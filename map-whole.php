@@ -207,6 +207,6 @@ require_once "includes/db.inc.php";
       </div>
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-<script src="java/signin.js" charset="utf-8"></script>
+
 
 </html>

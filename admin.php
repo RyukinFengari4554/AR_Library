@@ -1,4 +1,17 @@
 <?php
+session_start(); // Start PHP session for managing user login state
+
+ // Redirect based on the role
+ if(isset($_SESSION["role"])){
+    if($_SESSION["role"] === "super_admin"){
+        header("location: super_admin.php"); // Redirect to super_admin.php if the role is super admin
+        exit;
+    } elseif($_SESSION["role"] === "user"){
+        header("location: login-wsa.php"); // Redirect to admin.php if the role is admin
+        exit;
+    } 
+}
+
 // Database connection
 require_once "includes/db.inc.php";
 
@@ -67,7 +80,7 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catalogue Page</title>
+<title>Admin Page</title>
 <section id="title">
     <table style="width:100%">
       <tr>
@@ -178,7 +191,7 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
                         } else {
                             echo "<tr><td colspan='4'>No books found</td></tr>";
                         }
-                        echo "<tr><td colspan='4'><div class='centeral'><a href='add.html'><button class='add-button'><i class='fa-solid fa-circle-plus'></i> Add a Book</button></a></div></td></tr>";
+                        echo "<tr><td colspan='4'><div class='centeral'><a href='add.php'><button class='add-button'><i class='fa-solid fa-circle-plus'></i> Add a Book</button></a></div></td></tr>";
                         ?>
         </tbody></table>    
         </div>
@@ -236,6 +249,5 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
 
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-<script src="java/signin.js" charset="utf-8"></script> <!--Update later for signin cache -->
 
 </html>

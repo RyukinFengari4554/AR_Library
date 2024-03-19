@@ -1,3 +1,17 @@
+<?php
+session_start(); // Start PHP session for managing user login state
+
+ // Redirect based on the role
+ if(isset($_SESSION["role"])){
+    if($_SESSION["role"] === "super_admin"){
+        header("location: super_admin.php"); // Redirect to super_admin.php if the role is super admin
+        exit;
+    } elseif($_SESSION["role"] === "user"){
+        header("location: login-wsa.php"); // Redirect to admin.php if the role is admin
+        exit;
+    } 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,5 +157,4 @@
     }, 500);
 }
 </script>
-<script src="java/signin.js" charset="utf-8"></script> <!--Update later for signin cache -->
 </html>

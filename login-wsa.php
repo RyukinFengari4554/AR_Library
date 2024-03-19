@@ -1,10 +1,14 @@
 <?php
 session_start(); // Start PHP session for managing user login state
 
-// Check if the user is already logged in, redirect to admin if true
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: admin.php");
-    exit;
+if(isset($_SESSION["role"])) {
+    if($_SESSION["role"] === "super_admin") {
+        header("location: super_admin.php"); // Redirect to super_admin.php if the role is super admin
+        exit;
+    } elseif($_SESSION["role"] === "admin") {
+        header("location: admin.php"); // Redirect to admin.php if the role is admin
+        exit;
+    }
 }
 
 // Include config file
@@ -13,82 +17,123 @@ require_once "includes/db.inc.php";
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
-
+$_SESSION["role"] = "user";
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter username.";
-    } else{
+    } else {
         $username = trim($_POST["username"]);
     }
-    
+
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter your password.";
-    } else{
+    } else {
         $password = trim($_POST["password"]);
     }
-    
+
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
-        $sql = "SELECT id, username, password FROM admin WHERE username = ?";
-        
-        if($stmt = $mysqli->prepare($sql)){
+    if (empty($username_err) && empty($password_err)) {
+        // Prepare a select statement for super_admin table
+        $sql_super_admin = "SELECT id, username, password FROM super_admin WHERE username = ?";
+
+        if ($stmt_super_admin = $mysqli->prepare($sql_super_admin)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_username);
-            
+            $stmt_super_admin->bind_param("s", $param_username);
+
             // Set parameters
             $param_username = $username;
-            
+
             // Attempt to execute the prepared statement
-            if($stmt->execute()){
+            if ($stmt_super_admin->execute()) {
                 // Store result
-                $stmt->store_result();
-                
+                $stmt_super_admin->store_result();
+
                 // Check if username exists, if yes then verify password
-                if($stmt->num_rows == 1){                    
+                if ($stmt_super_admin->num_rows == 1) {
                     // Bind result variables
-                    $stmt->bind_result($id, $username, $hashed_password);
-                    if($stmt->fetch()){
-                        $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
-                        $result = mysqli_query($mysqli, $sql);
-                        $RC = mysqli_num_rows($result);
-                        echo $RC;
-                        if ($RC > 0 ){
+                    $stmt_super_admin->bind_result($id, $username, $db_password);
+                    if ($stmt_super_admin->fetch()) {
+                        if ($password == $db_password) { // Compare plaintext passwords directly
                             // Password is correct, start a new session
                             session_start();
                             // Store data in session variables
-                            $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
+                            $_SESSION["username"] = $username;
+                            $_SESSION["role"] = "super_admin"; // Set session role to super_admin
+
                             // Redirect user to admin page
-                            header("location: admin.php");
-                        } else{
+                            header("location: super_admin.php");
+                        } else {
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
                     }
-                } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = "No account found with that username.";
+                } else {
+                    // No super_admin account found, check admin table
+                    // Prepare a select statement for admin table
+                    $sql_admin = "SELECT id, username, password FROM admin WHERE username = ?";
+
+                    if ($stmt_admin = $mysqli->prepare($sql_admin)) {
+                        // Bind variables to the prepared statement as parameters
+                        $stmt_admin->bind_param("s", $param_username);
+
+                        // Attempt to execute the prepared statement
+                        if ($stmt_admin->execute()) {
+                            // Store result
+                            $stmt_admin->store_result();
+
+                            // Check if username exists, if yes then verify password
+                            if ($stmt_admin->num_rows == 1) {
+                                // Bind result variables
+                                $stmt_admin->bind_result($id, $username, $db_password);
+
+                                if ($stmt_admin->fetch()) {
+                                    if ($password == $db_password) { // Compare plaintext passwords directly
+                                        // Password is correct, start a new session
+                                        session_start();
+                                        // Store data in session variables
+                                        $_SESSION["id"] = $id;
+                                        $_SESSION["username"] = $username;
+                                        $_SESSION["role"] = "admin"; // Set session role to admin
+
+                                        // Redirect user to admin page
+                                        header("location: admin.php");
+                                    } else {
+                                        // Display an error message if password is not valid
+                                        $password_err = "The password you entered was not valid.";
+                                    }
+                                }
+                            } else {
+                                // Display an error message if username doesn't exist
+                                $username_err = "No account found with that username.";
+                                $_SESSION["role"] = "user";
+                            }
+                        } else {
+                            echo "Oops! Something went wrong. Please try again later.";
+                        }
+
+                        // Close statement
+                        $stmt_admin->close();
+                    }
                 }
-            } else{
+            } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
-            $stmt->close();
+            $stmt_super_admin->close();
         }
     }
-    
+
     // Close connection
     $mysqli->close();
 }
 ?>
+
 
 
 <!DOCTYPE html>
