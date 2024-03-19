@@ -139,21 +139,21 @@ $nft_books = array(
         gltf-model="#animated-asset"
         scale="20 20 20"
         rotation="0 -90 0"
-        position="400 -120 -175"> <!-- Book Location 3D model -->
+        position="450 -120 -225"> <!-- Book Location 3D model -->
       </a-entity>
       <a-entity
         id="model2"
         gltf-model="#animated-asset2"
         scale="20 20 20"
         rotation="0 -90 0"
-        position="225 -120 -175"> <!-- Similar Books 3D model -->
+        position="275 -120 -225"> <!-- Similar Books 3D model -->
       </a-entity>
       <a-entity
         id="model3"
         gltf-model="#animated-asset3"
         scale="20 20 20"
         rotation="0 -90 0"
-        position="313 -120 -100"> <!-- Book Information 3D model -->
+        position="363 -120 -150"> <!-- Book Information 3D model -->
       </a-entity>
     </a-nft>
     <?php endforeach; ?>
