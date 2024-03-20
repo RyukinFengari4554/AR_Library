@@ -147,38 +147,38 @@ require_once "includes/db.inc.php";
               $idb = $row['id'];
               header("Location: map-all.php?id=$idb");
             } else {
-                echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
-            }
-
+                
             $sql = "SELECT * FROM books WHERE genre = '$search_query'";
-             $result = $mysqli->query($sql);
+            $result = $mysqli->query($sql);
 
-            // Display search results
-            if ($result->num_rows > 0) {
-              $row = $result->fetch_assoc();
-                if($row["genre"]=="Fiction"){
-                  header("Location: map-fic.html");
-                  exit;
-                }
-                elseif($row["genre"]=="Filipiniana"){
-                  header("Location: map-fil.html");
-                  exit;
-                }
-                elseif($row["genre"]=="Reference"){
-                  header("Location: map-ref.html");
-                  exit;
-                }
-                elseif($row["genre"]=="Foreign"){
-                  header("Location: map-for.html");
-                  exit;
-                }
-                else{
-                  header("Location: map-med.html");
-                  exit;
-                }
-            } else {
-                echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
+           // Display search results
+           if ($result->num_rows > 0) {
+             $row = $result->fetch_assoc();
+               if($row["genre"]=="Fiction"){
+                 header("Location: map-fic.html");
+                 exit;
+               }
+               elseif($row["genre"]=="Filipiniana"){
+                 header("Location: map-fil.html");
+                 exit;
+               }
+               elseif($row["genre"]=="Reference"){
+                 header("Location: map-ref.html");
+                 exit;
+               }
+               elseif($row["genre"]=="Foreign"){
+                 header("Location: map-for.html");
+                 exit;
+               }
+               else{
+                 header("Location: map-med.html");
+                 exit;
+               }
+           } else {
+               echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
+           }
             }
+
           }
 
             ?>

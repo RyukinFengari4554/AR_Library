@@ -1,87 +1,26 @@
 <?php
-// Define the array of book URLs
-/*$nft_books = array(
-    "tsotw",
-    "agir",
-    "atotc",
-    "tbt",
-    "ts",
-    "jc",
-    "tgsohi",
-    "aac",
-    "fsd",
-    "tmmm",
-    "dr",
-    "pot2",
-    "mtpas",
-    "sftw",
-    "ev",
-    "fm",
-    "sasriph",
-    "crit",
-    "cah",
-    "cacmom",
-    "caohati",
-    "taed",
-    "a",
-    "3cocs",
-    "ict",
-    "casiep",
-    "mbom",
-    "fosa",
-    "msaad",
-    "cs2e",
-    "eitac",
-    "dome",
-    "raam",
-    "ddc",
-    "ahftsomh",
-    "twbhcc",
-    "isic",
-    "acgifbsp",
-    "saphoit",
-    "lmibb",
-    "hi",
-    "unacn",
-    "tfim",
-    "tfmp",
-    "hdi",
-    "o",
-    "nfaca",
-    "msn",
-    "smab",
-    "cdd"
-);
-*/
 
-// Include database connection
 require_once "includes/db.inc.php";
 
-// Initialize an empty array to store marker and id pairs
 $nft_books = array();
 
-// SQL query to select marker and id from the books table
 $sql = "SELECT id, marker FROM books";
 
-// Execute the query
 $result = $mysqli->query($sql);
 
-// Check if the query was successful
 if ($result) {
-    // Fetch associative array
+
     while ($row = $result->fetch_assoc()) {
-        // Store marker and id pairs in the array
         $nft_books[$row['id']] = $row['marker'];
     }
 
-    // Free result set
     $result->free();
 } else {
-    // If the query fails, display an error message
+   
     echo "Error: " . $mysqli->error;
 }
 
-// Close connection
+
 $mysqli->close();
 
 ?>
@@ -115,21 +54,19 @@ $mysqli->close();
   }
 </style>
 
-<!-- Load AR.js NFT extension 
-<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src='../../../../aframe/build/aframe-ar-nft.js'></script>-->
+
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-<!--  import events.js script -->
+
 <script src="includes/event.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
-  <!-- Show loader until image descriptors are loaded -->
+
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-  <!-- AR scene -->
+
   <a-scene
   id="myS"
     vr-mode-ui='enabled: false;'
@@ -145,12 +82,7 @@ $mysqli->close();
     <a-assets>
       <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
     </a-assets>
-    <!-- NFT marker definition 
-    url='./book/book-image/book'
-    url='https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
-    url='https://raw.githack.com/SHERVIOR/workingar/tree/main/aframe/examples/image-tracking/nft2/book/book-image/book'
-   
-  -->
+    
   <?php foreach ($nft_books as $id => $marker): ?>
     <a-nft
       markerhandler 
@@ -163,7 +95,6 @@ $mysqli->close();
       value='<?php echo $id ?>' 
       smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
-      <!-- Entity displaying the 3D model -->
       <a-entity
         id="model1"
         gltf-model="#animated-asset"
@@ -187,7 +118,7 @@ $mysqli->close();
       </a-entity>
     </a-nft>
     <?php endforeach; ?>
-    <!-- Camera entity -->
+
     <a-entity camera></a-entity>
 
 
