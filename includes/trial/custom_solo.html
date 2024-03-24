@@ -44,6 +44,7 @@
   </div>
   <!-- AR scene -->
   <a-scene
+  id="myS"
     vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true; precision: medium;"
     embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
@@ -61,11 +62,12 @@
     url='./book/book-image/book'
     url='https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
     url='https://raw.githack.com/SHERVIOR/workingar/tree/main/aframe/examples/image-tracking/nft2/book/book-image/book'
-    -->
+   
+  -->
     <a-nft
       markerhandler 
       emitevents="true" 
-      cursor="rayOrigin: mouse" 
+      cursor="rayOrigin: mouse"  
       id="animated-marker"
       type='nft' 
       url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft/tkam'
@@ -98,9 +100,23 @@
     </a-nft>
 
     <!-- Camera entity -->
-    <a-entity camera></a-entity>
+    <a-entity camera raycaster="objects: .clickable"></a-entity>
+
 
   </a-scene>
 </body>
+<script>
+  const scene = document.getElementById('myS');
 
+  scene.addEventListener('loaded', function () {
+    // Scene is fully initialized, execute your code here
+    const scene = AFRAME.scenes[0];
+if (!scene) {
+  return;
+}
+const mouseCursor = document.createElement('a-entity');
+mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
+scene.appendChild(mouseCursor);
+  });
+</script>
 </html>

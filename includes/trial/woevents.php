@@ -51,8 +51,7 @@ $nft_books = array(
     "nfaca",
     "msn",
     "smab",
-    "cdd",
-    "tkam"
+    "cdd"
 );
 ?>
 

@@ -28,6 +28,10 @@ AFRAME.registerComponent('markerhandler', {
                 }
             });
         });
+        
     }
+    
 });
+
+
 
