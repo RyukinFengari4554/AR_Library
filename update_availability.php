@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $availability = $data['availability'];
 
     // SQL query to update availability in the database
-    $sql = "UPDATE ar_library.books SET availability = $availability WHERE id = $bookId";
+    $sql = "UPDATE books SET availability = $availability WHERE id = $bookId";
 
     // Execute the SQL query
     $result = $mysqli->query($sql);
