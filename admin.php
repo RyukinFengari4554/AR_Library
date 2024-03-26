@@ -20,7 +20,7 @@ require_once "includes/db.inc.php";
 function deleteBook($bookId) {
     global $mysqli;
     // SQL query to delete the book with the given ID
-    $sql = "DELETE FROM ar_library.books WHERE id = $bookId";
+    $sql = "DELETE FROM books WHERE id = $bookId";
     // Execute the SQL query
     $result = $mysqli->query($sql);
     // Check if the deletion was successful
@@ -35,7 +35,7 @@ function deleteBook($bookId) {
 function updateAvailability($bookId, $availability) {
     global $mysqli;
     // SQL query to update the availability of the book with the given ID
-    $sql = "UPDATE ar_library.books SET availability = $availability WHERE id = $bookId";
+    $sql = "UPDATE books SET availability = $availability WHERE id = $bookId";
     // Execute the SQL query
     $result = $mysqli->query($sql);
     // Check if the update was successful
