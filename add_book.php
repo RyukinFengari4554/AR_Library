@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $availability = $_POST['availability'];
     try {
         // SQL query to insert data into the 'books' table
-        $sql = "INSERT INTO ar_library.books (title, isbn_issn, call_num, shelf_loc, description, author, year, genre, availability) 
+        $sql = "INSERT INTO books (title, isbn_issn, call_num, shelf_loc, description, author, year, genre, availability) 
                 VALUES ('$title', '$isbn_issn', '$call_num', '$shelf', '$description', '$author', '$year', '$genre', '$availability')";
 
         // Execute the SQL query

@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // If file uploads were successful, update database
         if ($upload_success) {
             // Update marker and loc_url using call_num
-            $sql = "UPDATE ar_library.books SET marker = ?, loc_url = ? WHERE call_num = ?";
+            $sql = "UPDATE books SET marker = ?, loc_url = ? WHERE call_num = ?";
             $stmt = $mysqli->prepare($sql);
             if ($stmt) {
                 $stmt->bind_param("sss", $marker_name, $twin_loc, $call_num);
