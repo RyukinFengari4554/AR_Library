@@ -124,36 +124,30 @@ ini_set('display_errors', 1);
 
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('addBookForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            fetch('add_book.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+    $(document).ready(function(){
+        $('#addBookForm').submit(function(e){
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'add_book.php',
+                data: formData,
+                success: function(response){
+                    console.log(response);
+                    alert(response); // Display return statement in alert
+                    window.location.href = 'admin.php';
+                },
+                error: function(error){
+                    console.error('Error:', error);
+                    alert("Error occurred!"); // Display error message in alert
+                    location.reload();
                 }
-                return response.text();
-            })
-            .then(data => {
-                console.log(data);
-                alert(data);
-                window.location.href = 'admin.php';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("Error occurred!");
-                location.reload();
             });
         });
     });
-</script>
     function navigateBackAndReload() {
     // Navigate back in history
     history.back();
