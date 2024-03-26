@@ -1,6 +1,7 @@
 <?php
 session_start(); // Start PHP session for managing user login state
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
  // Redirect based on the role
  if(isset($_SESSION["role"])){
     if($_SESSION["role"] === "super_admin"){
