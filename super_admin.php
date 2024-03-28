@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Handle file uploads
         $upload_success = true;
         // SQL query to check if the variable exists in the database
-        $sql = "SELECT COUNT(*) AS count_variable FROM books WHERE marker = $marker_name";
+        $sql = "SELECT COUNT(*) AS count_variable FROM books WHERE marker = ?";
         $stmt = $mysqli->prepare($sql);
-        $stmt->bind_param("s", $variable);
+        $stmt->bind_param("s", $marker_name);
         $stmt->execute();
         $stmt->bind_result($count);
         $stmt->fetch();
@@ -46,11 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Concatenate the incremented numeric part with the alpha part
                 $marker_name = $alphaPart . $newNumericPart;
+                error_log($marker_name);
             } else {
                 // If no numeric part found, append '1' to the string
                 $marker_name = $inputString . '1';
+                error_log($marker_name);
             }
         }
+        $stmt->close();
 
         // Check if files are uploaded successfully
         if (isset($_FILES["file_input_fset"]) && isset($_FILES["file_input_fset3"]) && isset($_FILES["file_input_iset"])) {
