@@ -191,7 +191,7 @@ $mysqli->close(); // Close database connection
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                Add Marker For Book <a href="https://carnaux.github.io/NFT-Marker-Creator/#/"  title="Create NFT Marker">(Create Marker)</a>
+                                Add Marker For Book <a href="https://carnaux.github.io/NFT-Marker-Creator/#/" target="_blank" title="Create NFT Marker">(Create Marker)</a>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
