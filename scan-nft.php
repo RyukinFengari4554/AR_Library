@@ -32,7 +32,7 @@ $mysqli->close();
     </head>
 
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
-
+<link href="styles/home.css" rel="stylesheet">
 <style>
   .arjs-loader {
     height: 100%;
