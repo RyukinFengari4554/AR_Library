@@ -166,7 +166,7 @@ $mysqli->close(); // Close database connection
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                Add Marker For Book
+                                Add Marker For Book <a href="https://carnaux.github.io/NFT-Marker-Creator/#/"  title="Create NFT Marker">(Create Marker)</a>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
@@ -174,8 +174,7 @@ $mysqli->close(); // Close database connection
                                         <label for="call_num" class="form-label">Call Number</label>
                                         <input type="text" class="form-control" id="call_num" name="call_num" required>
                                     </div>
-                                    <fieldset>
-                                    <legend><a href="https://carnaux.github.io/NFT-Marker-Creator/#/"  title="Create NFT Marker">Marker</a></legend>
+                    
                                         <div class="mb-3">
                                             <label for="marker_name" class="form-label">Marker Name</label>
                                             <input type="text" class="form-control" id="marker_name" name="marker_name" pattern="[a-zA-Z0-9]+" title="Please enter only letters and/or numbers with no spaces" required>
@@ -192,7 +191,7 @@ $mysqli->close(); // Close database connection
                                             <label for="file_input_iset" class="form-label">ISET File</label>
                                             <input type="file" class="form-control" id="file_input_iset" name="file_input_iset" accept=".iset" required>
                                         </div>
-                                    </fieldset>
+        
                                     <div class="mb-3">
                                         <label for="twin_loc" class="form-label">Twinmotion</label>
                                         <input type="text" class="form-control" id="twin_loc" name="twin_loc" pattern="https?://.+" required>
