@@ -56,8 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $marker_name = $inputString . '1';
                 error_log($marker_name);
             }
+             // Close the statement if it's successfully executed
         } while ($count > 0); // Continue looping as long as the count is greater than 0
-            $stmt->close();
+
 
         // Check if files are uploaded successfully
         if (isset($_FILES["file_input_fset"]) && isset($_FILES["file_input_fset3"]) && isset($_FILES["file_input_iset"])) {
