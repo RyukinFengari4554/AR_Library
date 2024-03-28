@@ -26,6 +26,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Handle file uploads
         $upload_success = true;
+        // SQL query to check if the variable exists in the database
+        $sql = "SELECT COUNT(*) AS count_variable FROM books WHERE marker = $marker_name";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("s", $variable);
+        $stmt->execute();
+        $stmt->bind_result($count);
+        $stmt->fetch();
+        if ($count > 0) {
+            $inputString = $marker_name;
+            // Extract numeric part from the end of the string
+            preg_match('/([0-9]+)$/', $inputString, $matches);
+
+            if (!empty($matches)) {
+                // Increment the numeric part
+                $numericPart = $matches[0];
+                $alphaPart = substr($inputString, 0, -strlen($numericPart));
+                $newNumericPart = $numericPart + 1;
+
+                // Concatenate the incremented numeric part with the alpha part
+                $marker_name = $alphaPart . $newNumericPart;
+            } else {
+                // If no numeric part found, append '1' to the string
+                $marker_name = $inputString . '1';
+            }
+        }
 
         // Check if files are uploaded successfully
         if (isset($_FILES["file_input_fset"]) && isset($_FILES["file_input_fset3"]) && isset($_FILES["file_input_iset"])) {
