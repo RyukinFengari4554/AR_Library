@@ -60,7 +60,7 @@ $mysqli->close();
     }
   .fixedbutton {
     position: fixed;
-    bottom: 2rem;
+    bottom: 4rem;
     left: 0;
     right: 0;
     margin-left: auto;
