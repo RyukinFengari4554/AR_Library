@@ -90,7 +90,7 @@ $mysqli->close();
       cursor="rayOrigin: mouse"  
       id="animated-marker"
       type='nft' 
-      url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
+      url='includes/nft-books/<?php echo $marker ?>'
       width='50'
       value='<?php echo $id ?>' 
       smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>

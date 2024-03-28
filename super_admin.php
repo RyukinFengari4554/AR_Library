@@ -174,22 +174,25 @@ $mysqli->close(); // Close database connection
                                         <label for="call_num" class="form-label">Call Number</label>
                                         <input type="text" class="form-control" id="call_num" name="call_num" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="marker_name" class="form-label">Marker Name</label>
-                                        <input type="text" class="form-control" id="marker_name" name="marker_name" pattern="[a-zA-Z0-9]+" title="Please enter only letters and/or numbers with no spaces" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="file_input_fset" class="form-label">FSET File</label>
-                                        <input type="file" class="form-control" id="file_input_fset" name="file_input_fset" accept=".fset" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="file_input_fset3" class="form-label">FSET3 File</label>
-                                        <input type="file" class="form-control" id="file_input_fset3" name="file_input_fset3" accept=".fset3" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="file_input_iset" class="form-label">ISET File</label>
-                                        <input type="file" class="form-control" id="file_input_iset" name="file_input_iset" accept=".iset" required>
-                                    </div>
+                                    <fieldset>
+                                    <legend><a href="https://carnaux.github.io/NFT-Marker-Creator/#/"  title="Create NFT Marker">Marker</a></legend>
+                                        <div class="mb-3">
+                                            <label for="marker_name" class="form-label">Marker Name</label>
+                                            <input type="text" class="form-control" id="marker_name" name="marker_name" pattern="[a-zA-Z0-9]+" title="Please enter only letters and/or numbers with no spaces" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="file_input_fset" class="form-label">FSET File</label>
+                                            <input type="file" class="form-control" id="file_input_fset" name="file_input_fset" accept=".fset" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="file_input_fset3" class="form-label">FSET3 File</label>
+                                            <input type="file" class="form-control" id="file_input_fset3" name="file_input_fset3" accept=".fset3" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="file_input_iset" class="form-label">ISET File</label>
+                                            <input type="file" class="form-control" id="file_input_iset" name="file_input_iset" accept=".iset" required>
+                                        </div>
+                                    </fieldset>
                                     <div class="mb-3">
                                         <label for="twin_loc" class="form-label">Twinmotion</label>
                                         <input type="text" class="form-control" id="twin_loc" name="twin_loc" pattern="https?://.+" required>
