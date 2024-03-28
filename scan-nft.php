@@ -52,6 +52,10 @@ $mysqli->close();
     font-size: 1.25em;
     color: white;
   }
+  .fixedbutton {
+    position: fixed;
+    bottom: 2rem;
+}
 </style>
 
 
@@ -62,7 +66,7 @@ $mysqli->close();
 <script src="includes/event.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
-
+<a href="index.html"><button class="fixedbutton" style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
@@ -124,5 +128,5 @@ $mysqli->close();
 
   </a-scene>
 </body>
-
+<script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 </html>
