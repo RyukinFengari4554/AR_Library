@@ -52,10 +52,22 @@ $mysqli->close();
     font-size: 1.25em;
     color: white;
   }
+  .icon {
+      font-size: 2.5rem;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
   .fixedbutton {
     position: fixed;
     bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
+
 </style>
 
 
