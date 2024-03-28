@@ -26,14 +26,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Handle file uploads
         $upload_success = true;
-        // SQL query to check if the variable exists in the database
-        $sql = "SELECT COUNT(*) AS count_variable FROM books WHERE marker = ?";
-        $stmt = $mysqli->prepare($sql);
-        $stmt->bind_param("s", $marker_name);
-        $stmt->execute();
-        $stmt->bind_result($count);
-        $stmt->fetch();
-        if ($count > 0) {
+        
+        do {
+            // SQL query to check if the variable exists in the database
+            $sql = "SELECT COUNT(*) AS count_variable FROM books WHERE marker = ?";
+            $stmt = $mysqli->prepare($sql);
+            $stmt->bind_param("s", $marker_name);
+            $stmt->execute();
+            $stmt->bind_result($count);
+            $stmt->fetch();
+            $stmt->close();
+
+            // Increment the marker
             $inputString = $marker_name;
             // Extract numeric part from the end of the string
             preg_match('/([0-9]+)$/', $inputString, $matches);
@@ -52,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $marker_name = $inputString . '1';
                 error_log($marker_name);
             }
-        }
-        $stmt->close();
+        } while ($count > 0); // Continue looping as long as the count is greater than 0
+            $stmt->close();
 
         // Check if files are uploaded successfully
         if (isset($_FILES["file_input_fset"]) && isset($_FILES["file_input_fset3"]) && isset($_FILES["file_input_iset"])) {
