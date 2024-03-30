@@ -273,7 +273,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
                 <?php
                 $count = 0;
-                while ($count < 10) {
+                while ($count < 30) {
                     echo "<br>";
                     $count++;
                 }

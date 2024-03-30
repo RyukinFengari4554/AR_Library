@@ -94,6 +94,7 @@
                     }
                     echo "</table><table style='margin-left: 3rem; margin-right: 3rem;'></tr><tr><td><p><strong>Call Number:</strong> $book_cn</p></td></tr>"; 
                     echo "<tr><td><a href='map-all.php?id=" . $book_id . "'><p><strong>Shelf Location:</strong> $book_shelf <strong><i class='fa-solid fa-location-dot'></i></strong></p></a></td></tr>"; 
+                    echo "<tr><td><a href='similar_books.php?id=" . $book_id . "'><p><strong>Similar Books </strong><strong><i class='fa-solid fa-book-open'></i></strong></p></a></td></tr>"; 
                     echo "<tr><td><h3 style='margin: 0;'>Plot Summary:</h3></td></tr><tr style='margin: 0; padding: 0;'><td><p style='margin: 0; padding: 0; text-align: justify;text-justify: inter-word;'> $book_desc</p></td></tr></table>";
                 } else {
                     echo "<h2 class='centeral'>Book not found</h2>";
@@ -108,7 +109,14 @@
                     <br>
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
                 <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
-                </div>
+                <script>
+                        var count = 0;
+                        while (count < 30) {
+                            document.write('<br>');
+                            count++;
+                        }
+                </script>    
+            </div>
         </div>
     </div>
 

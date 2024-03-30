@@ -202,7 +202,13 @@ require_once "includes/db.inc.php";
           <br>
           <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
         </div>
-           
+        <script>
+                        var count = 0;
+                        while (count < 30) {
+                            document.write('<br>');
+                            count++;
+                        }
+                </script>  
           </div>
           
     </div>

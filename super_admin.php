@@ -278,6 +278,13 @@ $mysqli->close(); // Close database connection
                     <br>
                     <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
                     <a href="catalogue.php"><button class="back-button"><i class="fa-solid fa-search"></i></button></a>
+                    <script>
+                        var count = 0;
+                        while (count < 30) {
+                            document.write('<br>');
+                            count++;
+                        }
+                </script>  
                 </div>
         </div>
     </div>
