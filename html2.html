@@ -43,6 +43,19 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
+            <script>
+                function navigateToPage(page, nft) {
+                    if (page === 1) {
+                        window.location.href = 'map-all.php?id=' + nft;
+                    } else if (page === 2) {
+                        window.location.href = "similar_books.php?id=" + nft;
+                    } else if (page === 3) {
+                        window.location.href = "book_details.php?id=" + nft;
+                    } else {
+                        console.error("Invalid page number");
+                    }
+                }
+            </script>
             <div>
                 <iframe src="scan-nft.php" style="height: 100%; width: 100%; min-height: 1000px; min-width: 375px;">
                 </iframe>
@@ -58,19 +71,7 @@
     </div>
 
 
-    <script>
-        function navigateToPage(page, nft) {
-            if (page === 1) {
-                window.location.href = 'map-all.php?id=' + nft;
-            } else if (page === 2) {
-                window.location.href = "similar_books.php?id=" + nft;
-            } else if (page === 3) {
-                window.location.href = "book_details.php?id=" + nft;
-            } else {
-                console.error("Invalid page number");
-            }
-        }
-    </script>
+    
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 
