@@ -154,6 +154,13 @@ ini_set('display_errors', 1);
                 <div class="centeral">
                     <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
                     <button class="back-button" onclick='navigateBackAndReload()'><i class="fa-solid fa-arrow-left"></i></button>
+                    <script>
+                        var count = 0;
+                        while (count < 30) {
+                            document.write('<br>');
+                            count++;
+                        }
+                    </script>
                 </div>
         </div>
     </div>

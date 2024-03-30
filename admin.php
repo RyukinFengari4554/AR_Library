@@ -200,7 +200,14 @@ if (isset($_POST['book_id']) && isset($_POST['availability'])) {
             <div class="centeral">
                     <br>
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-                </div>
+                <script>
+                    var count = 0;
+                    while (count < 30) {
+                        document.write('<br>');
+                        count++;
+                    }
+                </script>    
+            </div>
         </div>
     </div>
 
