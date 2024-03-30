@@ -271,11 +271,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="centeral">
                     <br>
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-                </div>
+                <?php
+                $count = 0;
+                while ($count < 10) {
+                    echo "<br>";
+                    $count++;
+                }
+                ?>    
+            </div>
 
 
         </div>
     </div>
+    
 
   <!-- Virtual Keyboard -->
 <div id="virtual-keyboard">
@@ -361,42 +369,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <script>
+  let focusedInput = null;
+
   function addToInput(char) {
-    const inputBox = document.getElementById('input-box');
-    if (char === '') {
-      // Handle backspace (delete last character)
-      inputBox.value = inputBox.value.slice(0, -1);
-    } else {
-      inputBox.value += char;
+    if (focusedInput) {
+            if (char === '') {
+        // Handle backspace (delete last character)
+        focusedInput.value = focusedInput.value.slice(0, -1);
+        } else {
+            focusedInput.value += char;
+        }
     }
     // Keep the virtual keyboard visible after clicking its buttons
     document.getElementById('virtual-keyboard').style.display = 'block';
   }
 
   function deleteText() {
-    const inputBox = document.getElementById('input-box');
-    inputBox.value = '';
+    if (focusedInput) {
+      focusedInput.value = '';
+    }
     // Keep the virtual keyboard visible after clicking its buttons
     document.getElementById('virtual-keyboard').style.display = 'block';
   }
 
-  // Show the virtual keyboard when input box is focused
-  document.getElementById('input-box').addEventListener('focus', function() {
+  // Show the virtual keyboard when input box or textarea is focused
+document.querySelectorAll('input[type="text"], input[type="password"').forEach(function(element) {
+  element.addEventListener('focus', function() {
+    focusedInput = element;
     document.getElementById('virtual-keyboard').style.display = 'block';
   });
+});
+  
 
   // Hide the virtual keyboard when clicking outside search box or virtual keyboard
   document.addEventListener('click', function(event) {
     const virtualKeyboard = document.getElementById('virtual-keyboard');
-    const inputBox = document.getElementById('input-box');
-    if (event.target !== inputBox && event.target !== virtualKeyboard && !virtualKeyboard.contains(event.target)) {
+    const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
+    if (!Array.from(inputs).some(input => input.contains(event.target)) && event.target !== virtualKeyboard && !virtualKeyboard.contains(event.target)) {
       virtualKeyboard.style.display = 'none';
     }
   });
 
   // Keep the virtual keyboard visible when it is clicked
   document.getElementById('virtual-keyboard').addEventListener('click', function() {
-    document.getElementById('input-box').focus();
+    if (focusedInput) {
+      focusedInput.focus();
+    }
   });
 </script>
 
