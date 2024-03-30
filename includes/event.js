@@ -13,15 +13,18 @@ AFRAME.registerComponent('markerhandler', {
                 if (model && intersectedElement === model) {
                     if (model.id === "model1") {
                         //window.location.href = 'map-all.php?id=' + nftValue;
-                        const state = 1;
+                        var state = 1;
+                        console.log(state);
                         navigateToPage(state, nftValue);
                     } else if (model.id === "model2") {
                         //window.location.href = "similar_books.php?id=" + nftValue;
-                        const state = 2;
+                        var state = 2;
+                        console.log(state);
                         navigateToPage(state, nftValue);
                     } else if (model.id === "model3") {
                         //window.location.href = "book_details.php?id=" + nftValue;
-                        const state = 3;
+                        var state = 3;
+                        console.log(state);
                         navigateToPage(state, nftValue);
                     }
                 }
