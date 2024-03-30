@@ -65,7 +65,7 @@
                     $genb = $row['genre'];
                      echo "
                      <div class='twinmotion-embed-wrapper'>
-                        <iframe style='height: 100%; width: 100%; min-height: 375px; min-width: 375px;'
+                        <iframe style='height: 100%; width: 100%; min-height: 1000px; min-width: 375px;'
                             title='Embedded presentation &quot;$genb&quot;' frameborder='0'
                             allow='fullscreen; gyroscope; accelerometer; magnetometer; execution-while-out-of-viewport; execution-while-not-rendered; xr-spatial-tracking;'
                             allowfullscreen mozallowfullscreen='true' webkitallowfullscreen='true'
