@@ -142,10 +142,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-   <!-- Include Virtual Keyboard CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/keyboard/1.23.0/css/keyboard.min.css">
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -184,13 +180,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .login-box input[type="submit"]:hover {
       background-color: #0056b3;
     }
-    #myInputField {
-      width: 300px;
-      height: 40px;
-      font-size: 16px;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
+    
+  .keyboard-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .keyboard-section button {
+    margin: 5px;
+    padding: 15px 25px;
+    font-size: 20px;
+    border: 2px solid #ccc; /* Added border for button outline */
+    border-radius: 10px;
+    background-color: #303030;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .keyboard-section button:hover {
+    background-color: #e0e0e0;
+  }
+
+  #virtual-keyboard {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #808080;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .keyboard-half {
+    width: 50%;
+    margin-bottom: 20px; /* Adjust the margin bottom as needed */
+  }
   </style>
   <section id="title">
     <table style="width:100%">
@@ -226,12 +253,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
-                <input type="text" name="username" id="myInputField" class="form-control" value="<?php echo $username; ?>">
+                <input type="text" name="username" id="input-box" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
-                <input type="password" id="myInputField" name="password" class="form-control">
+                <input type="password" id="input-box" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
@@ -249,21 +276,130 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
     </div>
-    
-     <!-- Include jQuery (required for Virtual Keyboard) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Include Virtual Keyboard JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/keyboard/1.23.0/js/jquery.keyboard.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Initialize Virtual Keyboard on the input field
-      $('#myInputField').keyboard({
-        layout: 'qwerty', // Keyboard layout (you can change it to other layouts)
-        autoAccept: true // Automatically accept input when a key is clicked
-      });
-    });
-  </script>
+
+  <!-- Virtual Keyboard -->
+<div id="virtual-keyboard">
+  <!-- Alphanumeric and Special characters keyboard section -->
+  <div class="keyboard-section">
+    <!-- Alphanumeric keys -->
+    <div class="keyboard-half">
+      <button onclick="addToInput('1')">1</button>
+      <button onclick="addToInput('2')">2</button>
+      <button onclick="addToInput('3')">3</button>
+      <button onclick="addToInput('4')">4</button>
+      <button onclick="addToInput('5')">5</button>
+      <button onclick="addToInput('6')">6</button>
+      <button onclick="addToInput('7')">7</button>
+      <button onclick="addToInput('8')">8</button>
+      <button onclick="addToInput('9')">9</button>
+      <button onclick="addToInput('0')">0</button>
+      
+      <button onclick="addToInput('q')">q</button>
+      <button onclick="addToInput('w')">w</button>
+      <button onclick="addToInput('e')">e</button>
+      <button onclick="addToInput('r')">r</button>
+      <button onclick="addToInput('t')">t</button>
+      <button onclick="addToInput('y')">y</button>
+      <button onclick="addToInput('u')">u</button>
+      <button onclick="addToInput('i')">i</button>
+      <button onclick="addToInput('o')">o</button>
+      <button onclick="addToInput('p')">p</button>
+      <button onclick="addToInput('a')">a</button>
+      <button onclick="addToInput('s')">s</button>
+      <button onclick="addToInput('d')">d</button>
+      <button onclick="addToInput('f')">f</button>
+      <button onclick="addToInput('g')">g</button>
+      <button onclick="addToInput('h')">h</button>
+      <button onclick="addToInput('j')">j</button>
+      <button onclick="addToInput('k')">k</button>
+      <button onclick="addToInput('l')">l</button>
+      <button onclick="addToInput('z')">z</button>
+      <button onclick="addToInput('x')">x</button>
+      <button onclick="addToInput('c')">c</button>
+      <button onclick="addToInput('v')">v</button>
+      <button onclick="addToInput('b')">b</button>
+      <button onclick="addToInput('n')">n</button>
+      <button onclick="addToInput('m')">m</button>
+      <button onclick="addToInput(' ')">Space</button> 
+
+    </div>
+    <!-- Special characters keys -->
+    <div class="keyboard-half">
+      <button onclick="addToInput('!')">!</button>
+      <button onclick="addToInput('@')">@</button>
+      <button onclick="addToInput('#')">#</button>
+      <button onclick="addToInput('$')">$</button>
+      <button onclick="addToInput('%')">%</button>
+      <button onclick="addToInput('^')">^</button>
+      <button onclick="addToInput('&')">&</button>
+      <button onclick="addToInput('-')">-</button>
+      <button onclick="addToInput('*')">*</button>
+      <button onclick="addToInput('(')">(</button>
+      <button onclick="addToInput(')')">)</button>
+      <button onclick="addToInput('_')">_</button>
+      <button onclick="addToInput('+')">+</button>
+      <button onclick="addToInput('{')">{</button>
+      <button onclick="addToInput('[')">[</button>
+      <button onclick="addToInput('}')">}</button>
+      <button onclick="addToInput(']')">]</button>
+      <button onclick="addToInput(':')">:</button>
+      <button onclick="addToInput(';')">;</button>
+      <button onclick="addToInput('&quot;')">"</button>
+      <button onclick="addToInput('|')">|</button>
+      <button onclick="addToInput('\\')">\</button>
+      <button onclick="addToInput('&lt;')">&lt;</button>
+      <button onclick="addToInput('.')">.</button>
+      <button onclick="addToInput(',')">,</button>
+      <button onclick="addToInput('?')">?</button>
+      <button onclick="addToInput('/')">/</button>
+      <button onclick="addToInput('~')">~</button>
+      <button onclick="addToInput('`')">`</button>
+      <button onclick="deleteText()">Delete</button>
+      <button onclick="addToInput('')">Backspace</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function addToInput(char) {
+    const inputBox = document.getElementById('input-box');
+    if (char === '') {
+      // Handle backspace (delete last character)
+      inputBox.value = inputBox.value.slice(0, -1);
+    } else {
+      inputBox.value += char;
+    }
+    // Keep the virtual keyboard visible after clicking its buttons
+    document.getElementById('virtual-keyboard').style.display = 'block';
+  }
+
+  function deleteText() {
+    const inputBox = document.getElementById('input-box');
+    inputBox.value = '';
+    // Keep the virtual keyboard visible after clicking its buttons
+    document.getElementById('virtual-keyboard').style.display = 'block';
+  }
+
+  // Show the virtual keyboard when input box is focused
+  document.getElementById('input-box').addEventListener('focus', function() {
+    document.getElementById('virtual-keyboard').style.display = 'block';
+  });
+
+  // Hide the virtual keyboard when clicking outside search box or virtual keyboard
+  document.addEventListener('click', function(event) {
+    const virtualKeyboard = document.getElementById('virtual-keyboard');
+    const inputBox = document.getElementById('input-box');
+    if (event.target !== inputBox && event.target !== virtualKeyboard && !virtualKeyboard.contains(event.target)) {
+      virtualKeyboard.style.display = 'none';
+    }
+  });
+
+  // Keep the virtual keyboard visible when it is clicked
+  document.getElementById('virtual-keyboard').addEventListener('click', function() {
+    document.getElementById('input-box').focus();
+  });
+</script>
+
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 </html>

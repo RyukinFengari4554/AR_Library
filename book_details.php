@@ -37,7 +37,6 @@
     }
     a {
         color: black; 
-        text-decoration: none; 
     } 
     a:visited {
         color: black; 

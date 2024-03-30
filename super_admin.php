@@ -183,6 +183,43 @@ $mysqli->close(); // Close database connection
     bottom: 2rem;
     right: 2rem; 
 }
+.keyboard-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .keyboard-section button {
+    margin: 5px;
+    padding: 15px 25px;
+    font-size: 20px;
+    border: 2px solid #ccc; /* Added border for button outline */
+    border-radius: 10px;
+    background-color: #303030;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .keyboard-section button:hover {
+    background-color: #e0e0e0;
+  }
+
+  #virtual-keyboard {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #808080;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .keyboard-half {
+    width: 50%;
+    margin-bottom: 20px; /* Adjust the margin bottom as needed */
+  }
 </style>
 
 </head>
@@ -205,29 +242,29 @@ $mysqli->close(); // Close database connection
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label for="call_num" class="form-label">Call Number</label>
-                                        <input type="text" class="form-control" id="call_num" name="call_num" required>
+                                        <input type="text" class="form-control input-box" id="call_num" name="call_num" required>
                                     </div>
                     
                                         <div class="mb-3">
                                             <label for="marker_name" class="form-label">Marker Name</label>
-                                            <input type="text" class="form-control" id="marker_name" name="marker_name" pattern="[a-zA-Z0-9]+" title="Please enter only letters and/or numbers with no spaces" required>
+                                            <input type="text" class="form-control input-box" id="marker_name" name="marker_name" pattern="[a-zA-Z0-9]+" title="Please enter only letters and/or numbers with no spaces" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="file_input_fset" class="form-label">FSET File</label>
-                                            <input type="file" class="form-control" id="file_input_fset" name="file_input_fset" accept=".fset" required>
+                                            <input type="file" class="form-control input-box" id="file_input_fset" name="file_input_fset" accept=".fset" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="file_input_fset3" class="form-label">FSET3 File</label>
-                                            <input type="file" class="form-control" id="file_input_fset3" name="file_input_fset3" accept=".fset3" required>
+                                            <input type="file" class="form-control input-box" id="file_input_fset3" name="file_input_fset3" accept=".fset3" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="file_input_iset" class="form-label">ISET File</label>
-                                            <input type="file" class="form-control" id="file_input_iset" name="file_input_iset" accept=".iset" required>
+                                            <input type="file" class="form-control input-box" id="file_input_iset" name="file_input_iset" accept=".iset" required>
                                         </div>
         
                                     <div class="mb-3">
                                         <label for="twin_loc" class="form-label">Twinmotion</label>
-                                        <input type="text" class="form-control" id="twin_loc" name="twin_loc" pattern="https?://.+" required>
+                                        <input type="text" class="form-control input-box" id="twin_loc" name="twin_loc" pattern="https?://.+" required>
                                     </div>
                                     <button type="submit" class="back-button">Submit</button>
                                 </form>
@@ -244,6 +281,147 @@ $mysqli->close(); // Close database connection
                 </div>
         </div>
     </div>
+
+    
+  <!-- Virtual Keyboard -->
+<div id="virtual-keyboard">
+  <!-- Alphanumeric and Special characters keyboard section -->
+  <div class="keyboard-section">
+    <!-- Alphanumeric keys -->
+    <div class="keyboard-half">
+      <button onclick="addToInput('1')">1</button>
+      <button onclick="addToInput('2')">2</button>
+      <button onclick="addToInput('3')">3</button>
+      <button onclick="addToInput('4')">4</button>
+      <button onclick="addToInput('5')">5</button>
+      <button onclick="addToInput('6')">6</button>
+      <button onclick="addToInput('7')">7</button>
+      <button onclick="addToInput('8')">8</button>
+      <button onclick="addToInput('9')">9</button>
+      <button onclick="addToInput('0')">0</button>
+      
+      <button onclick="addToInput('q')">q</button>
+      <button onclick="addToInput('w')">w</button>
+      <button onclick="addToInput('e')">e</button>
+      <button onclick="addToInput('r')">r</button>
+      <button onclick="addToInput('t')">t</button>
+      <button onclick="addToInput('y')">y</button>
+      <button onclick="addToInput('u')">u</button>
+      <button onclick="addToInput('i')">i</button>
+      <button onclick="addToInput('o')">o</button>
+      <button onclick="addToInput('p')">p</button>
+      <button onclick="addToInput('a')">a</button>
+      <button onclick="addToInput('s')">s</button>
+      <button onclick="addToInput('d')">d</button>
+      <button onclick="addToInput('f')">f</button>
+      <button onclick="addToInput('g')">g</button>
+      <button onclick="addToInput('h')">h</button>
+      <button onclick="addToInput('j')">j</button>
+      <button onclick="addToInput('k')">k</button>
+      <button onclick="addToInput('l')">l</button>
+      <button onclick="addToInput('z')">z</button>
+      <button onclick="addToInput('x')">x</button>
+      <button onclick="addToInput('c')">c</button>
+      <button onclick="addToInput('v')">v</button>
+      <button onclick="addToInput('b')">b</button>
+      <button onclick="addToInput('n')">n</button>
+      <button onclick="addToInput('m')">m</button>
+      <button onclick="addToInput(' ')">Space</button> 
+
+    </div>
+    <!-- Special characters keys -->
+    <div class="keyboard-half">
+      <button onclick="addToInput('!')">!</button>
+      <button onclick="addToInput('@')">@</button>
+      <button onclick="addToInput('#')">#</button>
+      <button onclick="addToInput('$')">$</button>
+      <button onclick="addToInput('%')">%</button>
+      <button onclick="addToInput('^')">^</button>
+      <button onclick="addToInput('&')">&</button>
+      <button onclick="addToInput('-')">-</button>
+      <button onclick="addToInput('*')">*</button>
+      <button onclick="addToInput('(')">(</button>
+      <button onclick="addToInput(')')">)</button>
+      <button onclick="addToInput('_')">_</button>
+      <button onclick="addToInput('+')">+</button>
+      <button onclick="addToInput('{')">{</button>
+      <button onclick="addToInput('[')">[</button>
+      <button onclick="addToInput('}')">}</button>
+      <button onclick="addToInput(']')">]</button>
+      <button onclick="addToInput(':')">:</button>
+      <button onclick="addToInput(';')">;</button>
+      <button onclick="addToInput('&quot;')">"</button>
+      <button onclick="addToInput('|')">|</button>
+      <button onclick="addToInput('\\')">\</button>
+      <button onclick="addToInput('&lt;')">&lt;</button>
+      <button onclick="addToInput('.')">.</button>
+      <button onclick="addToInput(',')">,</button>
+      <button onclick="addToInput('?')">?</button>
+      <button onclick="addToInput('/')">/</button>
+      <button onclick="addToInput('~')">~</button>
+      <button onclick="addToInput('`')">`</button>
+      <button onclick="deleteText()">Delete</button>
+      <button onclick="addToInput('')">Backspace</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    // Function to add characters to the focused input box
+    function addToInput(char) {
+        const focusedInputBox = document.querySelector('.input-box:focus');
+        if (focusedInputBox) {
+            if (char === '') {
+                // Handle backspace (delete last character)
+                focusedInputBox.value = focusedInputBox.value.slice(0, -1);
+            } else {
+                focusedInputBox.value += char;
+            }
+        }
+    }
+
+    // Function to delete the last character from the focused input box
+    function deleteText() {
+        const focusedInputBox = document.querySelector('.input-box:focus');
+        if (focusedInputBox) {
+            const currentValue = focusedInputBox.value;
+            if (currentValue.length > 0) {
+                focusedInputBox.value = currentValue.slice(0, -1);
+            }
+        }
+    }
+
+    // Show the virtual keyboard when input box is focused
+    const inputBoxes = document.getElementsByClassName('input-box');
+    Array.from(inputBoxes).forEach(inputBox => {
+        inputBox.addEventListener('focus', function () {
+            document.getElementById('virtual-keyboard').style.display = 'block';
+        });
+    });
+
+    // Hide the virtual keyboard when clicking outside search boxes or virtual keyboard
+    document.addEventListener('click', function (event) {
+        const virtualKeyboard = document.getElementById('virtual-keyboard');
+        const inputBoxes = document.getElementsByClassName('input-box');
+        let clickedOutside = true;
+        Array.from(inputBoxes).forEach(inputBox => {
+            if (event.target === inputBox || inputBox.contains(event.target)) {
+                clickedOutside = false;
+            }
+        });
+        if (clickedOutside && !virtualKeyboard.contains(event.target)) {
+            virtualKeyboard.style.display = 'none';
+        }
+    });
+
+    // Keep the virtual keyboard visible when it is clicked
+    document.getElementById('virtual-keyboard').addEventListener('click', function () {
+        const inputBoxes = document.getElementsByClassName('input-box');
+        inputBoxes[0].focus(); // Focus on the first input box
+    });
+</script>
+
 
 
 
