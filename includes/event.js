@@ -12,11 +12,17 @@ AFRAME.registerComponent('markerhandler', {
             models.forEach(function(model) {
                 if (model && intersectedElement === model) {
                     if (model.id === "model1") {
-                        window.location.href = 'map-all.php?id=' + nftValue;
+                        //window.location.href = 'map-all.php?id=' + nftValue;
+                        const state = 1;
+                        navigateToPage(state, nftValue);
                     } else if (model.id === "model2") {
-                        window.location.href = "similar_books.php?id=" + nftValue;
+                        //window.location.href = "similar_books.php?id=" + nftValue;
+                        const state = 2;
+                        navigateToPage(state, nftValue);
                     } else if (model.id === "model3") {
-                        window.location.href = "book_details.php?id=" + nftValue;
+                        //window.location.href = "book_details.php?id=" + nftValue;
+                        const state = 3;
+                        navigateToPage(state, nftValue);
                     }
                 }
             });
