@@ -142,6 +142,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
+   <!-- Include Virtual Keyboard CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/keyboard/1.23.0/css/keyboard.min.css">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -180,6 +184,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .login-box input[type="submit"]:hover {
       background-color: #0056b3;
     }
+    #myInputField {
+      width: 300px;
+      height: 40px;
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
   </style>
   <section id="title">
     <table style="width:100%">
@@ -215,12 +226,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <input type="text" name="username" id="myInputField" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" id="myInputField" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
@@ -238,6 +249,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
     </div>
+    
+     <!-- Include jQuery (required for Virtual Keyboard) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Include Virtual Keyboard JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/keyboard/1.23.0/js/jquery.keyboard.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Initialize Virtual Keyboard on the input field
+      $('#myInputField').keyboard({
+        layout: 'qwerty', // Keyboard layout (you can change it to other layouts)
+        autoAccept: true // Automatically accept input when a key is clicked
+      });
+    });
+  </script>
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 </html>
