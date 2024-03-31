@@ -41,17 +41,7 @@ $nft_books = array(
     "isic",
     "acgifbsp",
     "saphoit",
-    "lmibb",
-    "hi",
-    "unacn",
-    "tfim",
-    "tfmp",
-    "hdi",
-    "o",
-    "nfaca",
-    "msn",
-    "smab",
-    "cdd"
+    "lmibb"
 );
 ?>
 
