@@ -19,27 +19,7 @@ $nft_book = array(
   17 => "sasriph",
   18 => "crit",
   19 => "cah",
-  20 => "cacmom",
-  21 => "caohati",
-  22 => "taed",
-  23 => "a",
-  24 => "3cocs",
-  25 => "ict",
-  26 => "casiep",
-  27 => "mbom",
-  28 => "fosa",
-  29 => "msaad",
-  30 => "cs2e",
-  31 => "eitac",
-  32 => "dome",
-  33 => "raam",
-  34 => "ddc",
-  35 => "ahftsomh",
-  36 => "twbhcc",
-  37 => "isic",
-  38 => "acgifbsp",
-  39 => "saphoit",
-  40 => "lmibb"
+  20 => "cacmom"
 );
 
 
