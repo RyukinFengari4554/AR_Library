@@ -128,7 +128,7 @@ $mysqli->close();
       markerhandler 
       emitevents="true" 
       cursor="rayOrigin: mouse"  
-      id="animated-marker<?php echo $id ?>"
+      id="animated-marker-<?php echo $id ?>"
       type='nft' 
       url='includes/nft-books/<?php echo $marker ?>'
       width='50'
