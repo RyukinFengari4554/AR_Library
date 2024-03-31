@@ -1,4 +1,9 @@
 <?php
+$nft_book = array(
+  30 => 'cs2e',
+  24 => '3cocs',
+  23 => 'a'
+);
 
 require_once "includes/db.inc.php";
 
@@ -99,8 +104,8 @@ $mysqli->close();
     <a-assets>
       <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
-    
-  <?php foreach ($nft_books as $id => $marker): ?>
+  
+  <?php foreach ($nft_book as $id => $marker): ?>
     <a-nft
       markerhandler 
       emitevents="true" 
