@@ -103,13 +103,13 @@ $mysqli->close();
 
           <!-- Assets -->
     <a-assets>
-        <a-asset-item id="animated-asset" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb"></a-asset-item>
-        <a-asset-item id="animated-asset2" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb"></a-asset-item>
-        <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
+        <a-asset-item id="animated-asset" src="includes/book%20location.glb"></a-asset-item>
+        <a-asset-item id="animated-asset2" src="includes/similar%20books.glb"></a-asset-item>
+        <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
 
     <?php foreach ($nft_book as $id => $marker): ?>
-        <img id="marker-<?php echo $id; ?>" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker; ?>" style="display: none;">
+        <img id="marker-<?php echo $id; ?>" src="includes/nft-books/<?php echo $marker; ?>" style="display: none;">
     <?php endforeach; ?>
 
     <?php foreach ($nft_book as $id => $marker): ?>
