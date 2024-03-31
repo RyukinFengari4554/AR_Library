@@ -1,28 +1,3 @@
-<?php
-
-// Function to fetch and cache the NFT marker
-function fetchAndCacheNFTMarker($markerURL, $localFilePath) {
-    // Fetch the marker from the remote server
-    $markerData = file_get_contents($markerURL);
-
-    // Save the marker data to a local file
-    file_put_contents($localFilePath, $markerData);
-
-    return $markerData;
-}
-
-// Define cache directory
-$cacheDir = 'nft_cache/';
-
-$nft_books = array(
-    1 => "tsotw",
-    2 => "agir",
-    3 => "atotc",
-    // Add more items as needed
-);
-
-?>
-
 <!doctype HTML>
 <html>
 <head>
@@ -46,20 +21,38 @@ $nft_books = array(
             <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
         </a-assets>
     
-    <?php foreach ($nft_books as $id => $marker): ?>
-        <?php
+    <?php
+        // Define cache directory
+        $cacheDir = 'nft_cache/';
+        // Ensure cache directory exists
+        if (!file_exists($cacheDir)) {
+            mkdir($cacheDir, 0755, true);
+        }
+
+        // Array of markers
+        $nft_books = array(
+            1 => "tsotw",
+            2 => "agir",
+            3 => "atotc",
+            // Add more items as needed
+        );
+
+        foreach ($nft_books as $id => $marker) {
+            // URL of the marker image
             $markerURL = 'https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/' . $marker;
-            $localFilePath = $cacheDir . $marker; // Adjust filename as needed
+            // File path to save the cached marker image
+            $cachedMarkerPath = $cacheDir . $marker;
 
             // Check if the marker is cached
-            if (file_exists($localFilePath)) {
-                // Serve the cached marker
-                $markerData = file_get_contents($localFilePath);
+            if (!file_exists($cachedMarkerPath)) {
+                // Fetch the marker and save to cache
+                $markerData = file_get_contents($markerURL);
+                file_put_contents($cachedMarkerPath, $markerData);
             } else {
-                // Fetch and cache the marker
-                $markerData = fetchAndCacheNFTMarker($markerURL, $localFilePath);
+                // Retrieve the marker from cache
+                $markerData = file_get_contents($cachedMarkerPath);
             }
-        ?>
+    ?>
 
         <a-nft
             markerhandler 
@@ -94,7 +87,7 @@ $nft_books = array(
                 position="363 -120 -150"> <!-- Book Information 3D model -->
             </a-entity>
         </a-nft>
-    <?php endforeach; ?>
+    <?php } ?>
 
         <a-entity camera></a-entity>
     </a-scene>
