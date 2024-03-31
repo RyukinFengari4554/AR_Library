@@ -5,7 +5,7 @@
 
 require_once "includes/db.inc.php";
 
-$nft_book = array();
+$nft_books = array();
 
 $sql = "SELECT id, marker FROM books";
 
@@ -97,11 +97,11 @@ $mysqli->close();
         <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
 
-    <?php foreach ($nft_book as $id => $marker): ?>
+    <?php foreach ($nft_books as $id => $marker): ?>
         <img id="marker-<?php echo $id; ?>" src="includes/nft-books/<?php echo $marker; ?>" style="display: none;">
     <?php endforeach; ?>
 
-    <?php foreach ($nft_book as $id => $marker): ?>
+    <?php foreach ($nft_books as $id => $marker): ?>
         <a-nft markerhandler emitevents="true" cursor="rayOrigin: mouse" type='nft'
                url='#marker-<?php echo $id; ?>' width='50' smooth='true' smoothCount='10' smoothTolerance='0.01'
                smoothThreshold='5'>
