@@ -104,15 +104,34 @@ $mysqli->close();
         
 
         foreach ($nft_books as $id => $marker) {
-           // URL of the marker image
-          $markerURL = '
-          <a-nft
+            // URL of the marker image
+            $markerURL = 'https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/' . $marker;
+            // File path to save the cached marker image
+            $cachedMarkerPath = $cacheDir . $marker;
+
+            // Check if the marker is cached
+            if (!file_exists($cachedMarkerPath)) {
+                try {
+                    // Fetch the marker and save to cache
+                    $markerData = file_get_contents($markerURL);
+                    file_put_contents($cachedMarkerPath, $markerData);
+                } catch (Exception $e) {
+                    echo "<p>Error fetching and caching marker: " . $e->getMessage() . "</p>";
+                    continue; // Skip to the next marker on error
+                }
+            } else {
+                // Retrieve the marker from cache
+                $markerData = file_get_contents($cachedMarkerPath);
+            }
+    ?>
+
+        <a-nft
             markerhandler 
             emitevents="true" 
             cursor="rayOrigin: mouse"  
             id="animated-marker-<?php echo $id ?>"
             type="nft" 
-            url="data:image/jpeg;base64,<?php echo base64_encode($markerData); ?>"
+            url="<?php echo $markerURL ?>"
             width="50"
             value="<?php echo $id ?>" 
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
@@ -139,30 +158,7 @@ $mysqli->close();
                 position="363 -120 -150"> <!-- Book Information 3D model -->
             </a-entity>
         </a-nft>
-          ';
-      // File path to save the cached marker image
-      $cachedMarkerPath = $cacheDir . $marker;
-
-   // Check if the marker is cached
-   if (!file_exists($cachedMarkerPath)) {
-       try {
-           // Fetch the marker and save to cache
-           $markerData = file_get_contents($markerURL);
-           file_put_contents($cachedMarkerPath, $markerData);
-       } catch (Exception $e) {
-           echo "<p>Error fetching and caching marker: " . $e->getMessage() . "</p>";
-           continue; // Skip to the next marker on error
-       }
-   } else {
-       // Retrieve the marker from cache
-       $markerData = file_get_contents($cachedMarkerPath);
-       echo "<script>console.error('Loaded marker from cache:', '$markerURL');</script>";
-   }
-    ?>
-    <?php 
-  
-   
-  } ?>
+    <?php } ?>
 
         <a-entity camera></a-entity>
     </a-scene>
