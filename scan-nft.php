@@ -123,12 +123,12 @@ $mysqli->close();
       <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
   
-  <?php foreach ($nft_book as $id => $marker): ?>
+  <?php foreach ($nft_books as $id => $marker): ?>
     <a-nft
       markerhandler 
       emitevents="true" 
       cursor="rayOrigin: mouse"  
-      id="animated-marker"
+      id="animated-marker<?php echo $id ?>"
       type='nft' 
       url='includes/nft-books/<?php echo $marker ?>'
       width='50'
@@ -136,21 +136,21 @@ $mysqli->close();
       smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
       <a-entity
-        id="model1"
+        id="model1-<?php echo $id ?>"
         gltf-model="#animated-asset"
         scale="20 20 20"
         rotation="0 -90 0"
         position="450 -120 -225"> <!-- Book Location 3D model -->
       </a-entity>
       <a-entity
-        id="model2"
+        id="model2-<?php echo $id ?>"
         gltf-model="#animated-asset2"
         scale="20 20 20"
         rotation="0 -90 0"
         position="275 -120 -225"> <!-- Similar Books 3D model -->
       </a-entity>
       <a-entity
-        id="model3"
+        id="model3-<?php echo $id ?>"
         gltf-model="#animated-asset3"
         scale="20 20 20"
         rotation="0 -90 0"
@@ -166,3 +166,4 @@ $mysqli->close();
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 </html>
+
