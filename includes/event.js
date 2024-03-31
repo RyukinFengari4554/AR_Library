@@ -6,7 +6,7 @@ AFRAME.registerComponent('markerhandler', {
     nfts.forEach(function(nft) {
         var nftValue = nft.getAttribute("value");
         var models = nft.querySelectorAll("[id^='model']");
-
+        this.el.addEventListener('markerFound', function() {
         nft.addEventListener('click', function(ev) {
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             models.forEach(function(model) {
@@ -30,6 +30,7 @@ AFRAME.registerComponent('markerhandler', {
                 }
             });
         });
+    });
         
             
         });
