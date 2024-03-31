@@ -91,13 +91,13 @@ $mysqli->close();
     embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
 
     <a-assets>
-      <a-asset-item id="animated-asset" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb"></a-asset-item>
+      <a-asset-item id="animated-asset" src="includes/book%20location.glb"></a-asset-item>
     </a-assets>
     <a-assets>
-      <a-asset-item id="animated-asset2" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb"></a-asset-item>
+      <a-asset-item id="animated-asset2" src="includes/similar%20books.glb"></a-asset-item>
     </a-assets>
     <a-assets>
-      <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
+      <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
     
   <?php foreach ($nft_books as $id => $marker): ?>
@@ -107,7 +107,7 @@ $mysqli->close();
       cursor="rayOrigin: mouse"  
       id="animated-marker"
       type='nft' 
-      url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
+      url='includes/nft-books/<?php echo $marker ?>'
       width='50'
       value='<?php echo $id ?>' 
       smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
