@@ -1,3 +1,28 @@
+<?php
+require_once "includes/db.inc.php";
+
+$nft_books = array();
+
+$sql = "SELECT id, marker FROM books";
+
+$result = $mysqli->query($sql);
+
+if ($result) {
+
+    while ($row = $result->fetch_assoc()) {
+        $nft_books[$row['id']] = $row['marker'];
+    }
+
+    $result->free();
+} else {
+   
+    echo "Error: " . $mysqli->error;
+}
+
+$mysqli->close();
+
+?>
+
 <!doctype HTML>
 <html>
 <head>
@@ -80,13 +105,7 @@
             }
         }
 
-        // Array of markers
-        $nft_books = array(
-            1 => "tsotw",
-            2 => "agir",
-            3 => "atotc",
-            // Add more items as needed
-        );
+        
 
         foreach ($nft_books as $id => $marker) {
             // URL of the marker image
