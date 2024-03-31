@@ -113,7 +113,7 @@ $mysqli->close();
             cursor="rayOrigin: mouse"  
             id="animated-marker-<?php echo $id ?>"
             type="nft" 
-            url="<?php echo $markerURL ?>"
+            url="data:image/jpeg;base64,<?php echo base64_encode($markerData); ?>"
             width="50"
             value="<?php echo $id ?>" 
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
