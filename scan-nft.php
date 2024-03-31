@@ -9,18 +9,7 @@ if (!file_exists($cacheDir)) {
     mkdir($cacheDir, 0755, true);
 }
 
-foreach ($nft_book as $id => $marker) {
-    // URL of the marker image
-    $markerUrl = "https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/$marker";
 
-    // File path to save the cached marker image
-    $cachedMarkerPath = $cacheDir . $marker;
-
-    // Cache the marker image if not already cached
-    if (!file_exists($cachedMarkerPath)) {
-        file_put_contents($cachedMarkerPath, file_get_contents($markerUrl));
-    }
-}
 
 $nft_book = array(
   1 => "tsotw",
@@ -35,7 +24,18 @@ $nft_book = array(
   10 => "tmmm"
 );
 
+foreach ($nft_book as $id => $marker) {
+  // URL of the marker image
+  $markerUrl = "https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/$marker";
 
+  // File path to save the cached marker image
+  $cachedMarkerPath = $cacheDir . $marker;
+
+  // Cache the marker image if not already cached
+  if (!file_exists($cachedMarkerPath)) {
+      file_put_contents($cachedMarkerPath, file_get_contents($markerUrl));
+  }
+}
 require_once "includes/db.inc.php";
 
 $nft_books = array();
