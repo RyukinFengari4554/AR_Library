@@ -1,13 +1,13 @@
 <?php
-///*
+/*
   $dbServername ="localhost";
   $dbUsername ="root";
   $dbPassword ="";
   $dbName = "ar_library";
 
   $mysqli =mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-//*/
-/*
+*/
+///*
 
 //Get Heroku ClearDB connection information
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
