@@ -1,12 +1,14 @@
 AFRAME.registerComponent('markerhandler', {
     init: function() {
+
+        this.el.addEventListener('markerFound', function() {
         var nfts = document.querySelectorAll("a-nft");
     
  
     nfts.forEach(function(nft) {
         var nftValue = nft.getAttribute("value");
         var models = nft.querySelectorAll("[id^='model']");
-        this.el.addEventListener('markerFound', function() {
+
         nft.addEventListener('click', function(ev) {
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             models.forEach(function(model) {
@@ -30,11 +32,11 @@ AFRAME.registerComponent('markerhandler', {
                 }
             });
         });
-    });
         
-            
+    }); 
         });
     }
+
 });
 
       
