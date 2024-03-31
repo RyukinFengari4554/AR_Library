@@ -27,56 +27,52 @@ $mysqli->close();
 <html>
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+    <link href="styles/home.css" rel="stylesheet">
+    <style>
+        .arjs-loader {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+      
+        .arjs-loader div {
+            text-align: center;
+            font-size: 1.25em;
+            color: white;
+        }
+        .icon {
+            font-size: 2.5rem;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .fixedbutton {
+            position: fixed;
+            bottom: 5rem;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 7rem;
+        }
+    </style>
+
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="includes/event.js"></script>
 </head>
 
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
-<link href="styles/home.css" rel="stylesheet">
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-  .icon {
-      font-size: 2.5rem;
-      color: #333;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-  .fixedbutton {
-    position: fixed;
-    bottom: 5rem;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 7rem;
-}
-
-</style>
-
-
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-
-
-<script src="includes/event.js"></script>
-
 <body style='margin : 0px; overflow: hidden;'>
+<a href="index.html"><button class="fixedbutton" style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
     <div class="arjs-loader">
         <div>Loading, please wait...</div>
     </div>
