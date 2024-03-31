@@ -160,6 +160,7 @@ $mysqli->close();
    } else {
        // Retrieve the marker from cache
        $markerData = file_get_contents($cachedMarkerPath);
+       echo "<script>console.error('Loaded marker from cache:', '$markerURL');</script>";
    }
   } ?>
 
