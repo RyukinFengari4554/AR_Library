@@ -1,6 +1,7 @@
 <?php
 // Database connection
 require_once "includes/db.inc.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,34 +163,31 @@ require_once "includes/db.inc.php";
             </div>
         </form>
         <table>
-        <?php
-        // Initialize $search_query variable
-        $search_query = "";
+          <?php
+          // Initialize $search_query variable
+$search_query = "";
 
-        if(isset($_GET['query'])) {
-            $search_query = $_GET['query'];
+if(isset($_GET['query'])) {
+    $search_query = $_GET['query'];
 
-            // Escape special characters to prevent SQL injection
-            $search_query = $mysqli->real_escape_string($search_query);
+    // Escape special characters to prevent SQL injection
+    $search_query = $mysqli->real_escape_string($search_query);
 
-            // Query to search for books matching the search query in the 'title' column
-            $sql = "SELECT * FROM books WHERE title = '$search_query' OR call_num ='$search_query'";
-            $result = $mysqli->query($sql);
+    // Query to search for books matching the search query in the 'title' column
+    $sql = "SELECT * FROM books WHERE title = '$search_query' OR call_num ='$search_query'";
+    $result = $mysqli->query($sql);
 
-            // Display search results
-            if ($result->num_rows > 0) {
-              $row = $result->fetch_assoc();
-              $idb = $row['id'];
-              header("Location: map-all.php?id=$idb");
-              exit;
-            } else {
-               echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
-           
-            }
-
-          }
-
-            ?>
+    // Display search results
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $idb = $row['id'];
+        echo "<script>window.location.href = 'map-all.php?id=$idb';</script>";
+        exit;
+    } else {
+        echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
+    }
+}
+          ?>
         </table>
           </div>
         <div class="image-container">
