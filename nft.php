@@ -14,7 +14,6 @@ if (isset($_SESSION['nft_id']) && isset($_SESSION['nft_marker'])) {
 
 ?>
 
-<body>
 <a-nft
 markerhandler 
 emitevents="true" 
@@ -48,4 +47,3 @@ smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
     position="363 -120 -150"> <!-- Book Information 3D model -->
 </a-entity>
 </a-nft>
-</body>
