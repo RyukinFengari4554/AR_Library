@@ -85,10 +85,10 @@ $mysqli->close();
   </div>
 
   <a-scene
-  id="myS"
+    id="myS"
     vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true; precision: medium;"
-    embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
+    embedded>
 
     <a-assets>
       <a-asset-item id="animated-asset" src="includes/book%20location.glb"></a-asset-item>
@@ -101,39 +101,40 @@ $mysqli->close();
     </a-assets>
   
   <?php foreach ($nft_books as $id => $marker): ?>
-    <a-nft
-      markerhandler 
-      emitevents="true" 
-      cursor="rayOrigin: mouse"  
-      id="animated-marker"
-      type='nft' 
-      url='includes/nft-books/<?php echo $marker ?>'
-      width='50'
-      value='<?php echo $id ?>' 
-      smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+    <a-nft 
+         markerhandler
+                emitevents="true"
+                cursor="rayOrigin: mouse"
+                id="animated-marker-<?php echo $id ?>"
+                type='nft'
+                url='includes/nft-books/<?php echo $marker ?>'
+                width='50'
+                value='<?php echo $id ?>'
+                smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
-      <a-entity
-        id="model1"
-        gltf-model="#animated-asset"
-        scale="20 20 20"
-        rotation="0 -90 0"
-        position="450 -120 -225"> <!-- Book Location 3D model -->
-      </a-entity>
-      <a-entity
-        id="model2"
-        gltf-model="#animated-asset2"
-        scale="20 20 20"
-        rotation="0 -90 0"
-        position="275 -120 -225"> <!-- Similar Books 3D model -->
-      </a-entity>
-      <a-entity
-        id="model3"
-        gltf-model="#animated-asset3"
-        scale="20 20 20"
-        rotation="0 -90 0"
-        position="363 -120 -150"> <!-- Book Information 3D model -->
-      </a-entity>
-    </a-nft>
+            <a-entity
+                    id="model1-<?php echo $id ?>" 
+                    gltf-model="#animated-asset"
+                    scale="20 20 20"
+                    rotation="0 -90 0"
+                    position="450 -120 -225"> <!-- Book Location 3D model -->
+            </a-entity>
+            <a-entity
+                    id="model2-<?php echo $id ?>" 
+                    gltf-model="#animated-asset2"
+                    scale="20 20 20"
+                    rotation="0 -90 0"
+                    position="275 -120 -225"> <!-- Similar Books 3D model -->
+            </a-entity>
+            <a-entity
+                    id="model3-<?php echo $id ?>" 
+                    gltf-model="#animated-asset3"
+                    scale="20 20 20"
+                    rotation="0 -90 0"
+                    position="363 -120 -150"> <!-- Book Information 3D model -->
+            </a-entity>
+        </a-nft>
+
     <?php endforeach; ?>
 
     <a-entity camera></a-entity>
