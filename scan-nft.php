@@ -1,5 +1,17 @@
 <?php
 require_once "includes/db.inc.php";
+$nft_book = array(
+    1 => "tsotw",
+    2 => "agir",
+    3 => "atotc",
+    4 => "tbt",
+    5 => "ts",
+    6 => "jc",
+    7 => "tgsohi",
+    8 => "aac",
+    9 => "fsd",
+    10 => "tmmm"
+  );
 
 $nft_books = array();
 
@@ -103,7 +115,7 @@ $mysqli->close();
 
         
 
-        foreach ($nft_books as $id => $marker) {
+        foreach ($nft_book as $id => $marker) {
            
     ?>
 
