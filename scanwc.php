@@ -102,7 +102,7 @@ $mysqli->close();
             $_SESSION['nft_marker'] = $marker;
       
    // URL of the marker image
-   $markerURL = 'nft.php' . $marker;
+   $markerURL = 'nft.php';
    // File path to save the cached marker image
    $cachedMarkerPath = $cacheDir . $marker;
 
