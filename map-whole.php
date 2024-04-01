@@ -181,6 +181,7 @@ require_once "includes/db.inc.php";
               $row = $result->fetch_assoc();
               $idb = $row['id'];
               header("Location: map-all.php?id=$idb");
+              exit;
             } else {
                echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
            
