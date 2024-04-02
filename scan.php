@@ -1,3 +1,54 @@
+<?php
+require_once "includes/db.inc.php";
+session_start();
+
+$nft_books = array();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $callNumber = $_POST["call_num"];
+
+  // Check if callNumber is 'all'
+  if ($callNumber == 'all') {
+      $sql = "SELECT id, marker FROM books";
+  } else {
+    $sql = "SELECT id, marker FROM books WHERE call_num LIKE ?";
+    $callNumber = '%' . $callNumber . '%'; // Prepend and append '%' to match partial strings
+  }
+
+  // Prepare and execute the SQL query
+  $stmt = $mysqli->prepare($sql);
+
+  if ($callNumber != 'all') {
+      $stmt->bind_param("s", $callNumber);
+  }
+
+  $stmt->execute();
+
+  // Check if the query execution was successful
+  if ($stmt) {
+      $result = $stmt->get_result();
+
+      // Fetch results and store them in the $nft_books array
+      while ($row = $result->fetch_assoc()) {
+          $nft_books[$row['id']] = $row['marker'];
+      }
+      $_SESSION['my_array'] = $nft_books;
+      $result->free();
+      
+  } else {
+      // Handle SQL query execution error
+      echo "Error: " . $mysqli->error;
+  }
+
+  // Close the prepared statement
+  $stmt->close();
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($nft_books)) {
+    header("Location: scan-nft.php");
+      exit;
+  }
+
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,13 +142,16 @@
                                 Enter Call Number
                             </div>
                             <div class="card-body">
-                                <form action="scan-nft.php" method="post">
+                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                                     <div class="mb-3">
                                     <div class="mb-3">
                                       <div class="mb-3">
                                           <label for="call_num" class="form-label">Please input "all" if you want to load ALL the NFT Markers. <br> Otherwise, please enter the part/whole call number of the book(s).</label>
                                           <input type="text" class="form-control" id="call_num" name="call_num" required>
-                                      </div>
+                                          <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($nft_books)) {
+                                            echo "<p style='color: red;'>No results found.</p>";
+                                        }?>
+                                        </div>
                                     <button type="submit" class="back-button">Submit</button>
                                 </form>
                             </div>

@@ -1,53 +1,21 @@
 <?php
 require_once "includes/db.inc.php";
+session_start();
+if(isset($_SESSION['my_array'])) {
+  // Retrieve the array from the session
+  $nft_books = $_SESSION['my_array'];
 
-$nft_books = array();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["call_num"]) && !empty($_POST["call_num"])) {
-    $callNumber = $_POST["call_num"];
-
-    // Check if callNumber is 'all'
-    if ($callNumber == 'all') {
-        $sql = "SELECT id, marker FROM books";
-    } else {
-      $sql = "SELECT id, marker FROM books WHERE call_num LIKE ?";
-      $callNumber = '%' . $callNumber . '%'; // Prepend and append '%' to match partial strings
-    }
-
-    // Prepare and execute the SQL query
-    $stmt = $mysqli->prepare($sql);
-
-    if ($callNumber != 'all') {
-        $stmt->bind_param("s", $callNumber);
-    }
-
-    $stmt->execute();
-
-    // Check if the query execution was successful
-    if ($stmt) {
-        $result = $stmt->get_result();
-
-        // Fetch results and store them in the $nft_books array
-        while ($row = $result->fetch_assoc()) {
-            $nft_books[$row['id']] = $row['marker'];
-        }
-
-        echo '<script>';
-        echo 'console.log("NFT books:", ' . json_encode($nft_books) . ');';
-        echo '</script>';
-
-        $result->free();
-    } else {
-        // Handle SQL query execution error
-        echo "Error: " . $mysqli->error;
-    }
-
-    // Close the prepared statement
-    $stmt->close();
+  // Output the array to JavaScript console
+  echo '<script>';
+  echo 'console.log("NFT books:", ' . json_encode($nft_books) . ');';
+  echo '</script>';
 } else {
-    // Handle case when call_num parameter is not set or empty
-    echo '<h2> Call number is not set or empty. </h2>';
+  // Session variable doesn't exist
+  echo '<script>';
+  echo 'console.log("Session variable my_array does not exist.");';
+  echo '</script>';
 }
+
 ?>
 <!doctype HTML>
 <html>
@@ -143,21 +111,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["call_num"]) && !empty(
                     gltf-model="#animated-asset"
                     scale="20 20 20"
                     rotation="0 -90 0"
-                    position="450 -120 -225"> <!-- Book Location 3D model -->
+                    position="
+                    <?php 
+                    if ($id == 19) {
+                      // Code to execute if $id is equal to 19
+                      echo "450 -70 -225";
+                  } else {
+                      // Code to execute if $id is not equal to 19
+                      echo "450 -120 -225";
+                  }
+                    ?>
+                    " > <!-- Book Location 3D model -->
             </a-entity>
             <a-entity
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     scale="20 20 20"
                     rotation="0 -90 0"
-                    position="275 -120 -225"> <!-- Similar Books 3D model -->
+                    position="
+                    <?php 
+                    if ($id == 19) {
+                      // Code to execute if $id is equal to 19
+                      echo "275 -70 -225";
+                  } else {
+                      // Code to execute if $id is not equal to 19
+                      echo "275 -120 -225";
+                  }
+                    ?>
+                    "> <!-- Similar Books 3D model -->
             </a-entity>
             <a-entity
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     scale="20 20 20"
                     rotation="0 -90 0"
-                    position="363 -120 -150"> <!-- Book Information 3D model -->
+                    position="
+                    <?php 
+                    if ($id == 19) {
+                      // Code to execute if $id is equal to 19
+                      echo "363 -70 -150";
+                  } else {
+                      // Code to execute if $id is not equal to 19
+                      echo "363 -120 -150";
+                  }
+                    ?>
+                    "> <!-- Book Information 3D model -->
             </a-entity>
         </a-nft>
 
