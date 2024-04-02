@@ -1,8 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scan Page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
 <section id="title">
     <table style="width:100%">
       <tr>
@@ -20,154 +24,243 @@
   <hr style="margin-top: 0; border: 2px solid red;">
   <h1 style="text-align: center;"><i class="fa-solid fa-book-open"></i><br><br>SCAN A BOOK</h1>
   <hr style="border: 2px solid red;">
-</section>
+  </section>
 <!-- Custom styles for this template -->
 <link href="styles/home.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
 
+    
 <style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
+    .icon {
+      font-size: 2.5rem;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .keyboard-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    margin-bottom: 10px;
   }
 
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
+  .keyboard-section button {
+    margin: 5px;
+    padding: 15px 25px;
+    font-size: 20px;
+    border: 2px solid #ccc; /* Added border for button outline */
+    border-radius: 10px;
+    background-color: #303030;
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
-</style>
 
-<!-- Load AR.js NFT extension 
-<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-<script src='../../../../aframe/build/aframe-ar-nft.js'></script>-->
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  .keyboard-section button:hover {
+    background-color: #e0e0e0;
+  }
 
-<!--  import events.js script -->
-<script src="events-solo.js"></script>
-<style>
-   #container {
-    text-align: center;
+  #virtual-keyboard {
+    display: none;
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
+    background-color: #808080;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
 
-.demo-content {
-    width: 100%;
-    height: 90vh; /* Adjust the height as needed */
-    position: relative; /* Add this line */
-}
-
-.aframe-arjs__container {
-    width: 100%;
-    height: 100%; /* or adjust as needed */
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
+  .keyboard-half {
+    width: 50%;
+    margin-bottom: 20px; /* Adjust the margin bottom as needed */
+  }
 </style>
 
 </head>
 <body>
     <div class="demo-wrap">
-        <img class="demo-bg" src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
+        <img
+          class="demo-bg"
+          src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
+        >
         <div class="demo-content">
-            <!-- Include custom.html content here iframe src="includes/trial/custom_solo.html" style="width: 100%; height: 100%; border: none;"></iframe>-->
-             <!-- Show loader until image descriptors are loaded -->
-  <div class="arjs-loader">
-    <div>Loading, please wait...</div>
-  </div>
-  <!-- AR scene -->
-  <a-scene
-     vr-mode-ui='enabled: false;'
-  renderer="logarithmicDepthBuffer: true; precision: medium;"
-  embedded="true" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Enter Call Number
+                            </div>
+                            <div class="card-body">
+                                <form action="scan-nft.php" method="post">
+                                    <div class="mb-3">
+                                    <div class="mb-3">
+                                      <div class="mb-3">
+                                          <label for="call_num" class="form-label">Please input "all" if you want to load ALL the NFT Markers. <br> Otherwise, please enter the part/whole call number of the book(s).</label>
+                                          <input type="text" class="form-control" id="call_num" name="call_num" required>
+                                      </div>
+                                    <button type="submit" class="back-button">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <a-assets>
-      <a-asset-item id="animated-asset" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb"></a-asset-item>
-    </a-assets>
-    <a-assets>
-      <a-asset-item id="animated-asset2" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb"></a-asset-item>
-    </a-assets>
-    <a-assets>
-      <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
-    </a-assets>
-    <!-- NFT marker definition 
-    url='./book/book-image/book'
-    url='https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
-    url='https://raw.githack.com/SHERVIOR/workingar/tree/main/aframe/examples/image-tracking/nft2/book/book-image/book'
-    -->
-    <a-nft
-      markerhandler 
-      emitevents="true" 
-      cursor="rayOrigin: mouse" 
-      id="animated-marker"
-      type='nft' 
-      url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft/tkam'
-      width='500'
-      value='151'
-      smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-
-      <!-- Entity displaying the 3D model -->
-      <a-entity
-        id="animated-model"
-        gltf-model="#animated-asset"
-        scale="30 30 30"
-        rotation="0 -90 0"
-        position="0 0 -100"> <!-- Book Location 3D model -->
-      </a-entity>
-      <a-entity
-        id="animated-model2"
-        gltf-model="#animated-asset2"
-        scale="30 30 30"
-        rotation="0 -90 0"
-        position="850 0 -100"> <!-- Similar Books 3D model -->
-      </a-entity>
-      <a-entity
-        id="animated-model3"
-        gltf-model="#animated-asset3"
-        scale="30 30 30"
-        rotation="0 -90 0"
-        position="400 0 -500"> <!-- Book Information 3D model -->
-      </a-entity>
-    </a-nft>
-
-    <!-- Camera entity -->
-    <a-entity camera="fov: 80; aspect: 1.33;"></a-entity>
-
-  </a-scene>
+                <div class="centeral">
+                  <br>
+                    <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
+                    <button class="back-button" onclick='navigateBackAndReload()'><i class="fa-solid fa-arrow-left"></i></button>
+                    <script>
+                        var count = 0;
+                        while (count < 30) {
+                            document.write('<br>');
+                            count++;
+                        }
+                    </script>
+                </div>
         </div>
     </div>
-    <div class="centeral">
-        <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i> Back</button></a>
+
+
+  <!-- Virtual Keyboard -->
+  <div id="virtual-keyboard">
+  <!-- Alphanumeric and Special characters keyboard section -->
+  <div class="keyboard-section">
+    <!-- Alphanumeric keys -->
+    <div class="keyboard-half">
+      <button onclick="addToInput('1')">1</button>
+      <button onclick="addToInput('2')">2</button>
+      <button onclick="addToInput('3')">3</button>
+      <button onclick="addToInput('4')">4</button>
+      <button onclick="addToInput('5')">5</button>
+      <button onclick="addToInput('6')">6</button>
+      <button onclick="addToInput('7')">7</button>
+      <button onclick="addToInput('8')">8</button>
+      <button onclick="addToInput('9')">9</button>
+      <button onclick="addToInput('0')">0</button>
+      
+      <button onclick="addToInput('q')">q</button>
+      <button onclick="addToInput('w')">w</button>
+      <button onclick="addToInput('e')">e</button>
+      <button onclick="addToInput('r')">r</button>
+      <button onclick="addToInput('t')">t</button>
+      <button onclick="addToInput('y')">y</button>
+      <button onclick="addToInput('u')">u</button>
+      <button onclick="addToInput('i')">i</button>
+      <button onclick="addToInput('o')">o</button>
+      <button onclick="addToInput('p')">p</button>
+      <button onclick="addToInput('a')">a</button>
+      <button onclick="addToInput('s')">s</button>
+      <button onclick="addToInput('d')">d</button>
+      <button onclick="addToInput('f')">f</button>
+      <button onclick="addToInput('g')">g</button>
+      <button onclick="addToInput('h')">h</button>
+      <button onclick="addToInput('j')">j</button>
+      <button onclick="addToInput('k')">k</button>
+      <button onclick="addToInput('l')">l</button>
+      <button onclick="addToInput('z')">z</button>
+      <button onclick="addToInput('x')">x</button>
+      <button onclick="addToInput('c')">c</button>
+      <button onclick="addToInput('v')">v</button>
+      <button onclick="addToInput('b')">b</button>
+      <button onclick="addToInput('n')">n</button>
+      <button onclick="addToInput('m')">m</button>
+      <button onclick="addToInput(' ')">Space</button> 
+
     </div>
+    <!-- Special characters keys -->
+    <div class="keyboard-half">
+      <button onclick="addToInput('!')">!</button>
+      <button onclick="addToInput('@')">@</button>
+      <button onclick="addToInput('#')">#</button>
+      <button onclick="addToInput('$')">$</button>
+      <button onclick="addToInput('%')">%</button>
+      <button onclick="addToInput('^')">^</button>
+      <button onclick="addToInput('&')">&</button>
+      <button onclick="addToInput('-')">-</button>
+      <button onclick="addToInput('*')">*</button>
+      <button onclick="addToInput('(')">(</button>
+      <button onclick="addToInput(')')">)</button>
+      <button onclick="addToInput('_')">_</button>
+      <button onclick="addToInput('+')">+</button>
+      <button onclick="addToInput('{')">{</button>
+      <button onclick="addToInput('[')">[</button>
+      <button onclick="addToInput('}')">}</button>
+      <button onclick="addToInput(']')">]</button>
+      <button onclick="addToInput(':')">:</button>
+      <button onclick="addToInput(';')">;</button>
+      <button onclick="addToInput('&quot;')">"</button>
+      <button onclick="addToInput('|')">|</button>
+      <button onclick="addToInput('\\')">\</button>
+      <button onclick="addToInput('&lt;')">&lt;</button>
+      <button onclick="addToInput('.')">.</button>
+      <button onclick="addToInput(',')">,</button>
+      <button onclick="addToInput('?')">?</button>
+      <button onclick="addToInput('/')">/</button>
+      <button onclick="addToInput('~')">~</button>
+      <button onclick="addToInput('`')">`</button>
+      <button onclick="deleteText()">Delete</button>
+      <button onclick="addToInput('')">Backspace</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let focusedInput = null;
+
+  function addToInput(char) {
+    if (focusedInput) {
+            if (char === '') {
+        // Handle backspace (delete last character)
+        focusedInput.value = focusedInput.value.slice(0, -1);
+        } else {
+            focusedInput.value += char;
+        }
+    }
+    // Keep the virtual keyboard visible after clicking its buttons
+    document.getElementById('virtual-keyboard').style.display = 'block';
+  }
+
+  function deleteText() {
+    if (focusedInput) {
+      focusedInput.value = '';
+    }
+    // Keep the virtual keyboard visible after clicking its buttons
+    document.getElementById('virtual-keyboard').style.display = 'block';
+  }
+
+  // Show the virtual keyboard when input box or textarea is focused
+document.querySelectorAll('input[type="text"], textarea').forEach(function(element) {
+  element.addEventListener('focus', function() {
+    focusedInput = element;
+    document.getElementById('virtual-keyboard').style.display = 'block';
+  });
+});
+  
+
+  // Hide the virtual keyboard when clicking outside search box or virtual keyboard
+  document.addEventListener('click', function(event) {
+    const virtualKeyboard = document.getElementById('virtual-keyboard');
+    const inputs = document.querySelectorAll('input[type="text"], textarea');
+    if (!Array.from(inputs).some(input => input.contains(event.target)) && event.target !== virtualKeyboard && !virtualKeyboard.contains(event.target)) {
+      virtualKeyboard.style.display = 'none';
+    }
+  });
+
+  // Keep the virtual keyboard visible when it is clicked
+  document.getElementById('virtual-keyboard').addEventListener('click', function() {
+    if (focusedInput) {
+      focusedInput.focus();
+    }
+  });
+</script>
+
+
+
 
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
-<script>
-  const scene = document.getElementById('myS');
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
 
-    scene.addEventListener('loaded', function () {
-      // Scene is fully initialized, execute your code here
-      const scene = AFRAME.scenes[0];
-  if (!scene) {
-    return;
-  }
-  const mouseCursor = document.createElement('a-entity');
-  mouseCursor.setAttribute('cursor', 'rayOrigin', 'mouse');
-  scene.appendChild(mouseCursor);
-    });
-</script>
 </html>

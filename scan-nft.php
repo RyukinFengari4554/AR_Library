@@ -1,28 +1,53 @@
 <?php
-
 require_once "includes/db.inc.php";
 
 $nft_books = array();
 
-$sql = "SELECT id, marker FROM books";
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["call_num"]) && !empty($_POST["call_num"])) {
+    $callNumber = $_POST["call_num"];
 
-$result = $mysqli->query($sql);
-
-if ($result) {
-
-    while ($row = $result->fetch_assoc()) {
-        $nft_books[$row['id']] = $row['marker'];
+    // Check if callNumber is 'all'
+    if ($callNumber == 'all') {
+        $sql = "SELECT id, marker FROM books";
+    } else {
+      $sql = "SELECT id, marker FROM books WHERE call_num LIKE ?";
+      $callNumber = '%' . $callNumber . '%'; // Prepend and append '%' to match partial strings
     }
 
-    $result->free();
+    // Prepare and execute the SQL query
+    $stmt = $mysqli->prepare($sql);
+
+    if ($callNumber != 'all') {
+        $stmt->bind_param("s", $callNumber);
+    }
+
+    $stmt->execute();
+
+    // Check if the query execution was successful
+    if ($stmt) {
+        $result = $stmt->get_result();
+
+        // Fetch results and store them in the $nft_books array
+        while ($row = $result->fetch_assoc()) {
+            $nft_books[$row['id']] = $row['marker'];
+        }
+
+        echo '<script>';
+        echo 'console.log("NFT books:", ' . json_encode($nft_books) . ');';
+        echo '</script>';
+
+        $result->free();
+    } else {
+        // Handle SQL query execution error
+        echo "Error: " . $mysqli->error;
+    }
+
+    // Close the prepared statement
+    $stmt->close();
 } else {
-   
-    echo "Error: " . $mysqli->error;
+    // Handle case when call_num parameter is not set or empty
+    echo '<h2> Call number is not set or empty. </h2>';
 }
-
-
-$mysqli->close();
-
 ?>
 <!doctype HTML>
 <html>
@@ -100,7 +125,8 @@ $mysqli->close();
       <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
   
-  <?php foreach ($nft_books as $id => $marker): ?>
+  <?php if (!empty($nft_books)): ?>
+    <?php foreach ($nft_books as $id => $marker): ?>
     <a-nft 
          markerhandler
                 emitevents="true"
@@ -138,7 +164,7 @@ $mysqli->close();
     <?php endforeach; ?>
 
     <a-entity camera></a-entity>
-
+    <?php endif; ?>
 
   </a-scene>
 </body>
