@@ -115,10 +115,10 @@ if(isset($_SESSION['my_array'])) {
                     <?php 
                     if ($id == 19) {
                       // Code to execute if $id is equal to 19
-                      echo "450 -70 -225";
+                      echo '450 -70 -225';
                   } else {
                       // Code to execute if $id is not equal to 19
-                      echo "450 -120 -225";
+                      echo '450 -120 -225';
                   }
                     ?>
                     " > <!-- Book Location 3D model -->
@@ -132,10 +132,10 @@ if(isset($_SESSION['my_array'])) {
                     <?php 
                     if ($id == 19) {
                       // Code to execute if $id is equal to 19
-                      echo "275 -70 -225";
+                      echo '275 -70 -225';
                   } else {
                       // Code to execute if $id is not equal to 19
-                      echo "275 -120 -225";
+                      echo '275 -120 -225';
                   }
                     ?>
                     "> <!-- Similar Books 3D model -->
@@ -149,10 +149,10 @@ if(isset($_SESSION['my_array'])) {
                     <?php 
                     if ($id == 19) {
                       // Code to execute if $id is equal to 19
-                      echo "363 -70 -150";
+                      echo '363 -70 -150';
                   } else {
                       // Code to execute if $id is not equal to 19
-                      echo "363 -120 -150";
+                      echo '363 -120 -150';
                   }
                     ?>
                     "> <!-- Book Information 3D model -->
