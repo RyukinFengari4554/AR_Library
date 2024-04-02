@@ -51,17 +51,14 @@ if(isset($_SESSION['my_array'])) {
       cursor: pointer;
       transition: color 0.3s;
     }
-  .fixedbutton {
-    position: fixed;
-    bottom: 5rem;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 7rem;
-}
 
+.fixed-buttons {
+    position: fixed;
+    bottom: 5rem; /* Adjust the distance from the bottom */
+    left: 50%; /* Place buttons in the center horizontally */
+    transform: translateX(-50%); /* Center buttons horizontally */
+    z-index: 9999; /* Ensure buttons appear on top of other content */
+  }
 </style>
 
 
@@ -72,8 +69,11 @@ if(isset($_SESSION['my_array'])) {
 <script src="includes/event.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
-<a href="index.html"><button class="fixedbutton" style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
-  <div class="arjs-loader">
+<div class="fixed-buttons">
+<a href="index.html"><button style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
+<a href="javascript:history.back()"><button style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button></a>
+</div> 
+<div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
 
