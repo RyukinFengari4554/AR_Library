@@ -47,8 +47,11 @@
   id="myS"
     vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true; precision: medium;"
-    embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
+    embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'
+    overflow: hidden>
 
+ 
+    <!--
     <a-assets>
       <a-asset-item id="animated-asset" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb"></a-asset-item>
     </a-assets>
@@ -57,7 +60,8 @@
     </a-assets>
     <a-assets>
       <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
-    </a-assets>
+    </a-assets> 
+  -->
     <!-- NFT marker definition 
     url='./book/book-image/book'
     url='https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
@@ -76,30 +80,37 @@
       smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
       <!-- Entity displaying the 3D model -->
+  
+      <a-image
+      src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar_books.png"
+      id="animated-model"
+      scale="1 1 1"
+      position="600 -120 -175">
+    </a-image>
+    </a-nft>
+
+    <!-- Camera entity 
       <a-entity
         id="animated-model"
         gltf-model="#animated-asset"
         scale="20 20 20"
-        rotation="0 -90 0"
-        position="400 -120 -175"> <!-- Book Location 3D model -->
+        position="600 -120 -175">
       </a-entity>
-      <a-entity
+    <a-entity
         id="animated-model2"
         gltf-model="#animated-asset2"
         scale="20 20 20"
-        rotation="0 -90 0"
-        position="225 -120 -175"> <!-- Similar Books 3D model -->
+        position="225 -120 -175"> 
       </a-entity>
-      <a-entity
+    
+    <a-entity
         id="animated-model3"
         gltf-model="#animated-asset3"
         scale="20 20 20"
         rotation="0 -90 0"
-        position="313 -120 -100"> <!-- Book Information 3D model -->
+        position="313 -120 -100"> 
       </a-entity>
-    </a-nft>
-
-    <!-- Camera entity -->
+    -->
     <a-entity camera raycaster="objects: .clickable"></a-entity>
 
 
