@@ -23,6 +23,8 @@ if(isset($_SESSION['my_array'])) {
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     
     </head>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
 <link href="styles/home.css" rel="stylesheet">
@@ -69,6 +71,46 @@ if(isset($_SESSION['my_array'])) {
 <script src="includes/event.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #dfbcbc; background-image: linear-gradient(white , #FFE3E5);">
+        
+        <a class="navbar-brand mb-0 h1" href="index.html"><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" style="width:2rem;height:2rem;"> EAC AR Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+      
+            <li class="nav-item">
+              <a class="nav-link links" href="scan.php"><i class="fa-solid fa-book-open"></i> Scan a Book</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link links" href="catalogue.php"><i class="fa-solid fa-search"></i> Catalogue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link links" href="map-whole.php"><i class="fa-solid fa-map"></i> Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link links" href="login-wsa.php"><i class="fa-solid fa-user"></i> Log-in</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!--
+        <table style="width:100%">
+          <tr>
+              <td style="width:25%"><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" style="width:50%;height:50%;"> </td>
+              <td style="text-align: center;">
+                  <h1 style="color: red;">Emilio Aguinaldo College</h1>
+                  Gov. D. Mangubat Ave., Brgy. Burol Main, City of Dasmariñas, Cavite 4114, Philippines<br >
+                  Tel. Nos. (046) 416-4339/41<br>
+                  <a href="https://www.eac.edu.ph" target="_blank" rel="noopener noreferrer">www.eac.edu.ph</a><br>
+                  <br>
+                  <h3>School of Engineering and Technology</h3>
+              </td>
+          </tr>
+      </table>
+      -->
 <div class="fixed-buttons">
 <a href="index.html"><button style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
 <a href="javascript:history.back()"><button style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button></a>
@@ -165,6 +207,12 @@ if(isset($_SESSION['my_array'])) {
     <?php endif; ?>
 
   </a-scene>
+
+  <!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 <script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 </html>
