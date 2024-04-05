@@ -114,7 +114,7 @@ echo "<td>";
 echo "<h1><strong>Title:</strong> $book_title</h1>";
 echo "</td>";
 echo "<td>";
-echo "<h2 style='text-align: center; margin-right: 3rem;'>Availability:<br>";
+echo "<h2 style='text-align: center; margin-right: 3rem; margin-left: 3rem;'>Availability:<br>";
 if ($book_avail==1) {
     echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2>";
 } else {
@@ -127,6 +127,7 @@ echo "<p><strong>Genre:</strong> $book_genre</p>";
 echo "<p><strong>Call Number:</strong> $book_cn</p>";
 echo "<a href='map-all.php?id=" . $book_id . "'><p><strong>Shelf Location:</strong> $book_shelf <strong><i class='fa-solid fa-location-dot'></i></strong></p></a>";
 echo "<a href='similar_books.php?id=" . $book_id . "'><p><strong>Similar Books </strong><strong><i class='fa-solid fa-book-open'></i></strong></p></a>";
+echo "</td></tr></table><table style='margin-left: 3rem; margin-right: 3rem;'><tr><td>";
 echo "<h3 style='margin: 0;'>Plot Summary:</h3>";
 echo "<p style='margin: 0; text-align: justify;text-justify: inter-word;'> $book_desc</p>";
 echo "</td>";
