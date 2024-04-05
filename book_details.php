@@ -109,23 +109,32 @@
                     $book_cn = $row["call_num"];
                     // Display book details
 
-                    echo "<table style='margin-left: 3rem;'><tr><td style='padding-right: 35rem;'><h1><strong>Title:</strong> $book_title</h1>";
-                    echo "<p><strong>Author:</strong> $book_author</p>";
-                    echo "<p><strong>Published:</strong> $book_year</p>";
-                    echo "<p><strong>Genre:</strong> $book_genre</p>";
-                    echo "<td style='padding-right: 5rem;'><h2 style='text-align: center;'>Availability:<br>";
-                    if ($book_avail==1){
-                        echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2></td>"; 
-                    }
-                    else
-                    {
-                        echo "<i class='fa-solid fa-circle-xmark fa-lg' style='color: red;'></i></h2></td>"; 
-                    }
-                    echo "</table><table style='margin-left: 3rem; margin-right: 3rem;'></tr><tr><td><p><strong>Call Number:</strong> $book_cn</p></td></tr>"; 
-                    echo "<tr><td><a href='map-all.php?id=" . $book_id . "'><p><strong>Shelf Location:</strong> $book_shelf <strong><i class='fa-solid fa-location-dot'></i></strong></p></a></td></tr>"; 
-                    echo "<tr><td><a href='similar_books.php?id=" . $book_id . "'><p><strong>Similar Books </strong><strong><i class='fa-solid fa-book-open'></i></strong></p></a></td></tr>"; 
-                    echo "<tr><td><h3 style='margin: 0;'>Plot Summary:</h3></td></tr><tr style='margin: 0; padding: 0;'><td><p style='margin: 0; padding: 0; text-align: justify;text-justify: inter-word;'> $book_desc</p></td></tr></table>";
-                } else {
+                    echo "<table style='margin-left: 3rem;'><tr>";
+echo "<td>";
+echo "<h1><strong>Title:</strong> $book_title</h1>";
+echo "</td>";
+echo "<td>";
+echo "<h2 style='text-align: center;'>Availability:<br>";
+if ($book_avail==1) {
+    echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2>";
+} else {
+    echo "<i class='fa-solid fa-circle-xmark fa-lg' style='color: red;'></i></h2>";
+}
+echo "</td></tr><tr><td>";
+echo "<p><strong>Author:</strong> $book_author</p>";
+echo "<p><strong>Published:</strong> $book_year</p>";
+echo "<p><strong>Genre:</strong> $book_genre</p>";
+echo "<p><strong>Call Number:</strong> $book_cn</p>";
+echo "<a href='map-all.php?id=" . $book_id . "'><p><strong>Shelf Location:</strong> $book_shelf <strong><i class='fa-solid fa-location-dot'></i></strong></p></a>";
+echo "<a href='similar_books.php?id=" . $book_id . "'><p><strong>Similar Books </strong><strong><i class='fa-solid fa-book-open'></i></strong></p></a>";
+echo "<h3 style='margin: 0;'>Plot Summary:</h3>";
+echo "<p style='margin: 0; text-align: justify;text-justify: inter-word;'> $book_desc</p>";
+echo "</td>";
+
+echo "</tr></table>";
+
+
+} else {
                     echo "<h2 class='centeral'>Book not found</h2>";
                 }
 
