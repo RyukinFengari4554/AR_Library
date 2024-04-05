@@ -155,11 +155,12 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 19) {
-                      // Code to execute if $id is equal to 19
+                    if ($id == 9) {
+                      echo '250 -120 -225';
+                  }
+                    elseif ($id == 19) {
                       echo '450 -70 -225';
                   } else {
-                      // Code to execute if $id is not equal to 19
                       echo '450 -120 -225';
                   }
                     ?>
@@ -172,11 +173,12 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 19) {
-                      // Code to execute if $id is equal to 19
+                    if ($id == 9) {
+                      echo '75 -120 -225';
+                  }
+                    elseif ($id == 19) {
                       echo '275 -70 -225';
                   } else {
-                      // Code to execute if $id is not equal to 19
                       echo '275 -120 -225';
                   }
                     ?>
@@ -189,11 +191,12 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 19) {
-                      // Code to execute if $id is equal to 19
+                    if ($id == 9) {
+                      echo '163 -120 -150';
+                  }
+                    elseif ($id == 19) {
                       echo '363 -70 -150';
                   } else {
-                      // Code to execute if $id is not equal to 19
                       echo '363 -120 -150';
                   }
                     ?>
