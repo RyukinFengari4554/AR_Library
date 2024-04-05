@@ -114,7 +114,7 @@ echo "<td>";
 echo "<h1><strong>Title:</strong> $book_title</h1>";
 echo "</td>";
 echo "<td>";
-echo "<h2 style='text-align: center;'>Availability:<br>";
+echo "<h2 style='text-align: center; margin-right: 3rem;'>Availability:<br>";
 if ($book_avail==1) {
     echo "<i class='fa-solid fa-circle-check fa-lg' style='color: green;'></i></h2>";
 } else {
