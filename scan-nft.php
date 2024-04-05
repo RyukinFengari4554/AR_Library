@@ -151,7 +151,7 @@ if(isset($_SESSION['my_array'])) {
             <a-entity
                     id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
-                    scale="10 10 10"
+                    scale="20 20 20"
                     rotation="0 -90 0"
                     position="
                     <?php 
@@ -169,7 +169,7 @@ if(isset($_SESSION['my_array'])) {
             <a-entity
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
-                    scale="10 10 10"
+                    scale="20 20 20"
                     rotation="0 -90 0"
                     position="
                     <?php 
@@ -187,7 +187,7 @@ if(isset($_SESSION['my_array'])) {
             <a-entity
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
-                    scale="10 10 10"
+                    scale="20 20 20"
                     rotation="0 -90 0"
                     position="
                     <?php 
