@@ -155,7 +155,9 @@ if(isset($_SESSION['my_array'])) {
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } else {
+                  } elseif($id == 20){
+                      echo '50 50 50';
+                  }else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -169,6 +171,8 @@ if(isset($_SESSION['my_array'])) {
                       echo '450 -120 -275';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '450 -140 -225';
+                  } elseif ($id == 20) {
+                    echo '525 -150 -225';
                   } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '230 -120 -225';
                   } else {
@@ -183,7 +187,9 @@ if(isset($_SESSION['my_array'])) {
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } else {
+                  } elseif($id == 20){
+                    echo '50 50 50';
+                }else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -197,7 +203,9 @@ if(isset($_SESSION['my_array'])) {
                       echo '275 -140 -275';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '275 -140 -225';
-                  } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
+                  } elseif ($id == 20) {
+                    echo '75 -150 -225';
+                }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '95 -120 -225';
                   } else {
                       echo '275 -120 -225';
@@ -211,7 +219,9 @@ if(isset($_SESSION['my_array'])) {
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } else {
+                  } elseif($id == 20){
+                    echo '50 50 50';
+                }else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -227,7 +237,9 @@ if(isset($_SESSION['my_array'])) {
                       echo '363 -120 -200';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '363 -140 -150';
-                  }  elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
+                  }  elseif ($id == 20) {
+                    echo '363 -150 -55';
+                }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -120 -165';
                   }  else {
                       echo '363 -120 -150';
