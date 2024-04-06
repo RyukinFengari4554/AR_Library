@@ -1,3 +1,8 @@
+<?php
+
+// Database connection
+require_once "includes/db.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +68,31 @@
       cursor: pointer;
       transition: color 0.3s;
     }
+    .search-input {
+        width: 25rem;
+        
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+    .search-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+    .search-button:hover {
+        background-color: #0056b3;
+    }
+    input[type="text"]
+    {
+        font-size:24px;
+    }
 </style>
 
 </head>
@@ -73,9 +103,47 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
+        <form class="centeral action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+            <div class="centeral">
+                <table class="centeral">
+                    <tr>
+                        <input type="text" title="Please enter the exact name of the book into the search bar to search." class="search-input input-box" placeholder="Search.." id="search" name="query" style="height: 5rem;">
+                        <button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button>
+                    </tr>
+                    <tr><p><b>Please enter the EXACT Name or Call Number of the book into the search bar to search.</b></p></tr>
+                </table>
+                <hr style="border: 2px solid black;">
+            </div>
+        </form>
+        <table>
+          <?php
+          // Initialize $search_query variable
+$search_query = "";
+
+if(isset($_GET['query'])) {
+    $search_query = $_GET['query'];
+
+    // Escape special characters to prevent SQL injection
+    $search_query = $mysqli->real_escape_string($search_query);
+
+    // Query to search for books matching the search query in the 'title' column
+    $sql = "SELECT * FROM books WHERE title = '$search_query' OR call_num ='$search_query'";
+    $result = $mysqli->query($sql);
+
+    // Display search results
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $idb = $row['id'];
+        echo "<script>window.location.href = 'map-all.php?id=$idb';</script>";
+        exit;
+    } else {
+        echo "<h3>No results found for: " . htmlspecialchars($search_query)."</h3>";
+    }
+}
+          ?>
+        </table>
                   <?php 
-                  // Database connection
-                require_once "includes/db.inc.php";
+                
                 // Get book ID from URL parameter
                 if (isset($_GET['id'])) {
                     $book_id = $_GET['id'];

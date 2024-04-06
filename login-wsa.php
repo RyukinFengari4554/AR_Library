@@ -262,9 +262,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="centeral">
                     <br>
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
+                <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
+                    
                 <?php
                 $count = 0;
-                while ($count < 5) {
+                while ($count < 10) {
                     echo "<br>";
                     $count++;
                 }

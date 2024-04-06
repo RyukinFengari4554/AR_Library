@@ -140,7 +140,7 @@ require_once "includes/db.inc.php";
                         <input type="text" title="Please enter the exact name of the book into the search bar to search." class="search-input input-box" placeholder="Search.." id="search" name="query" style="height: 5rem;">
                         <button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button>
                     </tr>
-                    <tr><p><b>Please enter the EXACT name of the book into the search bar to search.</b></p></tr>
+                    <tr><p><b>Please enter the EXACT Name or Call Number of the book into the search bar to search.</b></p></tr>
                 </table>
                 <hr style="border: 2px solid black;">
             </div>
@@ -183,7 +183,8 @@ if(isset($_GET['query'])) {
         <div class="centeral" >
           <br>
           <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-        </div>
+          <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
+                    </div>
         <script>
                         var count = 0;
                         while (count < 5) {
