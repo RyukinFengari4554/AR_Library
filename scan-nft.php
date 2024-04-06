@@ -153,7 +153,7 @@ if(isset($_SESSION['my_array'])) {
                     id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
                     scale="<?php 
-                    if ($id == 21) { 
+                    if ($id == 21 || $id ==25 || $id ==28|| $id ==34 || $id ==39) { 
                       echo '15 15 15';
                   } else {
                       echo '20 20 20';
@@ -161,9 +161,11 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 ||($id>=22 && $id <= 30) || $id == 33) {                       // adjust model to the left //
+                    if ($id == 9 ||($id>=22 && $id <= 24) ||$id==26 || $id == 27 ||$id==29) {                       // adjust model to the left //
                       echo '250 -120 -225';
-                  } elseif ($id == 11) {         //moving byitself                       // adjust model height and z axis nearer //
+                  } elseif ($id == 30 || $id == 33) {
+                    echo '280 -120 -225';
+                  }elseif ($id == 11) {         //moving byitself                       // adjust model height and z axis nearer //
                       echo '400 -150 -275';
                   } elseif ($id == 13) {                              // adjust model height //
                       echo '450 -120 -275';
@@ -171,9 +173,9 @@ if(isset($_SESSION['my_array'])) {
                       echo '450 -140 -225';
                   } elseif ($id == 20) {
                     echo '525 -170 -225';
-                  } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
+                  } elseif ($id == 21|| $id ==25 || $id ==28) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '230 -120 -225';
-                  } else {
+                  }  else {
                       echo '450 -120 -225';
                   }
                     ?>
@@ -183,7 +185,7 @@ if(isset($_SESSION['my_array'])) {
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     scale="<?php 
-                    if ($id == 21) { 
+                    if ($id == 21 || $id ==25 || $id ==28|| $id ==34 || $id ==39) { 
                       echo '15 15 15';
                   } else {
                       echo '20 20 20';
@@ -191,9 +193,11 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 ||($id>=22 && $id <= 30) ||$id == 33) {                    // adjust model to the left //
+                       if ($id == 9 ||($id>=22 && $id <= 24) ||$id==26 || $id == 27 ||$id==29) {                    // adjust model to the left //
                       echo '75 -120 -225';
-                  } elseif ($id == 11) {                            // adjust model height and z axis nearer //
+                  } elseif ($id == 30 || $id == 33) {
+                    echo '105 -120 -225';
+                  }elseif ($id == 11) {                            // adjust model height and z axis nearer //
                       echo '225 -150 -275';
                   } elseif ($id == 13) {                            // adjust model height //
                       echo '275 -140 -275';
@@ -201,9 +205,9 @@ if(isset($_SESSION['my_array'])) {
                       echo '275 -140 -225';
                   } elseif ($id == 20) {
                     echo '75 -170 -225';
-                }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
+                }elseif ($id == 21|| $id ==25 || $id ==28 ) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '95 -120 -225';
-                  } else {
+                  }else {
                       echo '275 -120 -225';
                   }
                     ?>
@@ -213,7 +217,7 @@ if(isset($_SESSION['my_array'])) {
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     scale="<?php 
-                    if ($id == 21) { 
+                    if ($id == 21 || $id ==25 || $id ==28|| $id ==34 || $id ==39) { 
                       echo '15 15 15';
                   } else {
                       echo '20 20 20';
@@ -221,9 +225,11 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 || $id == 33 || ($id>=22 && $id <= 30)) {                  // adjust model to the left //
+                       if ($id == 9 ||($id>=22 && $id <= 24) ||$id==26 || $id == 27 ||$id==29) {                // adjust model to the left //
                       echo '163 -120 -150';
-                  }  elseif ($id == 11) {                         // adjust model height and z axis nearer //
+                  } elseif ($id == 30|| $id == 33) {                        // adjust model to slight right from left
+                    echo '193 -120 -150';
+                } elseif ($id == 11) {                         // adjust model height and z axis nearer //
                       echo '313 -150 -200';
                   } elseif ($id == 13) {                              // adjust model height //
                       echo '363 -120 -200';
@@ -231,9 +237,12 @@ if(isset($_SESSION['my_array'])) {
                       echo '363 -140 -150';
                   }  elseif ($id == 20) {
                     echo '363 -170 -55';
-                }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
+                }elseif ($id == 21|| $id ==25 || $id ==28) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -120 -165';
-                  }  else {
+                  }
+                  elseif ($id ==34 || $id ==39) { // adjust height for 15 scale
+                    echo '363 -120 -165';
+                }  else {
                       echo '363 -120 -150';
                   }
                     ?>
