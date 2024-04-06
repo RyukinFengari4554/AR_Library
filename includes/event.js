@@ -1,45 +1,54 @@
 AFRAME.registerComponent('markerhandler', {
     init: function() {
-
-        this.el.addEventListener('markerFound', function() {
+      var self = this;
+  
+      // Wait for the marker to be found
+      this.el.addEventListener('markerFound', function() {
         var nfts = document.querySelectorAll("a-nft");
-    
- 
-    nfts.forEach(function(nft) {
-        var nftValue = nft.getAttribute("value");
-        var models = nft.querySelectorAll("[id^='model']");
-
-        nft.addEventListener('click', function(ev) {
+  
+        // Iterate over each a-nft element
+        nfts.forEach(function(nft) {
+          var nftValue = nft.getAttribute("value");
+          var models = nft.querySelectorAll("[id^='model']");
+  
+          // Add click event listener to each a-nft element
+          nft.addEventListener('click', function(ev) {
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
             models.forEach(function(model) {
-                if (model && intersectedElement === model) {
-                    compare1 = "model1-" + nftValue;
-                    compare2 = "model2-" + nftValue;
-                    compare3 = "model3-" + nftValue;
-                    if (model.id === compare1) {
-                        window.location.href = 'map-all.php?id=' + nftValue;
-                        //var state = 1;
-                        //console.log(state);
-                        //navigateToPage(state, nftValue);
-                    } else if (model.id === compare2) {
-                        window.location.href = "similar_books.php?id=" + nftValue;
-                        //var state = 2;
-                        //console.log(state);
-                        //navigateToPage(state, nftValue);
-                    } else if (model.id === compare3) {
-                        window.location.href = "book_details.php?id=" + nftValue;
-                        //var state = 3;
-                        //console.log(state);
-                        //navigateToPage(state, nftValue);
-                    }
+              // Define the clickable area using position and scale
+              var clickableAreaPosition = model.getAttribute('position');
+              var clickableAreaScale = model.getAttribute('scale');
+  
+              // Define the boundaries of the clickable area
+              var minX = clickableAreaPosition.x - clickableAreaScale.x / 2;
+              var maxX = clickableAreaPosition.x + clickableAreaScale.x / 2;
+              var minY = clickableAreaPosition.y - clickableAreaScale.y / 2;
+              var maxY = clickableAreaPosition.y + clickableAreaScale.y / 2;
+  
+              // Check if the intersected element is within the clickable area boundaries
+              if (
+                intersectedElement === model &&
+                self.isWithinBounds(intersectedElement.object3D.position.x, minX, maxX) &&
+                self.isWithinBounds(intersectedElement.object3D.position.y, minY, maxY)
+              ) {
+                // Perform actions based on the clicked model
+                // You can replace the window.location.href with your desired action
+                if (model.id === "model1-" + nftValue) {
+                  window.location.href = 'map-all.php?id=' + nftValue;
+                } else if (model.id === "model2-" + nftValue) {
+                  window.location.href = "similar_books.php?id=" + nftValue;
+                } else if (model.id === "model3-" + nftValue) {
+                  window.location.href = "book_details.php?id=" + nftValue;
                 }
+              }
             });
+          });
         });
-        
-    }); 
-        });
+      });
+    },
+  
+    isWithinBounds: function(value, min, max) {
+      return value >= min && value <= max;
     }
-
-});
-
-      
+  });
+  
