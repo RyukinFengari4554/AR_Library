@@ -156,7 +156,7 @@ if(isset($_SESSION['my_array'])) {
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
                   } elseif($id == 20){
-                      echo '40 40 40';
+                      echo '50 50 50';
                   }else {
                       echo '20 20 20';
                   }?>"
@@ -188,7 +188,7 @@ if(isset($_SESSION['my_array'])) {
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
                   } elseif($id == 20){
-                    echo '40 40 40';
+                    echo '50 50 50';
                 }else {
                       echo '20 20 20';
                   }?>"
@@ -220,7 +220,7 @@ if(isset($_SESSION['my_array'])) {
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
                   } elseif($id == 20){
-                    echo '40 40 40';
+                    echo '50 50 50';
                 }else {
                       echo '20 20 20';
                   }?>"
