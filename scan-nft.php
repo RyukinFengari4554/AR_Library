@@ -142,7 +142,7 @@ if(isset($_SESSION['my_array'])) {
          markerhandler
                 emitevents="true"
                 cursor="rayOrigin: mouse"
-                id="animated-marker"
+                id="animated-marker-<?php echo $id ?>"
                 type='nft'
                 url='includes/nft-books/<?php echo $marker ?>'
                 width='50'
@@ -150,14 +150,12 @@ if(isset($_SESSION['my_array'])) {
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
             <a-entity
-                    id="model1" 
+                    id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } elseif($id == 20){
-                    echo '40 40 40';
-                  }else {
+                  } else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -182,14 +180,12 @@ if(isset($_SESSION['my_array'])) {
                     " > <!-- Book Location 3D model -->
             </a-entity>
             <a-entity
-                    id="model2"
+                    id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } elseif($id == 20){
-                    echo '40 40 40';
-                }else {
+                  } else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -214,14 +210,12 @@ if(isset($_SESSION['my_array'])) {
                     "> <!-- Similar Books 3D model -->
             </a-entity>
             <a-entity
-                    id="model3" 
+                    id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } elseif($id == 20){
-                    echo '40 40 40';
-                }else {
+                  } else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
