@@ -152,20 +152,25 @@ if(isset($_SESSION['my_array'])) {
             <a-entity
                     id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
-                    scale="20 20 20"
+                    scale="<?php 
+                    if ($id >= 21 && $id <= 30) { 
+                      echo '15 15 15';
+                  } else {
+                      echo '20 20 20';
+                  }?>"
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 || $id == 33) {       // adjust model to the left
+                    if ($id == 9 || $id == 33) {       // adjust model to the left //
                       echo '250 -120 -225';
                   } elseif ($id == 11) {// adjust model height and z axis nearer
-                      echo '450 -150 -275';
-                  } elseif ($id == 13) { // adjust model height
+                      echo '400 -150 -275';
+                  } elseif ($id == 13) { // adjust model height //
                       echo '450 -120 -275';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
-                      echo '450 -130 -225';
+                      echo '450 -140 -225';
                   } elseif ($id >= 21 && $id <= 30) { // adjust model to the left & z axis i think FARTHER TO CAMERA
-                      echo '250 -10-150';
+                      echo '250 -120 -225';
                   } else {
                       echo '450 -120 -225';
                   }
@@ -175,20 +180,25 @@ if(isset($_SESSION['my_array'])) {
             <a-entity
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
-                    scale="20 20 20"
+                    scale="<?php 
+                    if ($id >= 21 && $id <= 30) { 
+                      echo '15 15 15';
+                  } else {
+                      echo '20 20 20';
+                  }?>"
                     rotation="0 -90 0"
                     position="
                     <?php 
                     if ($id == 9 || $id == 33) {        // adjust model to the left //
                       echo '75 -120 -225';
                   } elseif ($id == 11) {  // adjust model height and z axis nearer
-                      echo '275 -150 -275';
+                      echo '225 -150 -275';
                   } elseif ($id == 13) {            // adjust model height //
-                      echo '275 -120 -275';
+                      echo '275 -140 -275';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '275 -130 -225';
                   } elseif ($id >= 21 && $id <= 30) { // adjust model to the left & z axis i think FARTHER TO CAMERA
-                      echo '75 -10 -150';
+                      echo '75 -120 -225';
                   } else {
                       echo '275 -120 -225';
                   }
@@ -198,20 +208,25 @@ if(isset($_SESSION['my_array'])) {
             <a-entity
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
-                    scale="20 20 20"
+                    scale="<?php 
+                    if ($id >= 21 && $id <= 30) { 
+                      echo '15 15 15';
+                  } else {
+                      echo '20 20 20';
+                  }?>"
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 || $id == 33) {          // adjust model to the left
+                    if ($id == 9 || $id == 33) {          // adjust model to the left //
                       echo '163 -120 -150';
                   }  elseif ($id == 11) {  // adjust model height and z axis nearer
-                      echo '363 -150 -200';
-                  } elseif ($id == 13) {  // adjust model height
+                      echo '313 -150 -200';
+                  } elseif ($id == 13) {  // adjust model height //
                       echo '363 -120 -200';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
-                      echo '363 -130 -150';
+                      echo '363 -140 -150';
                   }  elseif ($id >= 21 && $id <= 30) { // adjust model to the left & z axis i think FARTHER TO CAMERA
-                      echo '163 -10 -150';
+                      echo '163 -120 -150';
                   }  else {
                       echo '363 -120 -150';
                   }
