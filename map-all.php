@@ -162,6 +162,7 @@ if(isset($_GET['query'])) {
                     $urlb .= '?embed';
                     $genb = $row['genre'];
                      echo "
+                     <p class='centeral'><b>Click the <i class='fa-solid fa-circle-play'></i>(Play) button on the Rght to show where the book is located.</b><p>
                      <div class='twinmotion-embed-wrapper'>
                         <iframe style='height: 100%; width: 100%; min-height: 1000px; min-width: 375px;'
                             title='Embedded presentation &quot;$genb&quot;' frameborder='0'
