@@ -145,7 +145,7 @@ if(isset($_SESSION['my_array'])) {
                 id="animated-marker-<?php echo $id ?>"
                 type='nft'
                 url='includes/nft-books/<?php echo $marker ?>'
-                width='50'
+                width='100'
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
@@ -156,7 +156,7 @@ if(isset($_SESSION['my_array'])) {
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
                   } elseif($id == 20){
-                      echo '35 35 35';
+                      echo '40 40 40';
                   }else {
                       echo '20 20 20';
                   }?>"
@@ -172,7 +172,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '450 -140 -225';
                   } elseif ($id == 20) {
-                    echo '363 -150 -350';
+                    echo '525 -150 -225';
                   } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '230 -120 -225';
                   } else {
@@ -188,7 +188,7 @@ if(isset($_SESSION['my_array'])) {
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
                   } elseif($id == 20){
-                    echo '35 35 35';
+                    echo '40 40 40';
                 }else {
                       echo '20 20 20';
                   }?>"
@@ -204,7 +204,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '275 -140 -225';
                   } elseif ($id == 20) {
-                    echo '363 -150 -225';
+                    echo '75 -150 -225';
                 }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '95 -120 -225';
                   } else {
@@ -220,7 +220,7 @@ if(isset($_SESSION['my_array'])) {
                     if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
                   } elseif($id == 20){
-                    echo '35 35 35';
+                    echo '40 40 40';
                 }else {
                       echo '20 20 20';
                   }?>"
@@ -238,7 +238,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '363 -140 -150';
                   }  elseif ($id == 20) {
-                    echo '363 -150 -100';
+                    echo '363 -150 -55';
                 }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -120 -165';
                   }  else {
