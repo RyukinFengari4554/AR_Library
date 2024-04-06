@@ -142,7 +142,7 @@ if(isset($_SESSION['my_array'])) {
          markerhandler
                 emitevents="true"
                 cursor="rayOrigin: mouse"
-                id="animated-marker-<?php echo $id ?>"
+                id="animated-marker"
                 type='nft'
                 url='includes/nft-books/<?php echo $marker ?>'
                 width='50'
@@ -150,7 +150,7 @@ if(isset($_SESSION['my_array'])) {
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
             <a-entity
-                    id="model1-<?php echo $id ?>" 
+                    id="model1" 
                     gltf-model="#animated-asset"
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
@@ -172,7 +172,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '450 -140 -225';
                   } elseif ($id == 20) {
-                    echo '525 -150 -225';
+                    echo '525 -170 -225';
                   } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '230 -120 -225';
                   } else {
@@ -182,7 +182,7 @@ if(isset($_SESSION['my_array'])) {
                     " > <!-- Book Location 3D model -->
             </a-entity>
             <a-entity
-                    id="model2-<?php echo $id ?>" 
+                    id="model2"
                     gltf-model="#animated-asset2"
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
@@ -204,7 +204,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '275 -140 -225';
                   } elseif ($id == 20) {
-                    echo '75 -150 -225';
+                    echo '75 -170 -225';
                 }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '95 -120 -225';
                   } else {
@@ -214,7 +214,7 @@ if(isset($_SESSION['my_array'])) {
                     "> <!-- Similar Books 3D model -->
             </a-entity>
             <a-entity
-                    id="model3-<?php echo $id ?>" 
+                    id="model3" 
                     gltf-model="#animated-asset3"
                     scale="<?php 
                     if ($id >= 21 && $id <= 30) { 
@@ -238,7 +238,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '363 -140 -150';
                   }  elseif ($id == 20) {
-                    echo '363 -150 -55';
+                    echo '363 -170 -55';
                 }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -120 -165';
                   }  else {
