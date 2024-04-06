@@ -144,7 +144,7 @@ if(isset($_SESSION['my_array'])) {
                 cursor="rayOrigin: mouse"
                 id="animated-marker-<?php echo $id ?>"
                 type='nft'
-                url='includes/nft-books/<?php echo $marker ?>'
+                url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
                 width='50'
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
@@ -153,7 +153,7 @@ if(isset($_SESSION['my_array'])) {
                     id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
                     scale="<?php 
-                    if ($id >= 21 && $id <= 30) { 
+                    if ($id == 21) { 
                       echo '15 15 15';
                   } else {
                       echo '20 20 20';
@@ -183,7 +183,7 @@ if(isset($_SESSION['my_array'])) {
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     scale="<?php 
-                    if ($id >= 21 && $id <= 30) { 
+                    if ($id == 21) { 
                       echo '15 15 15';
                   } else {
                       echo '20 20 20';
@@ -213,7 +213,7 @@ if(isset($_SESSION['my_array'])) {
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     scale="<?php 
-                    if ($id >= 21 && $id <= 30) { 
+                    if ($id == 21) { 
                       echo '15 15 15';
                   } else {
                       echo '20 20 20';
@@ -221,11 +221,9 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 || $id == 33) {                  // adjust model to the left //
+                    if ($id == 9 || $id == 33 || ($id>=22 && $id <= 30)) {                  // adjust model to the left //
                       echo '163 -120 -150';
-                  }  elseif($id>=22 && $id <= 30) {                  
-                    echo '163 -120 -170';
-                  }   elseif ($id == 11) {                         // adjust model height and z axis nearer //
+                  }  elseif ($id == 11) {                         // adjust model height and z axis nearer //
                       echo '313 -150 -200';
                   } elseif ($id == 13) {                              // adjust model height //
                       echo '363 -120 -200';
