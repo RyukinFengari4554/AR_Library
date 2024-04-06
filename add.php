@@ -87,7 +87,7 @@ ini_set('display_errors', 1);
 </style>
 
 </head>
-<body>
+<body  style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
 <a href="logout.php"><button class="fixedbutton" style="font-size: medium;"><i class="fa-solid fa-user"></i><br><br>LOG OUT</button></a>
 
     <div class="demo-wrap">
@@ -156,7 +156,7 @@ ini_set('display_errors', 1);
                     <button class="back-button" onclick='navigateBackAndReload()'><i class="fa-solid fa-arrow-left"></i></button>
                     <script>
                         var count = 0;
-                        while (count < 30) {
+                        while (count < 5) {
                             document.write('<br>');
                             count++;
                         }

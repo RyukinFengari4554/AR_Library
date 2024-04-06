@@ -232,7 +232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    <!-- Custom styles for this template -->
    <link href="styles/home.css" rel="stylesheet">
 </head>
-<body>
+<body  style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
     <div class="demo-wrap">
         <img
           class="demo-bg"
@@ -264,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
                 <?php
                 $count = 0;
-                while ($count < 30) {
+                while ($count < 5) {
                     echo "<br>";
                     $count++;
                 }

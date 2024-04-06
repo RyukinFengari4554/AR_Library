@@ -111,11 +111,13 @@ require_once "includes/db.inc.php";
     a:visited {
         color: black; /* Change the color of visited links to green */
     }
-   
+    tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
 
 </head>
-<body>
+<body style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
     <div class="demo-wrap">
         <img
           class="demo-bg"
@@ -200,7 +202,7 @@ require_once "includes/db.inc.php";
                     ?>
                 <script>
                         var count = 0;
-                        while (count < 30) {
+                        while (count < 5) {
                             document.write('<br>');
                             count++;
                         }

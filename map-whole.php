@@ -133,7 +133,7 @@ require_once "includes/db.inc.php";
 </style>
 
 </head>
-<body>
+<body  style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
     <div class="demo-wrap">
         <img
           class="demo-bg"
@@ -145,7 +145,7 @@ require_once "includes/db.inc.php";
             <div>
                 <table class="centeral">
                     <tr>
-                        <td><input type="text" class="search-input input-box" placeholder="Search..." id="search" name="query" style="height: 5rem;"></td>
+                        <td><input type="text" class="search-input input-box" placeholder="Please enter the exact name of the book into the search bar to search." id="search" name="query" style="height: 5rem;"></td>
                         <td><button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button></td>
                     </tr>
                 </table>
@@ -193,7 +193,7 @@ if(isset($_GET['query'])) {
         </div>
         <script>
                         var count = 0;
-                        while (count < 30) {
+                        while (count < 5) {
                             document.write('<br>');
                             count++;
                         }

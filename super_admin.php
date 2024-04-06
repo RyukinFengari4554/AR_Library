@@ -217,7 +217,7 @@ $mysqli->close(); // Close database connection
 </style>
 
 </head>
-<body>
+<body style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
 <a href="logout.php"><button class="fixedbutton" style="font-size: medium;"><i class="fa-solid fa-user"></i><br><br>LOG OUT</button></a>
     <div class="demo-wrap">
         <img
@@ -274,7 +274,7 @@ $mysqli->close(); // Close database connection
                     <a href="catalogue.php"><button class="back-button"><i class="fa-solid fa-search"></i></button></a>
                     <script>
                         var count = 0;
-                        while (count < 30) {
+                        while (count < 5) {
                             document.write('<br>');
                             count++;
                         }

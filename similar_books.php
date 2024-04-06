@@ -78,7 +78,7 @@
     }
 </style>
 </head>
-<body>
+<body style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
     <div class="demo-wrap">
         <img
           class="demo-bg"
@@ -130,7 +130,7 @@
                 <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
                 <script>
                         var count = 0;
-                        while (count < 30) {
+                        while (count < 5) {
                             document.write('<br>');
                             count++;
                         }
