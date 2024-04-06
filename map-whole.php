@@ -121,15 +121,7 @@ require_once "includes/db.inc.php";
     {
         font-size:24px;
     }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
+   
 </style>
 
 </head>
@@ -145,9 +137,10 @@ require_once "includes/db.inc.php";
             <div>
                 <table class="centeral">
                     <tr>
-                        <td><input type="text" class="search-input input-box" placeholder="Please enter the exact name of the book into the search bar to search." id="search" name="query" style="height: 5rem;"></td>
-                        <td><button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button></td>
+                        <input type="text" title="Please enter the exact name of the book into the search bar to search." class="search-input input-box" placeholder="Search.." id="search" name="query" style="height: 5rem;">
+                        <button type="submit" style="height: 5rem;"><i class="fa-solid fa-search"></i></button>
                     </tr>
+                    <tr><p><b>Please enter the EXACT name of the book into the search bar to search.</b></p></tr>
                 </table>
                 <hr style="border: 2px solid black;">
             </div>
