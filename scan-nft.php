@@ -153,11 +153,9 @@ if(isset($_SESSION['my_array'])) {
                     id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
                     scale="<?php 
-                    if ($id >= 22 && $id <= 30) { 
+                    if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } elseif($id == 21){
-                    echo '0 0 0';
-                }else {
+                  } else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -183,11 +181,9 @@ if(isset($_SESSION['my_array'])) {
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     scale="<?php 
-                    if ($id >= 22 && $id <= 30) { 
+                    if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } elseif($id == 21){
-                      echo '0 0 0';
-                  }else {
+                  } else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
@@ -213,11 +209,9 @@ if(isset($_SESSION['my_array'])) {
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     scale="<?php 
-                    if ($id >= 22 && $id <= 30) { 
+                    if ($id >= 21 && $id <= 30) { 
                       echo '15 15 15';
-                  } elseif($id == 21){
-                    echo '0 0 0';
-                }else {
+                  } else {
                       echo '20 20 20';
                   }?>"
                     rotation="0 -90 0"
