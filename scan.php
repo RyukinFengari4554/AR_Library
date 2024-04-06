@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
                     <script>
                         var count = 0;
-                        while (count < 12) {
+                        while (count < 15) {
                             document.write('<br>');
                             count++;
                         }
