@@ -217,9 +217,9 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9 ||($id>=23 && $id <= 30) || $id == 33) {                  // adjust model to the left //
+                    if ($id == 9 || $id == 33) {                  // adjust model to the left //
                       echo '163 -120 -150';
-                  }  elseif($id==22) {                  
+                  }  elseif($id>=22 && $id <= 30) {                  
                     echo '163 -120 -170';
                   }   elseif ($id == 11) {                         // adjust model height and z axis nearer //
                       echo '313 -150 -200';
