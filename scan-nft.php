@@ -145,7 +145,7 @@ if(isset($_SESSION['my_array'])) {
                 id="animated-marker-<?php echo $id ?>"
                 type='nft'
                 url='includes/nft-books/<?php echo $marker ?>'
-                width='30'
+                width='50'
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
