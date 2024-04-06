@@ -1,7 +1,7 @@
 AFRAME.registerComponent('markerhandler', {
     init: function() {
 
-        this.el.addEventListener('markerFound', function() {
+
         var nfts = document.querySelectorAll("a-nft");
     
  
@@ -37,7 +37,7 @@ AFRAME.registerComponent('markerhandler', {
         });
         
     }); 
-        });
+
     }
 
 });

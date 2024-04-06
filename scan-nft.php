@@ -71,6 +71,7 @@ if(isset($_SESSION['my_array'])) {
 <script src="includes/event.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
+<!--
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #dfbcbc; background-image: linear-gradient(white , #FFE3E5);">
         
         <a class="navbar-brand mb-0 h1" href="index.html"><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" style="width:2rem;height:2rem;"> EAC AR Library</a>
@@ -96,7 +97,7 @@ if(isset($_SESSION['my_array'])) {
           </ul>
         </div>
       </nav>
-      <!--
+      
         <table style="width:100%">
           <tr>
               <td style="width:25%"><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg" style="width:50%;height:50%;"> </td>
@@ -155,11 +156,13 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9) {                   // adjust model to the left
+                    if ($id == 9 || $id == 33) {       // adjust model to the left
                       echo '250 -120 -225';
-                  } elseif ($id == 11 || $id == 13) { // adjust model height
+                  } elseif ($id == 11) {// adjust model height and z axis nearer
+                      echo '450 -150 -275';
+                  } elseif ($id == 13) { // adjust model height
                       echo '450 -120 -275';
-                  } elseif ($id == 19) {                // adjust model z axis i think NEARER TO CAMERA
+                  } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '450 -150 -225';
                   } elseif ($id >= 21 && $id <= 30) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '250 -90 -150';
@@ -176,11 +179,13 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9) {                     // adjust model to the left
+                    if ($id == 9 || $id == 33) {        // adjust model to the left
                       echo '75 -120 -225';
-                  } elseif ($id == 11 || $id == 13) {  // adjust model height
+                  } elseif ($id == 11) {  // adjust model height and z axis nearer
+                      echo '275 -150 -275';
+                  } elseif ($id == 13) {            // adjust model height
                       echo '275 -120 -275';
-                  } elseif ($id == 19) {                // adjust model z axis i think NEARER TO CAMERA
+                  } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '275 -150 -225';
                   } elseif ($id >= 21 && $id <= 30) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '75 -90 -150';
@@ -197,11 +202,13 @@ if(isset($_SESSION['my_array'])) {
                     rotation="0 -90 0"
                     position="
                     <?php 
-                    if ($id == 9) {                     // adjust model to the left
+                    if ($id == 9 || $id == 33) {          // adjust model to the left
                       echo '163 -120 -150';
-                  }  elseif ($id == 11 || $id == 13) {  // adjust model height
+                  }  elseif ($id == 11) {  // adjust model height and z axis nearer
+                      echo '363 -150 -200';
+                  } elseif ($id == 13) {  // adjust model height
                       echo '363 -120 -200';
-                  } elseif ($id == 19) {                // adjust model z axis i think NEARER TO CAMERA
+                  } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '363 -150 -150';
                   }  elseif ($id >= 21 && $id <= 30) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -90 -150';
