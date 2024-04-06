@@ -20,7 +20,7 @@ if(isset($_SESSION['my_array'])) {
 <!doctype HTML>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     </head>
 <!-- Bootstrap core CSS -->
@@ -168,7 +168,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 13) {                              // adjust model height //
                       echo '450 -120 -275';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
-                      echo '450 -130 -225';
+                      echo '450 -140 -225';
                   } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '230 -120 -225';
                   } else {
@@ -196,7 +196,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 13) {                            // adjust model height //
                       echo '275 -140 -275';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
-                      echo '275 -130 -225';
+                      echo '275 -140 -225';
                   } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '95 -120 -225';
                   } else {
@@ -226,7 +226,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 13) {                              // adjust model height //
                       echo '363 -120 -200';
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
-                      echo '363 -130 -150';
+                      echo '363 -140 -150';
                   }  elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -120 -165';
                   }  else {
