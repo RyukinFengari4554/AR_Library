@@ -144,7 +144,7 @@ if(isset($_SESSION['my_array'])) {
                 cursor="rayOrigin: mouse"
                 id="animated-marker-<?php echo $id ?>"
                 type='nft'
-                url='includes/nft-books/<?php echo $marker ?>'
+                url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
                 width='50'
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
@@ -172,7 +172,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '450 -140 -225';
                   } elseif ($id == 20) {
-                    echo '363 -150 -395';
+                    echo '363 -150 -350';
                   } elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '230 -120 -225';
                   } else {
@@ -238,7 +238,7 @@ if(isset($_SESSION['my_array'])) {
                   } elseif ($id == 19 || $id == 37) {                // adjust model z axis i think NEARER TO CAMERA
                       echo '363 -140 -150';
                   }  elseif ($id == 20) {
-                    echo '363 -150 -55';
+                    echo '363 -150 -100';
                 }elseif ($id == 21) { // adjust model to the left & z axis i think FARTHER TO CAMERA
                       echo '163 -120 -165';
                   }  else {
