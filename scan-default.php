@@ -159,7 +159,7 @@ $original_positions = array(
 
 // Define original scale and new scale
 $original_scale = 20;
-$new_scale = 50;
+$new_scale = 20;
 
 // Calculate new positions for each object
 $new_positions = array();
