@@ -124,7 +124,8 @@ if(isset($_SESSION['my_array'])) {
     id="myS"
     vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true; precision: medium;"
-    embedded>
+    embedded
+    cursor="rayOrigin: mouse; fuse: false; fuseTimeout: 0">
 
     <a-assets>
       <a-asset-item id="animated-asset" src="includes/book%20location.glb"></a-asset-item>
