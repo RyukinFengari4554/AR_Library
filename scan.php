@@ -117,10 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body  style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
     <div class="demo-wrap">
-        <img
-          class="demo-bg"
-          src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
-        >
+        <img class="demo-bg" src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg">
         <div class="demo-content">
             <div class="container mt-5">
                 <div class="row justify-content-center">
@@ -132,15 +129,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="card-body">
                                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                                     <div class="mb-3">
-                                    <div class="mb-3">
-                                      <div class="mb-3">
-                                          <label for="call_num" class="form-label">Please input "all" if you want to load ALL the NFT Markers. <br> Otherwise, please enter the part/whole call number of the book(s).</label>
-                                          <input type="text" class="form-control" id="call_num" name="call_num" required>
-                                          <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($nft_books)) {
-                                            echo "<p style='color: red;'>No results found.</p>";
-                                        }?>
+                                        <div class="mb-3">
+                                            <label for="call_num" class="form-label">Please input "all" if you want to load ALL the NFT Markers. <br> Otherwise, please enter the part/whole call number of the book(s).</label>
+                                            <input type="text" class="form-control" id="call_num" name="call_num" required>
+                                            <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($nft_books)) {
+                                                echo "<p style='color: red;'>No results found.</p>";
+                                            }?>
                                         </div>
-                                    <button type="submit" class="back-button">Submit</button>
+                                        <button type="submit" class="back-button">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -148,20 +145,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
 
-                <div class="centeral">
-                  <br>
+            <div class="centeral">
+                <br>
+                <div>
                     <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
+                
                     <a href="javascript:history.back()"><button class="back-button"><i class="fa-solid fa-arrow-left"></i></button></a>
-                    <script>
-                        var count = 0;
-                        while (count < 15) {
-                            document.write('<br>');
-                            count++;
-                        }
-                    </script>
                 </div>
+                <script>
+                    var count = 0;
+                    while (count < 15) {
+                        document.write('<br>');
+                        count++;
+                    }
+                </script>
+            </div>
         </div>
     </div>
+
+
 <!-- Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
