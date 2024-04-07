@@ -124,8 +124,7 @@ if(isset($_SESSION['my_array'])) {
     id="myS"
     vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true; precision: medium;"
-    embedded
-    cursor="rayOrigin: mouse; fuse: false; fuseTimeout: 0">
+    embedded>
 
     <a-assets>
       <a-asset-item id="animated-asset" src="includes/book%20location.glb"></a-asset-item>
@@ -180,7 +179,7 @@ foreach ($original_positions as $position) {
     scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
     position="<?php echo $new_positions[0][0] ?> <?php echo $new_positions[0][1] ?> <?php echo $new_positions[0][2] ?>">
     <!-- Book Location 3D model -->
-    <a-box geometry="primitive: box; width: 2.4; height: 7; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
+    <a-box geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
 </a-entity>
 <a-entity
     id="model2-<?php echo $id ?>" 
@@ -189,7 +188,7 @@ foreach ($original_positions as $position) {
     scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
     position="<?php echo $new_positions[1][0] ?> <?php echo $new_positions[1][1] ?> <?php echo $new_positions[1][2] ?>">
     <!-- Similar Books 3D model -->
-    <a-box geometry="primitive: box; width: 2.4; height: 7; depth: 0.5" material="opacity: 1000" collider="shape: box"></a-box>
+    <a-box geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
 </a-entity>
 <a-entity
     id="model3-<?php echo $id ?>" 
@@ -198,7 +197,7 @@ foreach ($original_positions as $position) {
     scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
     position="<?php echo $new_positions[2][0] ?> <?php echo $new_positions[2][1] ?> <?php echo $new_positions[2][2] ?>">
     <!-- Book Information 3D model -->
-    <a-box geometry="primitive: box; width: 2.4; height: 7; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
+    <a-box geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
 </a-entity>
 
         </a-nft>
