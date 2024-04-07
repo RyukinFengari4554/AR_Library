@@ -154,21 +154,21 @@ if(isset($_SESSION['my_array'])) {
                     gltf-model="#animated-asset"
                     rotation="0 -90 0"
                     scale="35 35 35"
-                    position="157.5 -42 -78.75"> <!-- Book Location 3D model -->
+                    position="787.5 -210 -393.75"> <!-- Book Location 3D model -->
             </a-entity>
             <a-entity
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     rotation="0 -90 0"
                     scale="35 35 35"
-                    position="96.25 -42 -78.75"> <!-- Similar Books 3D model -->
+                    position="481.25 -210 -393.75"> <!-- Similar Books 3D model -->
             </a-entity>
             <a-entity
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     rotation="0 -90 0"
                     scale="35 35 35"
-                    position="129.5 -42 -52.5"> <!-- Book Information 3D model -->
+                    position="635.25, -210, -262.5"> <!-- Book Information 3D model -->
             </a-entity>
         </a-nft>
 
