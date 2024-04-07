@@ -15,23 +15,21 @@ AFRAME.registerComponent('markerhandler', {
         nft.addEventListener('click', function(ev) {
           const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
           models.forEach(function(model) {
-            // Get the bounding box of the model
+            // Get the bounding box of the model, considering position and scale
             var boundingBox = new THREE.Box3().setFromObject(model.object3D);
+            var modelPosition = model.getAttribute('position');
+            var modelScale = model.getAttribute('scale');
 
-            // Define the boundaries of the clickable area
-            var minX = boundingBox.min.x;
-            var maxX = boundingBox.max.x;
-            var minY = boundingBox.min.y;
-            var maxY = boundingBox.max.y;
-            var minZ = boundingBox.min.z;
-            var maxZ = boundingBox.max.z;
+            // Adjust the bounding box position based on the model's position and scale
+            boundingBox.min.add(new THREE.Vector3(modelPosition.x - modelScale.x / 2, modelPosition.y - modelScale.y / 2, modelPosition.z - modelScale.z / 2));
+            boundingBox.max.add(new THREE.Vector3(modelPosition.x + modelScale.x / 2, modelPosition.y + modelScale.y / 2, modelPosition.z + modelScale.z / 2));
 
             // Check if the intersected element is within the clickable area boundaries
             if (
               intersectedElement === model &&
-              self.isWithinBounds(intersectedElement.object3D.position.x, minX, maxX) &&
-              self.isWithinBounds(intersectedElement.object3D.position.y, minY, maxY) &&
-              self.isWithinBounds(intersectedElement.object3D.position.z, minZ, maxZ)
+              self.isWithinBounds(intersectedElement.object3D.position.x, boundingBox.min.x, boundingBox.max.x) &&
+              self.isWithinBounds(intersectedElement.object3D.position.y, boundingBox.min.y, boundingBox.max.y) &&
+              self.isWithinBounds(intersectedElement.object3D.position.z, boundingBox.min.z, boundingBox.max.z)
             ) {
               // Perform actions based on the clicked model
               // You can replace the window.location.href with your desired action
