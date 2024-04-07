@@ -172,32 +172,30 @@ foreach ($original_positions as $position) {
 ?>
 
 <!-- Use PHP to output dynamic positions -->
-<a-entity
-    id="model1-<?php echo $id ?>" 
-    gltf-model="#animated-asset"
+<a-entity id="model1-<?php echo $id ?>">
+     <!-- Book Location 3D model -->
+     <a-box geometry="primitive: box; width: 10; height: 2.4; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
+    <gltf-model="#animated-asset"
     rotation="0 -90 0"
     scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
     position="<?php echo $new_positions[0][0] ?> <?php echo $new_positions[0][1] ?> <?php echo $new_positions[0][2] ?>">
-    <!-- Book Location 3D model -->
-    <a-box geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
+   
 </a-entity>
-<a-entity
-    id="model2-<?php echo $id ?>" 
-    gltf-model="#animated-asset2"
+<a-entity id="model2-<?php echo $id ?>" >
+    <!-- Similar Books 3D model -->
+    <a-box geometry="primitive: box; width: 10; height: 2.4; depth: 0.5" material="opacity: 1000" collider="shape: box"></a-box>
+    <gltf-model="#animated-asset2"
     rotation="0 -90 0"
     scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
     position="<?php echo $new_positions[1][0] ?> <?php echo $new_positions[1][1] ?> <?php echo $new_positions[1][2] ?>">
-    <!-- Similar Books 3D model -->
-    <a-box geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.5" material="opacity: 1000" collider="shape: box"></a-box>
 </a-entity>
-<a-entity
-    id="model3-<?php echo $id ?>" 
-    gltf-model="#animated-asset3"
+<a-entity id="model3-<?php echo $id ?>" >
+ <!-- Book Information 3D model -->
+    <a-box geometry="primitive: box; width: 10; height: 2.4; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
+    <gltf-model="#animated-asset3"
     rotation="0 -90 0"
     scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
-    position="<?php echo $new_positions[2][0] ?> <?php echo $new_positions[2][1] ?> <?php echo $new_positions[2][2] ?>">
-    <!-- Book Information 3D model -->
-    <a-box geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.5" material="opacity: 100" collider="shape: box"></a-box>
+    position="<?php echo $new_positions[2][0] ?> <?php echo $new_positions[2][1] ?> <?php echo $new_positions[2][2] ?>">   
 </a-entity>
 
         </a-nft>
