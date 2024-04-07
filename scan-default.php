@@ -135,7 +135,7 @@ if(isset($_SESSION['my_array'])) {
     <a-assets>
       <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
     </a-assets>
-  
+  <!--url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/' -->
   <?php if (!empty($nft_books)): ?>
     <?php foreach ($nft_books as $id => $marker): ?>
     <a-nft 
@@ -145,7 +145,7 @@ if(isset($_SESSION['my_array'])) {
                 id="animated-marker-<?php echo $id ?>"
                 type='nft'
                 url='includes/nft-books/<?php echo $marker ?>'
-                
+
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
@@ -153,22 +153,22 @@ if(isset($_SESSION['my_array'])) {
                     id="model1-<?php echo $id ?>" 
                     gltf-model="#animated-asset"
                     rotation="0 -90 0"
-                    scale="5 5 5"
-                    position="150 300 -100"> <!-- Book Location 3D model -->
+                    scale="1 1 1"
+                    position="22.5 -6 -11.25"> <!-- Book Location 3D model -->
             </a-entity>
             <a-entity
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
                     rotation="0 -90 0"
-                    scale="5 5 5"
-                    position="150 300 -100"> <!-- Similar Books 3D model -->
+                    scale="1 1 1"
+                    position="13.75 -6 -11.25"> <!-- Similar Books 3D model -->
             </a-entity>
             <a-entity
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
                     rotation="0 -90 0"
-                    scale="5 5 5"
-                    position="150 300 -100"> <!-- Book Information 3D model -->
+                    scale="1 1 1"
+                    position="18.5 -6 -7.5"> <!-- Book Information 3D model -->
             </a-entity>
         </a-nft>
 
