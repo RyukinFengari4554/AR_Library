@@ -149,27 +149,54 @@ if(isset($_SESSION['my_array'])) {
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
 
-            <a-entity
-                    id="model1-<?php echo $id ?>" 
-                    gltf-model="#animated-asset"
-                    rotation="0 -90 0"
-                    scale="35 35 35"
-                    position="787.5 -210 -393.75"> <!-- Book Location 3D model -->
-            </a-entity>
-            <a-entity
-                    id="model2-<?php echo $id ?>" 
-                    gltf-model="#animated-asset2"
-                    rotation="0 -90 0"
-                    scale="35 35 35"
-                    position="481.25 -210 -393.75"> <!-- Similar Books 3D model -->
-            </a-entity>
-            <a-entity
-                    id="model3-<?php echo $id ?>" 
-                    gltf-model="#animated-asset3"
-                    rotation="0 -90 0"
-                    scale="35 35 35"
-                    position="635.25, -210, -262.5"> <!-- Book Information 3D model -->
-            </a-entity>
+                <?php
+// Define original positions for each object
+$original_positions = array(
+    array(450, -120, -225), // Object 1
+    array(275, -120, -225), // Object 2
+    array(363, -120, -150)  // Object 3
+);
+
+// Define original scale and new scale
+$original_scale = 20;
+$new_scale = 50;
+
+// Calculate new positions for each object
+$new_positions = array();
+foreach ($original_positions as $position) {
+    $new_x = ($position[0] / $original_scale) * $new_scale;
+    $new_y = ($position[1] / $original_scale) * $new_scale;
+    $new_z = ($position[2] / $original_scale) * $new_scale;
+    $new_positions[] = array($new_x, $new_y, $new_z);
+}
+?>
+
+<!-- Use PHP to output dynamic positions -->
+<a-entity
+    id="model1-<?php echo $id ?>" 
+    gltf-model="#animated-asset"
+    rotation="0 -90 0"
+    scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
+    position="<?php echo $new_positions[0][0] ?> <?php echo $new_positions[0][1] ?> <?php echo $new_positions[0][2] ?>">
+    <!-- Book Location 3D model -->
+</a-entity>
+<a-entity
+    id="model2-<?php echo $id ?>" 
+    gltf-model="#animated-asset2"
+    rotation="0 -90 0"
+    scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
+    position="<?php echo $new_positions[1][0] ?> <?php echo $new_positions[1][1] ?> <?php echo $new_positions[1][2] ?>">
+    <!-- Similar Books 3D model -->
+</a-entity>
+<a-entity
+    id="model3-<?php echo $id ?>" 
+    gltf-model="#animated-asset3"
+    rotation="0 -90 0"
+    scale="<?php echo $new_scale ?> <?php echo $new_scale ?> <?php echo $new_scale ?>"
+    position="<?php echo $new_positions[2][0] ?> <?php echo $new_positions[2][1] ?> <?php echo $new_positions[2][2] ?>">
+    <!-- Book Information 3D model -->
+</a-entity>
+
         </a-nft>
 
     <?php endforeach; ?>
