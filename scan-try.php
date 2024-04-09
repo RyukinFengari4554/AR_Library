@@ -20,20 +20,23 @@
       smoothThreshold="5"
     >
       <a-entity
-        position="0 0 0"
-        scale="0.5 0.5 0.5"
+        position="275 -120 -225"
+        scale="20 20 20"
+        rotation="0 -90 0"
         gltf-model="url(https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb)"
         cursor-listener="url: similar_books.php?id=24"
       ></a-entity>
       <a-entity
-        position="50 0 0"
-        scale="0.5 0.5 0.5"
+        position="363 -120 -150"
+        scale="20 20 20"
+        rotation="0 -90 0"
         gltf-model="url(https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb)"
         cursor-listener="url: Book_details.php?id=24"
       ></a-entity>
       <a-entity
-        position="-50 0 0"
-        scale="0.5 0.5 0.5"
+        position="450 -120 -225" 
+        scale="20 20 20"
+        rotation="0 -90 0"
         gltf-model="url(https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb)"
         cursor-listener="url: map-all.php?id=24"
       ></a-entity>
