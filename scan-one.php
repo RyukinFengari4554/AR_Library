@@ -83,7 +83,7 @@ if(isset($_SESSION['my_array'])) {
     embedded>
 
     <a-assets>
-      <a-asset-item id="animated-asset3" src="includes/book%20information.glb"></a-asset-item>
+      <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
     </a-assets>
   
   <?php if (!empty($nft_books)): ?>
@@ -94,7 +94,7 @@ if(isset($_SESSION['my_array'])) {
                 cursor="rayOrigin: mouse"
                 id="animated-marker-<?php echo $id ?>"
                 type='nft'
-                url='includes/nft-books/<?php echo $marker ?>'
+                url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
                 
                 value='<?php echo $id ?>'
                 smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
