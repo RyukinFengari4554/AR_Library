@@ -42,7 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Close the prepared statement
   $stmt->close();
   if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($nft_books)) {
-    header("Location: scan-nft.php");
+    //header("Location: scan-nft.php");
+    header("Location: scan-one.php");
       exit;
   }
 
