@@ -180,8 +180,7 @@ if(isset($_SESSION['my_array'])) {
                   }
                     ?>
                     " > <!-- Book Location 3D model -->
-                    <a-box geometry="primitive: box; width: 1.5; height: 0.5; depth: 5" material="opacity: 0" collider="shape: box"></a-box>
-            </a-entity>
+                     </a-entity>
             <a-entity
                     id="model2-<?php echo $id ?>" 
                     gltf-model="#animated-asset2"
@@ -213,8 +212,7 @@ if(isset($_SESSION['my_array'])) {
                   }
                     ?>
                     "> <!-- Similar Books 3D model -->
-                    <a-box geometry="primitive: box; width: 1.55; height: 0.5; depth: 5" material="opacity: 0" collider="shape: box"></a-box>
-            </a-entity>
+                     </a-entity>
             <a-entity
                     id="model3-<?php echo $id ?>" 
                     gltf-model="#animated-asset3"
@@ -249,8 +247,7 @@ if(isset($_SESSION['my_array'])) {
                   }
                     ?>
                     "> <!-- Book Information 3D model -->
-                    <a-box geometry="primitive: box; width: 1.5; height: 0.5; depth: 5" material="opacity: 0" collider="shape: box"></a-box>
-            </a-entity>
+                      </a-entity>
         </a-nft>
 
     <?php endforeach; ?>
