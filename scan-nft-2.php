@@ -61,57 +61,55 @@ if(isset($_SESSION['my_array'])) {
       smoothTolerance=".01"
       smoothThreshold="5">
 
-      <!-- Define the 3D model that will be displayed when the NFT marker is detected -->
-      <a-entity
-        gltf-model="url(includes/similar%20books.glb)"
-        scale="20 20 20"
-        position="
-        <?php 
-          if ($id == 9 ||($id>=21 && $id <= 30) ||$id==33 ) {                       // adjust model to the left //
-              echo '105 -120 -225';
+             <!-- Define the 3D model that will be displayed when the NFT marker is detected -->
+             <?php
+          $position1 = '';
+          $position2 = '';
+          $position3 = '';
+          if ($id == 9 || ($id >= 21 && $id <= 30) || $id == 33) {
+            $position1 = '105 -120 -225';
+            $position2 = '193 -120 -150';
+            $position3 = '280 -120 -225';
+          } elseif ($id == 11 || $id == 13) {
+            $position1 = '275 -150 -225';
+            $position2 = '363 -150 -150';
+            $position3 = '450 -150 -225';
           } else {
-           echo '275 -120 -225';
+            $position1 = '275 -120 -225';
+            $position2 = '363 -120 -150';
+            $position3 = '450 -120 -225';
           }
-        ?>"
-        rotation="0 -90 0"
-        cursor-listener="href: similar_books.php?id=<?php echo $id ?>">
-      </a-entity>
+          ?>
 
-      <!-- Second 3D object -->
-      <a-entity
-        gltf-model="url(includes/book%20information.glb)"
-        scale="20 20 20"
-        position="<?php 
-          if ($id == 9 ||($id>=21 && $id <= 30) ||$id==33) {   // adjust model to the left //
-              echo '193 -120 -150';
-          } else {
-            echo '363 -120 -150';
-          }
-            ?>"
-        rotation="0 -90 0"
-        cursor-listener="href: book_details.php?id=<?php echo $id ?>">
-      </a-entity>
+          <a-entity
+            gltf-model="url(includes/similar%20books.glb)"
+            scale="20 20 20"
+            position="<?php echo $position1 ?>"
+            rotation="0 -90 0"
+            cursor-listener="href: similar_books.php?id=<?php echo $id ?>">
+          </a-entity>
 
-      <!-- Third 3D object -->
-      <a-entity
-        gltf-model="url(includes/book%20location.glb)"
-        scale="20 20 20"
-        position="<?php 
-          if ($id == 9 ||($id>=21 && $id <= 30) ||$id==33) {   // adjust model to the left //
-              echo '280 -120 -225';
-          } else {
-            echo '450 -120 -225';
-          }
-            ?>"
-        rotation="0 -90 0"
-        cursor-listener="href: map-all.php?id=<?php echo $id ?>">
-      </a-entity>
+          <a-entity
+            gltf-model="url(includes/book%20information.glb)"
+            scale="20 20 20"
+            position="<?php echo $position2 ?>"
+            rotation="0 -90 0"
+            cursor-listener="href: book_details.php?id=<?php echo $id ?>">
+          </a-entity>
+
+          <a-entity
+            gltf-model="url(includes/book%20location.glb)"
+            scale="20 20 20"
+            position="<?php echo $position3 ?>"
+            rotation="0 -90 0"
+            cursor-listener="href: map-all.php?id=<?php echo $id ?>">
+          </a-entity>
 
     </a-nft>
     <?php endforeach; ?>
     <?php endif;?>
     <!-- Camera setup -->
-    <a-camera gps-camera="gpsMinDistance:1;" rotation-reader>
+    <a-camera gps-camera="gpsMinDistance:1;" rotation-reader  look-controls="enabled: false">
       <a-entity cursor="fuse: false;rayOrigin:mouse;" raycaster="objects:a-entity" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: transparent; opacity: 0;shader: flat">
       </a-entity>
     </a-camera>
