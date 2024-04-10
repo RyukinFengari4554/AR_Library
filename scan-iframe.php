@@ -1,6 +1,7 @@
 <?php
 if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'javascript:history.back()') !== false) {
   // Perform a refresh
+  echo '<script>console.log("Page refreshed due to history back navigation.");</script>';
   header('Refresh: 0');
   exit;
 }
