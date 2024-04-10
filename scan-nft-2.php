@@ -20,6 +20,32 @@ if(isset($_SESSION['my_array'])) {
 
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.3.1/aframe/build/aframe-ar-nft.js"></script>
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+  <style>
+    .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+  </style>
+
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
   <script>
     AFRAME.registerComponent('cursor-listener', {
       init: function() {
@@ -61,7 +87,14 @@ if(isset($_SESSION['my_array'])) {
       <a-entity
         gltf-model="url(includes/similar%20books.glb)"
         scale="20 20 20"
-        position="275 -120 -225"
+        position="
+        <?php 
+          if ($id == 9 ||($id>=21 && $id <= 30) ||$id==33 ) {                       // adjust model to the left //
+              echo '105 -120 -225';
+          } else {
+           echo '275 -120 -225';
+          }
+        ?>"
         rotation="0 -90 0"
         cursor-listener="href: similar_books.php?id=<?php echo $id ?>">
       </a-entity>
@@ -70,7 +103,13 @@ if(isset($_SESSION['my_array'])) {
       <a-entity
         gltf-model="url(includes/book%20information.glb)"
         scale="20 20 20"
-        position="363 -120 -150"
+        position="<?php 
+          if ($id == 9 ||($id>=21 && $id <= 30) ||$id==33) {   // adjust model to the left //
+              echo '193 -120 -150';
+          } else {
+            echo '363 -120 -150';
+          }
+            ?>"
         rotation="0 -90 0"
         cursor-listener="href: book_details.php?id=<?php echo $id ?>">
       </a-entity>
@@ -79,7 +118,13 @@ if(isset($_SESSION['my_array'])) {
       <a-entity
         gltf-model="url(includes/book%20location.glb)"
         scale="20 20 20"
-        position="450 -120 -225"
+        position="<?php 
+          if ($id == 9 ||($id>=21 && $id <= 30) ||$id==33) {   // adjust model to the left //
+              echo '280 -120 -225';
+          } else {
+            echo '450 -120 -225';
+          }
+            ?>"
         rotation="0 -90 0"
         cursor-listener="href: map-all.php?id=<?php echo $id ?>">
       </a-entity>
