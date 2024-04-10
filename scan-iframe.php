@@ -1,12 +1,3 @@
-<?php
-if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'javascript:history.back()') !== false) {
-  // Perform a refresh
-  echo '<script>console.log("Page refreshed due to history back navigation.");</script>';
-  header('Refresh: 0');
-  exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +78,15 @@ if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'javascri
 
 </head>
 <body style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
+<script>
+window.addEventListener('load', function() {
+    var message = localStorage.getItem('messageFromSecond');
+    if (message) {
+        localStorage.removeItem('messageFromSecond');
+        location.reload(true);
+    }
+});
+  </script>
     <div class="demo-wrap">
         <img
           class="demo-bg"

@@ -184,8 +184,14 @@ if(isset($_GET['query'])) {
                     <br>
                     
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-                <a href='javascript:history.back()'><button class='back-button'><i class='fa-solid fa-arrow-left'></i></button></a>  
-                <script>
+                <button onclick="goBack()"  class="back-button" style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button>
+                    <script>
+                            function goBack() {
+                              localStorage.setItem('messageFromSecond', 'Hello from second.html');
+                                history.back();
+                            }
+                        </script>
+                  <script>
                         var count = 0;
                         while (count < 5) {
                             document.write('<br>');
