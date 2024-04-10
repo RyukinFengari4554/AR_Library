@@ -113,7 +113,7 @@ if(isset($_SESSION['my_array'])) {
     <?php endforeach; ?>
     <?php endif;?>
     <!-- Camera setup -->
-    <a-camera gps-camera="gpsMinDistance:1;" rotation-reader  look-controls="enabled: false">
+    <a-camera rotation-reader  look-controls="enabled: false">
       <a-entity cursor="fuse: false;rayOrigin:mouse;" raycaster="objects:a-entity" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: transparent; opacity: 0;shader: flat">
       </a-entity>
     </a-camera>
