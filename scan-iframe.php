@@ -86,7 +86,7 @@
           src="https://upload.wikimedia.org/wikipedia/en/4/42/Emilio_Aguinaldo_College_seal.svg"
         >
         <div class="demo-content">
-        <iframe class="centeral" style="width:100%; height: 50rem;" src="scan-nft-2.php"></iframe>
+        <iframe id="childFrame" class="centeral" style="width:100%; height: 50rem;" src="scan-nft-2.php"></iframe>
 
                 <div class="centeral">
                     <br>
@@ -103,6 +103,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+    // Add event listener for receiving messages from child
+    window.addEventListener('message', function(event) {
+        // Check if message is from the child iframe
+        if (event.source === document.getElementById('childFrame').contentWindow) {
+            // Redirect to the URL received from child
+            window.location.href = event.data.href;
+        }
+    });
+</script>
 
 <!-- Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

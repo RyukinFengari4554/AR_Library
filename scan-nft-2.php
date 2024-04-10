@@ -26,10 +26,13 @@ if(isset($_SESSION['my_array'])) {
         var data = this.data;
         var el = this.el;
         el.addEventListener('click', function(evt) {
+          /*
           var newTab = window.open(data.href, '_blank');
           setTimeout(function() {
             window.close();
           }, 100);
+*/
+          window.parent.postMessage({href: data.href}, '*');
         });
       }
     });
