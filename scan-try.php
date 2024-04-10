@@ -38,18 +38,17 @@ if (isset($_SESSION['my_array'])) {
     });
   </script>
 <script>
-  AFRAME.registerComponent('zoom-on-wheel', {
-    init: function() {
-      const el = this.el;
-      let vrZoom = 80; // Initial zoom value (same as initial FOV)
+  // Add event listener for hand gestures
+document.addEventListener('gestureDetected', function(event) {
+  if (event.detail.gesture === 'zoomIn') {
+    // Adjust camera position or field of view to zoom in
+    document.querySelector('a-entity[camera]').setAttribute('position', { x: 0, y: 1, z: -5 });
+  } else if (event.detail.gesture === 'zoomOut') {
+    // Adjust camera position or field of view to zoom out
+    document.querySelector('a-entity[camera]').setAttribute('position', { x: 0, y: 1, z: -10 });
+  }
+});
 
-      el.addEventListener('wheel', function(evt) {
-        const delta = evt.deltaY / 120; // Adjust sensitivity as needed
-        vrZoom = Math.min(Math.max(vrZoom - delta, 40), 120); // Set zoom limits
-        el.setAttribute('camera', 'fov', vrZoom);
-      });
-    }
-  });
 </script>
   <a-scene
     vr-mode-ui='enabled: false;'
@@ -131,7 +130,7 @@ if (isset($_SESSION['my_array'])) {
       <?php endforeach; ?>
     <?php endif; ?>
 
-    <a-camera rotation-reader zoom-on-wheel look-controls="enabled: false; invertZoom: true">
+    <a-camera look-controls="enabled: false">
       <a-entity cursor="fuse: false;rayOrigin:mouse;" raycaster="objects:a-entity" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: transparent; opacity: 0;shader: flat">
       </a-entity>
     </a-camera>
