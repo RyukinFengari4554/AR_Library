@@ -76,11 +76,7 @@
     a:visited {
         color: black; /* Change the color of visited links to green */
     }
-    .back-button {
- /* Adjust padding as needed */
-    font-size: medium; /* Adjust font size as needed */
-
-}
+   
 </style>
 </head>
 <body style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
@@ -132,7 +128,7 @@
             <div class="centeral">
                     <br>
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-                <button onclick="goBack()" style="font-size: medium;"  class="back-button"><i class="fa-solid fa-arrow-left"></i></button>
+                <button onclick="goBack()"  class="back-button"><i class="fa-solid fa-arrow-left"></i></button>
               <script>
                       function goBack() {
                         localStorage.setItem('messageFromSecond', 'Hello from second.html');

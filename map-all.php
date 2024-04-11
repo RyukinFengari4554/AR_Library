@@ -93,11 +93,6 @@ require_once "includes/db.inc.php";
     {
         font-size:24px;
     }
-    .back-button {
- /* Adjust padding as needed */
-    font-size: medium; /* Adjust font size as needed */
-
-}
 </style>
 
 </head>
@@ -189,7 +184,7 @@ if(isset($_GET['query'])) {
                     <br>
                     
                 <a href="index.html"><button class="back-button"><i class="fa-solid fa-house"></i></button></a>
-                <button onclick="goBack()"  class="back-button" style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button>
+                <button onclick="goBack()"  class="back-button"><i class="fa-solid fa-arrow-left"></i></button>
                     <script>
                             function goBack() {
                               localStorage.setItem('messageFromSecond', 'Hello from second.html');
