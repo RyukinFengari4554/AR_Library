@@ -99,13 +99,18 @@ window.addEventListener('load', function() {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
-          } elseif ($id == 10 || $id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
+          } elseif ($id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
+            $position1 = '275 0 -275';
+            $position2 = '363 0 -200';
+            $position3 = '450 0 -275';
+          } elseif ($id == 10) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          }elseif ($id == 11 || ($id >= 13 && $id <= 20)) {
+          } elseif ($id == 11 || ($id >= 13 && $id <= 20)) {
             /*
             // scaled 20 
+             
             $id == 11 || $id == 13
             $position1 = '275 -150 -225';
             $position2 = '363 -150 -150';
