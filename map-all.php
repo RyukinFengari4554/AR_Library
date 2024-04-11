@@ -93,6 +93,11 @@ require_once "includes/db.inc.php";
     {
         font-size:24px;
     }
+    .back-button {
+ /* Adjust padding as needed */
+    font-size: medium; /* Adjust font size as needed */
+
+}
 </style>
 
 </head>

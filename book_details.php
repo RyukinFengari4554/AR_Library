@@ -70,6 +70,11 @@
     a:visited {
         color: black; 
     }
+    .back-button {
+ /* Adjust padding as needed */
+    font-size: medium; /* Adjust font size as needed */
+
+}
 </style>
 </head>
 <body  style="background-image: linear-gradient(white , #fa868e); background-attachment: fixed;">
