@@ -66,6 +66,7 @@ if(isset($_SESSION['my_array'])) {
           $position1 = '';
           $position2 = '';
           $position3 = '';
+          $scale = '20 20 20';
           if ($id == 5 || $id == 7){
             $position1 = '275 -120 -275';
             $position2 = '363 -120 -200';
@@ -78,10 +79,18 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          }elseif ($id == 11 || $id == 13) {
+          }elseif ($id >= 11 && $id <= 20) {
+            /*
+            // scaled 20 
+            $id == 11 || $id == 13
             $position1 = '275 -150 -225';
             $position2 = '363 -150 -150';
             $position3 = '450 -150 -225';
+            */
+            $scale = '30 30 30';
+            $position1 = "412.5 -180 -337.5";
+            $position2 = "544.5 -180 -225";
+            $position3 = "675 -180 -337.5";
           } else {
             $position1 = '275 -120 -225';
             $position2 = '363 -120 -150';
@@ -91,7 +100,7 @@ if(isset($_SESSION['my_array'])) {
 
           <a-entity
             gltf-model="url(includes/similar%20books.glb)"
-            scale="20 20 20"
+            scale="<?php echo $scale ?>"
             position="<?php echo $position1 ?>"
             rotation="0 -90 0"
             cursor-listener="href: similar_books.php?id=<?php echo $id ?>">
@@ -99,7 +108,7 @@ if(isset($_SESSION['my_array'])) {
 
           <a-entity
             gltf-model="url(includes/book%20information.glb)"
-            scale="20 20 20"
+            scale="<?php echo $scale ?>"
             position="<?php echo $position2 ?>"
             rotation="0 -90 0"
             cursor-listener="href: book_details.php?id=<?php echo $id ?>">
@@ -107,7 +116,7 @@ if(isset($_SESSION['my_array'])) {
 
           <a-entity
             gltf-model="url(includes/book%20location.glb)"
-            scale="20 20 20"
+            scale="<?php echo $scale ?>"
             position="<?php echo $position3 ?>"
             rotation="0 -90 0"
             cursor-listener="href: map-all.php?id=<?php echo $id ?>">
