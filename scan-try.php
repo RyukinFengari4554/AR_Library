@@ -1,7 +1,13 @@
 <?php
 require_once "includes/db.inc.php";
 session_start();
-$_SESSION['my_array'] = array(10 => 'tmmm');
+$_SESSION['my_array'] = array(
+  50 => 'cdd',
+  49 => 'smab',
+  45 => 'hdi',
+  44 => 'tfmp'
+
+);
 
 if (isset($_SESSION['my_array'])) {
   // Retrieve the array from the session
@@ -93,7 +99,7 @@ window.addEventListener('load', function() {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
-          } elseif ($id == 10) {
+          } elseif ($id == 10 || $id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
