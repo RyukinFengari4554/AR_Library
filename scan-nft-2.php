@@ -79,7 +79,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          }elseif ($id >= 11 && $id <= 20) {
+          }elseif ($id == 11 || ($id >= 13 && $id <= 20)) {
             /*
             // scaled 20 
             $id == 11 || $id == 13
