@@ -67,7 +67,15 @@ if(isset($_SESSION['my_array'])) {
           $position2 = '';
           $position3 = '';
           $scale = '20 20 20';
-          if ($id == 5 || $id == 7){
+          if($id == 2 ){
+            $position1 = '275 50 -275';
+            $position2 = '363 50 -200';
+            $position3 = '450 50 -275';
+          } elseif ($id == 3 || $id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
+            $position1 = '275 100 -275';
+            $position2 = '363 100 -200';
+            $position3 = '450 100 -275';
+          } elseif ($id == 5 || $id == 7){
             $position1 = '275 -120 -275';
             $position2 = '363 -120 -200';
             $position3 = '450 -120 -275';
@@ -79,11 +87,12 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          } elseif ($id == 2 ||$id == 3 ||$id == 6 || $id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
+          } elseif ($id == 6) {
             $position1 = '275 200 -275';
             $position2 = '363 200 -200';
             $position3 = '450 200 -275';
-          } 
+          }
+
             /*elseif ($id >= 11 && $id <= 20) {
             // scaled 20 
             $id == 11 || $id == 13
