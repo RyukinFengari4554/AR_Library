@@ -68,9 +68,9 @@ if(isset($_SESSION['my_array'])) {
           $position3 = '';
           $scale = '20 20 20';
           if($id == 2 ){ //tb dioriented if 50, if -50 dind appear?
-            $position1 = '275 0 -275';
-            $position2 = '363 0 -200';
-            $position3 = '450 0 -275';
+            $position1 = '275 -200 -275';
+            $position2 = '363 -200 -200';
+            $position3 = '450 -200 -275';
           } elseif ($id == 3 || $id == 49) {
             $position1 = '275 100 -275';
             $position2 = '363 100 -200';
@@ -103,19 +103,19 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
             $position3 = '280 -50 -225';
-          }elseif($id == 35){//tbc linayuan ko
-            $position1 = '275 100 -225';
-            $position2 = '363 100 -150';
-            $position3 = '450 100 -225';
+          }elseif($id == 35){//tbc up
+            $position1 = '275 100 -245';
+            $position2 = '363 100 -170';
+            $position3 = '450 100 -245';
           }elseif($id == 36){
             $position1 = '275 -50 -225';
             $position2 = '363 -50 -150';
             $position3 = '450 -50 -225';
           }elseif($id == 38){//tbc up and right
-            $position1 = '300 400 -275';
-            $position2 = '388 400 -200';
-            $position3 = '475 400 -275';
-          }elseif($id == 40){//tbc malapit
+            $position1 = '320 400 -300';
+            $position2 = '408 400 -225';
+            $position3 = '495 400 -300';
+          }elseif($id == 40){
             $position1 = '275 50 -225';
             $position2 = '363 50 -150';
             $position3 = '450 50 -225';
