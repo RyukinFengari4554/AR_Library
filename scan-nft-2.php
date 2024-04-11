@@ -91,10 +91,14 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          } elseif($id == 11 || ($id >= 13 && $id <= 20)){
-            $position1 = '275 50 -275';
-            $position2 = '363 50 -200';
-            $position3 = '450 50 -275';
+          } elseif($id == 11 || ($id >= 13 && $id <= 16) || ($id >= 18 && $id <= 20)){ //tbc
+            $position1 = '275 1000 -275';
+            $position2 = '363 1000 -200';
+            $position3 = '450 1000 -275';
+          }elseif($id == 17){ //tbc
+            $position1 = '275 100 -275';
+            $position2 = '363 100 -200';
+            $position3 = '450 100 -275';
           }elseif($id == 33){
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
