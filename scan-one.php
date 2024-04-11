@@ -25,10 +25,13 @@ if(isset($_SESSION['my_array'])) {
     </head>
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<!-- 
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+-->
+
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
 <link href="styles/home.css" rel="stylesheet">
 <style>
@@ -70,11 +73,14 @@ if(isset($_SESSION['my_array'])) {
 
 <div class="fixed-buttons">
 <a href="index.html"><button style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
-<a href="javascript:history.back()"><button style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button></a>
+<button onclick="goBack()" style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button>
+<script>
+        function goBack() {
+          localStorage.setItem('messageFromSecond', 'Hello from second.html');
+            history.back();
+        }
+    </script>
 </div> 
-<div class="arjs-loader">
-    <div>Loading, please wait...</div>
-  </div>
 
   <a-scene
     id="myS"

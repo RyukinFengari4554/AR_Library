@@ -1,7 +1,7 @@
 <?php
 require_once "includes/db.inc.php";
 session_start();
-$_SESSION['my_array'] = array(24 => '3cocs');
+$_SESSION['my_array'] = array(10 => 'tmmm');
 
 if (isset($_SESSION['my_array'])) {
   // Retrieve the array from the session
@@ -17,13 +17,35 @@ if (isset($_SESSION['my_array'])) {
   echo 'console.log("Session variable my_array does not exist.");';
   echo '</script>';
 }
+
+
 ?>
 
 <body style="margin: 0; overflow: hidden;">
+<script>
+window.addEventListener('load', function() {
+    var message = localStorage.getItem('messageFromSecond');
+    if (message) {
+        localStorage.removeItem('messageFromSecond');
+        location.reload(true);
+    }
+});
+  </script>
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.3.1/aframe/build/aframe-ar-nft.js"></script>
-
-  <script>
+  <style>
+.fixed-buttons {
+    position: fixed;
+    bottom: 5rem; /* Adjust the distance from the bottom */
+    left: 50%; /* Place buttons in the center horizontally */
+    transform: translateX(-50%); /* Center buttons horizontally */
+    z-index: 9999; /* Ensure buttons appear on top of other content */
+  }
+  </style>
+  <div class="fixed-buttons">
+<a href="scan-one.php"><button style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button></a>
+</div> 
+<script>
     AFRAME.registerComponent('cursor-listener', {
       init: function() {
         var data = this.data;
@@ -37,19 +59,7 @@ if (isset($_SESSION['my_array'])) {
       }
     });
   </script>
-<script>
-  // Add event listener for hand gestures
-document.addEventListener('gestureDetected', function(event) {
-  if (event.detail.gesture === 'zoomIn') {
-    // Adjust camera position or field of view to zoom in
-    document.querySelector('a-entity[camera]').setAttribute('position', { x: 0, y: 1, z: -5 });
-  } else if (event.detail.gesture === 'zoomOut') {
-    // Adjust camera position or field of view to zoom out
-    document.querySelector('a-entity[camera]').setAttribute('position', { x: 0, y: 1, z: -10 });
-  }
-});
 
-</script>
   <a-scene
     vr-mode-ui='enabled: false;'
     renderer="logarithmicDepthBuffer: true; precision: medium;"
@@ -75,31 +85,26 @@ document.addEventListener('gestureDetected', function(event) {
           $position1 = '';
           $position2 = '';
           $position3 = '';
-          $rotation = '';
-          $cursor_listener = '';
+
           if ($id == 9 || ($id >= 21 && $id <= 30) || $id == 33) {
             $position1 = '105 -120 -225';
+            $position2 = '193 -120 -150';
+            $position3 = '280 -120 -225';
+          } elseif ($id == 10) {
+            $position1 = '275 -140 -225';
+            $position2 = '363 -140 -150';
+            $position3 = '450 -140 -225';
           } elseif ($id == 11 || $id == 13) {
             $position1 = '275 -150 -225';
-          } else {
-            $position1 = '275 -120 -225';
-          }
-
-          if ($id == 9 || ($id >= 21 && $id <= 30) || $id == 33) {
-            $position2 = '193 -120 -150';
-          } elseif ($id == 11 || $id == 13) {
             $position2 = '363 -150 -150';
-          } else {
-            $position2 = '363 -120 -150';
-          }
-
-          if ($id == 9 || ($id >= 21 && $id <= 30) || $id == 33) {
-            $position3 = '280 -120 -225';
-          } elseif ($id == 11 || $id == 13) {
             $position3 = '450 -150 -225';
           } else {
+            $position1 = '275 -120 -225';
+            $position2 = '363 -120 -150';
             $position3 = '450 -120 -225';
           }
+
+        
           ?>
 
           <a-entity
@@ -135,4 +140,5 @@ document.addEventListener('gestureDetected', function(event) {
       </a-entity>
     </a-camera>
   </a-scene>
+  
 </body>

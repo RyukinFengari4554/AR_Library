@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Page</title>
+</head>
+<body>
+<iframe id="childFrame" src="child.html"></iframe>
+
+<script>
+    // Add event listener for receiving messages from child
+    window.addEventListener('message', function(event) {
+        // Check if message is from the child iframe
+        if (event.source === document.getElementById('childFrame').contentWindow) {
+            // Redirect to the URL received from child
+            window.location.href = event.data;
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,114 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<?php
+require_once "includes/db.inc.php";
+session_start();
+$_SESSION['my_array'] =array(
+  24 => '3cocs'
+);
+if(isset($_SESSION['my_array'])) {
+  // Retrieve the array from the session
+  $nft_books = $_SESSION['my_array'];
+
+  // Output the array to JavaScript console
+  echo '<script>';
+  echo 'console.log("NFT books:", ' . json_encode($nft_books) . ');';
+  echo '</script>';
+} else {
+  // Session variable doesn't exist
+  echo '<script>';
+  echo 'console.log("Session variable my_array does not exist.");';
+  echo '</script>';
+}
+
+?>
+<!doctype HTML>
+<html>
+    <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Webpage</title>
-    <style>
-        /* Styles for the video and canvas */
-        #video, #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    </style>
-</head>
-<body>
-    <video id="video" width="640" height="480" autoplay></video>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    
+    </head>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/opencv/4.5.3/opencv.js" integrity="sha512-pbgErL1+qd6twcGWzo54CfLLje1s9ffBnxR7N0Y8yfPnNfz8xBHzKIXFVZ1X2a3mZzXQ7A53BCfTvJNjN+X81A==" crossorigin="anonymous"></script>
-    <script>
-        // Function to start the camera and track the image
-        function startCamera() {
-            navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function (stream) {
-                var video = document.getElementById('video');
-                video.srcObject = stream;
-                video.play();
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+<link href="styles/home.css" rel="stylesheet">
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-                // Use setInterval to periodically check for the image
-                setInterval(function () {
-                    var canvas = document.getElementById('canvas');
-                    var ctx = canvas.getContext('2d');
-                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+  .icon {
+      font-size: 2.5rem;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-                    // Check if the image is found
-                    isImageFound(canvas);
-                }, 1000); // Check every 1 second
-            })
-            .catch(function (err) {
-                console.log('Error accessing the camera: ' + err);
+.fixed-buttons {
+    position: fixed;
+    bottom: 5rem; /* Adjust the distance from the bottom */
+    left: 50%; /* Place buttons in the center horizontally */
+    transform: translateX(-50%); /* Center buttons horizontally */
+    z-index: 9999; /* Ensure buttons appear on top of other content */
+  }
+</style>
+
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+<div class="fixed-buttons">
+<a href="index.html"><button style="font-size: medium;"><i class="fa-solid fa-house"></i></button></a>
+<a href="javascript:history.back()"><button style="font-size: medium;"><i class="fa-solid fa-arrow-left"></i></button></a>
+</div> 
+<div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+
+  <a-scene
+  debug="collider: true"
+    id="myS"
+    vr-mode-ui='enabled: false;'
+    renderer="logarithmicDepthBuffer: true; precision: medium;"
+    embedded>
+
+    <a-assets>
+      <a-asset-item id="animated-asset" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20location.glb"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="animated-asset2" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/similar%20books.glb"></a-asset-item>
+    </a-assets>
+    <a-assets>
+      <a-asset-item id="animated-asset3" src="https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/book%20information.glb"></a-asset-item>
+    </a-assets>
+  
+  <?php if (!empty($nft_books)): ?>
+    <?php foreach ($nft_books as $id => $marker): ?>
+    <a-nft 
+         markerhandler
+                emitevents="true"
+                cursor="rayOrigin: mouse"
+                id="animated-marker-<?php echo $id ?>"
+                type='nft'
+                url='https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/<?php echo $marker ?>'
+                
+                value='<?php echo $id ?>'
+                smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+
+            <a-entity
+                    id="model1-<?php echo $id ?>" 
+                    gltf-model="#animated-asset"
+                    scale="20 20 20"
+                    rotation="0 -90 0"
+                    position="450 -120 -225" 
+                    collider="shape: box; size: 1.5 1.5 1" > <!-- Book Location 3D model -->
+            </a-entity>
+            <a-entity
+                    id="model2-<?php echo $id ?>" 
+                    gltf-model="#animated-asset2"
+                    scale="20 20 20"
+                    rotation="0 -90 0"
+                    position="275 -120 -225" 
+                    collider="shape: box; size: 1.5 1.5 1" > <!-- Similar Books 3D model -->
+            </a-entity>
+            <a-entity
+                    id="model3-<?php echo $id ?>" 
+                    gltf-model="#animated-asset3"
+                    scale="20 20 20"
+                    rotation="0 -90 0"
+                    position="363 -120 -150"
+                    collider="shape: box; size: 1.5 1.5 1"> <!-- Book Information 3D model -->
+            </a-entity>
+
+             <!-- Clickable area for Book Location 3D model -->
+            
+        </a-nft>
+
+    <?php endforeach; ?>
+
+    <a-entity camera></a-entity>
+    <?php endif; ?>
+
+  </a-scene>
+<script>
+AFRAME.registerComponent('markerhandler', {
+    init: function() {
+        this.el.addEventListener('markerFound', function() {
+        var nfts = document.querySelectorAll("a-nft");
+    nfts.forEach(function(nft) {
+        var nftValue = nft.getAttribute("value");
+        var models = nft.querySelectorAll("[id^='model']");
+
+        nft.addEventListener('click', function(ev) {
+            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+            models.forEach(function(model) {
+                if (model && intersectedElement === model) {
+                    if (model.id === "model1-" + nftValue) {
+                        window.location.href = 'map-all.php?id=' + nftValue;
+                    } else if (model.id === "model2-" + nftValue) {
+                        window.location.href = "similar_books.php?id=" + nftValue;
+                    } else if (model.id === "model3-" + nftValue) {
+                        window.location.href = "book_details.php?id=" + nftValue;
+                    }
+                }
             });
-        }
+        });
+        
+    }); 
+        });
+    }
 
-        // Function to display a 3D object
-        function display3DObject() {
-            // Create a Three.js scene, camera, and renderer
-            var scene = new THREE.Scene();
-            var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            var renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
+});
 
-            // Create a simple cube as an example
-            var geometry = new THREE.BoxGeometry();
-            var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-            var cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
+      
 
-            // Position the camera
-            camera.position.z = 5;
+</script>
 
-            // Render the scene
-            function animate() {
-                requestAnimationFrame(animate);
-                cube.rotation.x += 0.01;
-                cube.rotation.y += 0.01;
-                renderer.render(scene, camera);
-            }
-            animate();
-        }
 
-        // Function to check if the image is found using OpenCV.js
-        function isImageFound(canvas) {
-            // Convert canvas to OpenCV Mat
-            var src = cv.imread(canvas);
-            var dst = new cv.Mat();
+  <!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-            // Convert to grayscale
-            cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
-
-            // Load the template image (replace 'template.jpg' with your image path)
-            var template = cv.imread('https://raw.githack.com/RyukinFengari4554/AR_Library/main/includes/nft-books/tsotw.jpg');
-
-            // Match template
-            var match = new cv.Mat();
-            cv.matchTemplate(src, template, match, cv.TM_CCOEFF_NORMED);
-
-            // Find the location of the best match
-            var minMaxLoc = cv.minMaxLoc(match);
-            var maxLoc = minMaxLoc.maxLoc;
-
-            // Set a threshold value for match score
-            if (minMaxLoc.maxVal > 0.8) { // You may need to adjust this threshold
-                console.log('Image found!');
-                display3DObject(); // Display 3D object if image found
-            } else {
-                console.log('Image not found');
-            }
-
-            // Free memory
-            src.delete();
-            dst.delete();
-            match.delete();
-            template.delete();
-        }
-
-        // Start the camera when the page loads
-        window.onload = function () {
-            startCamera();
-        };
-    </script>
 </body>
+<script src="https://kit.fontawesome.com/7dd0b53595.js" crossorigin="anonymous"></script>
 </html>

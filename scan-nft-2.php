@@ -71,9 +71,9 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
           } elseif ($id == 10) {
-            $position1 = '275 -140 -225';
-            $position2 = '363 -140 -150';
-            $position3 = '450 -140 -225';
+            $position1 = '275 -140 -275';
+            $position2 = '363 -140 -200';
+            $position3 = '450 -140 -275';
           }elseif ($id == 11 || $id == 13) {
             $position1 = '275 -150 -225';
             $position2 = '363 -150 -150';

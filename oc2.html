@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open index.html and close current tab</title>
+</head>
+<body>
+
+    <script language="javascript">
+
+        function quitBox(cmd) 
+        {      
+            if (cmd=='quit')    
+            {
+               open(location, '_self').close();    
+            }     
+            return false;   
+        }
+        
+        </script>
+        
+        <input type="button" onclick="return quitBox('quit');" value="Close This Window/Tab" /> 
+
+</body>
+</html>
