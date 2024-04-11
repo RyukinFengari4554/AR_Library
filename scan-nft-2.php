@@ -79,7 +79,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          } elseif ($id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
+          } elseif ($id == 2 ||$id == 3 ||$id == 6 || $id == 44 ||$id == 45 ||$id == 49 ||$id == 50) {
             $position1 = '275 200 -275';
             $position2 = '363 200 -200';
             $position3 = '450 200 -275';
