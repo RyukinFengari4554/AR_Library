@@ -66,7 +66,11 @@ if(isset($_SESSION['my_array'])) {
           $position1 = '';
           $position2 = '';
           $position3 = '';
-          if ($id == 9 || ($id >= 21 && $id <= 30) || $id == 33) {
+          if ($id == 5 || $id == 7){
+            $position1 = '275 -120 -275';
+            $position2 = '363 -120 -200';
+            $position3 = '450 -120 -275';
+          } elseif ($id == 9 || ($id >= 21 && $id <= 30) || $id == 33) {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
