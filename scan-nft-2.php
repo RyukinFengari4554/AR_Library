@@ -83,7 +83,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 200 -275';
             $position2 = '363 200 -200';
             $position3 = '450 200 -275';
-          }elseif ($id == 7){//tbc
+          }elseif ($id == 7){//tbc //SAME AS 3,6 49
             $position1 = '275 100 -275';
             $position2 = '363 100 -200';
             $position3 = '450 100 -275';
@@ -103,18 +103,26 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
             $position3 = '280 -50 -225';
-          }elseif($id == 35){//tbc up
-            $position1 = '275 100 -245';
-            $position2 = '363 100 -170';
-            $position3 = '450 100 -245';
-          }elseif($id == 36){
+          }elseif($id == 32) { //tbc 
+            $position1 = '275 -120 -275';
+            $position2 = '363 -120 -200';
+            $position3 = '450 -120 -275';
+          }elseif($id == 34 || $id == 36) { //tbc 34
             $position1 = '275 -50 -225';
             $position2 = '363 -50 -150';
             $position3 = '450 -50 -225';
+          }elseif($id == 35 || $id == 37){//tbc both
+            $position1 = '275 200 -245';
+            $position2 = '363 200 -170';
+            $position3 = '450 200 -245';
           }elseif($id == 38){//tbc up and right
-            $position1 = '320 400 -300';
-            $position2 = '408 400 -225';
-            $position3 = '495 400 -300';
+            $position1 = '345 400 -325';
+            $position2 = '433 400 -250';
+            $position3 = '520 400 -325';
+          }elseif($id == 39) {//tbc up
+            $position1 = '275 -120 -250';
+            $position2 = '363 -120 -175';
+            $position3 = '450 -120 -250';
           }elseif($id == 40){
             $position1 = '275 50 -225';
             $position2 = '363 50 -150';
@@ -123,8 +131,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '255 150 -275';
             $position2 = '343 150 -200';
             $position3 = '430 150 -275';
-          }
-           else {
+          }else {
             $position1 = '275 -120 -225';
             $position2 = '363 -120 -150';
             $position3 = '450 -120 -225';
