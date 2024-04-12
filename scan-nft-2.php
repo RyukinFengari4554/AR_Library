@@ -17,10 +17,10 @@ if(isset($_SESSION['my_array'])) {
 }
 ?>
 <body style="margin: 0; overflow: hidden;">
-
+  
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.3.1/aframe/build/aframe-ar-nft.js"></script>
- 
+  
 
 
  
@@ -91,10 +91,10 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 -140 -275';
             $position2 = '363 -140 -200';
             $position3 = '450 -140 -275';
-          } elseif($id == 11 || ($id >= 13 && $id <= 20)){ //tbc
-            $position1 = '275 400 -275';
-            $position2 = '363 400 -200';
-            $position3 = '450 400 -275';
+          } elseif($id >= 11 && $id <= 20){ //tbc
+            $position1 = '295 400 -300';
+            $position2 = '383 400 -225';
+            $position3 = '470 400 -300';
           }elseif($id == 33){
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
