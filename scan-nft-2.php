@@ -87,7 +87,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 100 -275';
             $position2 = '363 100 -200';
             $position3 = '450 100 -275';
-          }elseif ($id == 9 || ($id >= 21 && $id <= 30)) {
+          }elseif ($id == 9 || ($id >= 21 && $id <= 23) || ($id >= 25 && $id <= 30)) {//tbc if movemenet 21-30 exc.24
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
@@ -99,7 +99,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '295 400 -300';
             $position2 = '383 400 -225';
             $position3 = '470 400 -300';
-          }elseif($id == 33){
+          }elseif($id == 33 || $id == 24){ //tbc 24
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
             $position3 = '280 -50 -225';
