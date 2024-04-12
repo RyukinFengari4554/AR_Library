@@ -67,31 +67,35 @@ if(isset($_SESSION['my_array'])) {
           $position2 = '';
           $position3 = '';
           $scale = '20 20 20';
-          if($id == 2 ){ //tb dioriented if 50, if -50 dind appear?
-            $position1 = '275 -200 -275';
-            $position2 = '363 -200 -200';
-            $position3 = '450 -200 -275';
-          } elseif ($id == 3 || $id == 49) {
+          if($id == 1){//tbc
+            $position1 = '200 -120 -225';
+            $position2 = '288 -120 -150';
+            $position3 = '375 -120 -225';
+          }elseif($id == 2){ //tbc
+            $position1 = '250 -200 -275';
+            $position2 = '338 -200 -200';
+            $position3 = '425 -200 -275';
+          }elseif ($id == 3 ||$id == 6 || $id == 49) {  //tbc 6
             $position1 = '275 100 -275';
             $position2 = '363 100 -200';
             $position3 = '450 100 -275';
-          } elseif ($id == 5 || $id == 7){
-            $position1 = '275 -120 -275';
-            $position2 = '363 -120 -200';
-            $position3 = '450 -120 -275';
-          } elseif ($id == 6) {
+          }elseif ($id == 4 ||$id == 5) {//tbc
             $position1 = '275 200 -275';
             $position2 = '363 200 -200';
             $position3 = '450 200 -275';
-          } elseif ($id == 9 || ($id >= 21 && $id <= 30)) {
+          }elseif ($id == 7){//tbc
+            $position1 = '275 100 -275';
+            $position2 = '363 100 -200';
+            $position3 = '450 100 -275';
+          }elseif ($id == 9 || ($id >= 21 && $id <= 30)) {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
-          } elseif ($id == 10) {
-            $position1 = '275 -140 -275';
-            $position2 = '363 -140 -200';
-            $position3 = '450 -140 -275';
-          } elseif($id >= 11 && $id <= 20){ //tbc
+          }elseif ($id == 10) { //tbc
+            $position1 = '275 -100 -275';
+            $position2 = '363 -100 -200';
+            $position3 = '450 -100 -275';
+          }elseif($id >= 11 && $id <= 20){ //tbc
             $position1 = '295 400 -300';
             $position2 = '383 400 -225';
             $position3 = '470 400 -300';
