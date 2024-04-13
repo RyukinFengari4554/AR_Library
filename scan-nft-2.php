@@ -144,9 +144,9 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '363 50 -150';
             $position3 = '450 50 -225';
           }elseif($id == 44) {//tbc all
-            $position1 = '255 50 -275';
-            $position2 = '343 50 -200';
-            $position3 = '430 50 -275';
+            $position1 = '255 0 -275';
+            $position2 = '343 0 -200';
+            $position3 = '430 0 -275';
           }elseif($id == 45 || $id == 50) {//tbc all
             $position1 = '255 100 -275';
             $position2 = '343 100 -200';
