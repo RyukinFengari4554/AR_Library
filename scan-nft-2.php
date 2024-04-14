@@ -79,30 +79,30 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '300 100 -300';
             $position2 = '388 100 -225';
             $position3 = '475 100 -300';
-          }elseif ($id == 4) {
-            $position1 = '225 200 -275';
-            $position2 = '313 200 -200';
-            $position3 = '400 200 -275';
-          }elseif ($id == 5) {
-            $position1 = '300 200 -300';
-            $position2 = '388 200 -225';
-            $position3 = '475 200 -300';
-          }elseif ( $id == 7) { 
-            $position1 = '275 100 -300';
-            $position2 = '363 100 -225';
-            $position3 = '450 100 -300';
-          }elseif ( $id == 8) { 
-            $position1 = '300 -120 -250';
-            $position2 = '388 -120 -175';
-            $position3 = '475 -120 -250';
+          }elseif ($id == 4) { //tbc
+            $position1 = '245 200 -300';
+            $position2 = '333 200 -225';
+            $position3 = '420 200 -300';
+          }elseif ($id == 5) { //tbc
+            $position1 = '300 200 -320';
+            $position2 = '388 200 -245';
+            $position3 = '475 200 -320';
+          }elseif ( $id == 7) { //tbc
+            $position1 = '275 80 -320';
+            $position2 = '363 80 -245';
+            $position3 = '450 80 -320';
+          }elseif ( $id == 8) { //tbc
+            $position1 = '300 -120 -270';
+            $position2 = '388 -120 -195';
+            $position3 = '475 -120 -270';
           }elseif ($id == 9 || ($id >= 21 && $id <= 23) || ($id >= 25 && $id <= 30)) {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
-          }elseif ($id == 10) { 
-            $position1 = '275 -100 -300';
-            $position2 = '363 -100 -225';
-            $position3 = '450 -100 -300';
+          }elseif ($id == 10) { //tbc
+            $position1 = '275 -100 -320';
+            $position2 = '363 -100 -245';
+            $position3 = '450 -100 -320';
           }elseif(($id >= 11 && $id <= 14) || ($id >= 16 && $id <= 20)){ 
             $position1 = '295 400 -300';
             $position2 = '383 400 -225';
