@@ -75,23 +75,23 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '250 -200 -275';
             $position2 = '338 -200 -200';
             $position3 = '425 -200 -275';
-          }elseif ($id == 3 || $id == 6) {  ///tbc 6
+          }elseif ($id == 3 || $id == 6) { 
             $position1 = '300 100 -300';
             $position2 = '388 100 -225';
             $position3 = '475 100 -300';
-          }elseif ($id == 4) {///tbc
+          }elseif ($id == 4) {
             $position1 = '225 200 -275';
             $position2 = '313 200 -200';
             $position3 = '400 200 -275';
-          }elseif ($id == 5) {///tbc
+          }elseif ($id == 5) {
             $position1 = '300 200 -300';
             $position2 = '388 200 -225';
             $position3 = '475 200 -300';
-          }elseif ( $id == 7) {  ///tbc
+          }elseif ( $id == 7) { 
             $position1 = '275 100 -300';
             $position2 = '363 100 -225';
             $position3 = '450 100 -300';
-          }elseif ( $id == 8) {  ///tbc
+          }elseif ( $id == 8) { 
             $position1 = '300 -120 -250';
             $position2 = '388 -120 -175';
             $position3 = '475 -120 -250';
@@ -99,7 +99,7 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
-          }elseif ($id == 10) { ///tbc
+          }elseif ($id == 10) { 
             $position1 = '275 -100 -300';
             $position2 = '363 -100 -225';
             $position3 = '450 -100 -300';
@@ -115,50 +115,54 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
             $position3 = '280 -50 -225';
-          }elseif($id == 32) { //tbc 
+          }elseif($id == 32) { 
             $position1 = '275 -120 -275';
             $position2 = '363 -120 -200';
             $position3 = '450 -120 -275';
-          }elseif($id == 34) { //tbc 34
+          }elseif($id == 34) { 
             $position1 = '275 -50 -225';
             $position2 = '363 -50 -150';
             $position3 = '450 -50 -225';
-          }elseif($id == 35 || $id == 37){//tbc both
+          }elseif($id == 35 || $id == 37){
             $position1 = '275 200 -245';
             $position2 = '363 200 -170';
             $position3 = '450 200 -245';
-          }elseif($id == 36) { //tbc up and right
+          }elseif($id == 36) { 
             $position1 = '300 -50 -250';
             $position2 = '388 -50 -175';
             $position3 = '475 -50 -250';
           }elseif($id == 38){//tbc up and right
-            $position1 = '345 400 -325';
-            $position2 = '433 400 -250';
-            $position3 = '520 400 -325';
+            $position1 = '365 400 -350';
+            $position2 = '453 400 -275';
+            $position3 = '540 400 -350';
           }elseif($id == 39) {//tbc up
-            $position1 = '275 -120 -250';
-            $position2 = '363 -120 -175';
-            $position3 = '450 -120 -250';
+            $position1 = '295 -120 -275';
+            $position2 = '383 -120 -200';
+            $position3 = '470 -120 -275';
           }elseif($id == 40){
             $position1 = '275 50 -225';
             $position2 = '363 50 -150';
             $position3 = '450 50 -225';
-          }elseif($id == 44) {//tbc all
-            $position1 = '255 0 -275';
-            $position2 = '343 0 -200';
-            $position3 = '430 0 -275';
+          }elseif($id == 42 || $id == 48){//tbc all
+            $position1 = '250 -120 -225';
+            $position2 = '338 -120 -150';
+            $position3 = '425 -120 -225';
+          }elseif($id == 44) {//tbc
+            $position1 = '230 -50 -275';
+            $position2 = '318 -50 -200';
+            $position3 = '405 -50 -275';
           }elseif($id == 45 || $id == 50) {//tbc all
-            $position1 = '255 100 -275';
-            $position2 = '343 100 -200';
-            $position3 = '430 100 -275';
+            $position1 = '235 100 -275';
+            $position2 = '323 100 -200';
+            $position3 = '410 100 -275';
           }elseif($id == 46 || $id == 47) { //tbc
-            $position1 = '275 -70 -225';
-            $position2 = '363 -70 -150';
-            $position3 = '450 -70 -225';
+            $position1 = '250 -70 -225';
+            $position2 = '338 -70 -150';
+            $position3 = '425 -70 -225';
           }elseif ($id == 49){//tbc
-            $position1 = '250 100 -275';
-            $position2 = '338 100 -200';
-            $position3 = '425 100 -275';
+            $position1 = '225 100 -275';
+            $position2 = '313 100 -200';
+            $position3 = '400 100 -275';
           }else {
             $position1 = '275 -120 -225';
             $position2 = '363 -120 -150';
