@@ -175,7 +175,7 @@ if(isset($_GET['query'])) {
           </div>
         <div class="image-container">
         <div class="image-whole">
-            <img src="includes/map.png" alt="MAP IMAGE">
+            <img src="includes/map-whole.jpg" alt="MAP IMAGE">
         <br>
         <br>
         </div>
