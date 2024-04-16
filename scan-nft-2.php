@@ -136,13 +136,13 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '388 -50 -175';
             $position3 = '475 -50 -250';
           }elseif($id == 38){//tbc
-            $position1 = '365 400 -370';
-            $position2 = '453 400 -295';
-            $position3 = '540 400 -370';
+            $position1 = '365 400 -395';
+            $position2 = '453 400 -320';
+            $position3 = '540 400 -395';
           }elseif($id == 39) {//tbc up
-            $position1 = '295 -120 -295';
-            $position2 = '383 -120 -220';
-            $position3 = '470 -120 -295';
+            $position1 = '295 -120 -320';
+            $position2 = '383 -120 -245';
+            $position3 = '470 -120 -320';
           }elseif($id == 40){
             $position1 = '275 50 -225';
             $position2 = '363 50 -150';
