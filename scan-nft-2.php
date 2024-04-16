@@ -112,9 +112,9 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '383 400 -225';
             $position3 = '470 400 -300';
           }elseif($id == 15){ //tbc
-            $position1 = '315 325 -325';
-            $position2 = '403 325 -250';
-            $position3 = '490 325 -325';
+            $position1 = '335 325 -350';
+            $position2 = '423 325 -275';
+            $position3 = '510 325 -350';
           }elseif($id == 33 || $id == 24){ 
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
