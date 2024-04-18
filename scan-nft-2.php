@@ -104,18 +104,18 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '105 -120 -225';
             $position2 = '193 -120 -150';
             $position3 = '280 -120 -225';
-          }elseif ($id == 10) { //tbc
+          }elseif ($id == 10) {
             $position1 = '275 -100 -320';
             $position2 = '363 -100 -245';
             $position3 = '450 -100 -320';
-          }elseif(($id >= 11 && $id <= 14) || ($id >= 16 && $id <= 20)){ 
-            $position1 = '295 400 -300';
-            $position2 = '383 400 -225';
-            $position3 = '470 400 -300';
+          }elseif(($id >= 11 && $id <= 14) || ($id >= 16 && $id <= 20)){  //tbc
+            $position1 = '345 400 -500';
+            $position2 = '433 400 -425';
+            $position3 = '520 400 -500';
           }elseif($id == 15){ //tbc
-            $position1 = '335 325 -350';
-            $position2 = '423 325 -275';
-            $position3 = '510 325 -350';
+            $position1 = '355 325 -525';
+            $position2 = '443 325 -450';
+            $position3 = '530 325 -525';
           }elseif($id == 33 || $id == 24){ 
             $position1 = '105 -50 -225';
             $position2 = '193 -50 -150';
