@@ -114,6 +114,13 @@ require_once "includes/db.inc.php";
     tr:nth-child(even) {
   background-color: #dddddd;
 }
+.fixed-buttons {
+    position: fixed;
+    bottom: 5rem; /* Adjust the distance from the bottom */
+    left: 50%; /* Place buttons in the center horizontally */
+    transform: translateX(-50%); /* Center buttons horizontally */
+    z-index: 9999; /* Ensure buttons appear on top of other content */
+  }
 </style>
 
 </head>
@@ -173,9 +180,11 @@ require_once "includes/db.inc.php";
                         echo "</tbody></table>
                     <div class='centeral'>
                         <br>
-                    <a href='index.html'><button class='back-button'><i class='fa-solid fa-house'></i></button></a>
-                    <a href='javascript:history.back()'><button class='back-button'><i class='fa-solid fa-arrow-left'></i></button></a>
-                    </div>";
+                        <div class='fixed-buttons'>
+                        <a href='index.html'><button><i class='fa-solid fa-house'></i></button></a>
+                        <a href='javascript:history.back()'><button><i class='fa-solid fa-arrow-left'></i></button></a>
+                        </div> 
+                        </div>";
 
                     } else {
                         // Query to retrieve all books from the 'books' table
@@ -195,8 +204,10 @@ require_once "includes/db.inc.php";
                         echo "</tbody></table>
                         <div class='centeral'>
                             <br>
-                        <a href='index.html'><button class='back-button'><i class='fa-solid fa-house'></i></button></a>
-                        <a href='javascript:history.back()'><button class='back-button'><i class='fa-solid fa-arrow-left'></i></button></a>
+                            <div class='fixed-buttons'>
+                            <a href='index.html'><button><i class='fa-solid fa-house'></i></button></a>
+                            <a href='javascript:history.back()'><button><i class='fa-solid fa-arrow-left'></i></button></a>
+                            </div> 
                     </div>";
                     }
                     
