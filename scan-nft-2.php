@@ -160,8 +160,8 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '363 50 -150';
             $position3 = '450 50 -225';
             */
-        /*  }elseif($id == 44) {//tbc
-            current
+         }elseif($id == 44) {//tbc
+            /* current
             $position1 = '230 500 -275';
             $position2 = '318 500 -200';
             $position3 = '405 500 -275';
@@ -169,6 +169,9 @@ if(isset($_SESSION['my_array'])) {
             $position1 = '275 200 -275';
             $position2 = '363 200 -200';
             $position3 = '450 200 -275';*/
+            $position1 = '275 -150 -275';
+            $position2 = '363 -150 -200';
+            $position3 = '450 -150 -275';
           }elseif($id == 45) { 
             $position1 = '195 100 -275';
             $position2 = '283 100 -200';
