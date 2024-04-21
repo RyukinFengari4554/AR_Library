@@ -92,9 +92,9 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '388 100 -250';
             $position3 = '475 100 -325';
           }elseif ( $id == 7) { 
-            $position1 = '300 150 -340';
-            $position2 = '388 150 -265';
-            $position3 = '475 150 -340';
+            $position1 = '325 200 -340';
+            $position2 = '413 200 -265';
+            $position3 = '500 200 -340';
           }elseif ( $id == 8) { 
             $position1 = '300 -120 -310';
             $position2 = '388 -120 -235';
@@ -160,15 +160,15 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '363 50 -150';
             $position3 = '450 50 -225';
             */
-          }elseif($id == 44) {//tbc
-            /*current
+        /*  }elseif($id == 44) {//tbc
+            current
             $position1 = '230 500 -275';
             $position2 = '318 500 -200';
             $position3 = '405 500 -275';
-            previous:*/
+            previous:
             $position1 = '275 200 -275';
             $position2 = '363 200 -200';
-            $position3 = '450 200 -275';
+            $position3 = '450 200 -275';*/
           }elseif($id == 45) { 
             $position1 = '195 100 -275';
             $position2 = '283 100 -200';
@@ -192,9 +192,9 @@ if(isset($_SESSION['my_array'])) {
             $position2 = '273 100 -200';
             $position3 = '360 100 -275';
           }elseif($id == 50) {
-            $position1 = '190 100 -275';
-            $position2 = '278 100 -200';
-            $position3 = '365 100 -275';
+            $position1 = '170 100 -275';
+            $position2 = '258 100 -200';
+            $position3 = '345 100 -275';
           }else {
             $position1 = '275 -120 -225';
             $position2 = '363 -120 -150';
